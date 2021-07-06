@@ -9,15 +9,22 @@ use ApiClient\Auth;
 use ApiClient\Request;
 use ApiClient\RequestBuilder;
 
+/**
+ * Class PrivateAuth
+ * @package ApiClient\Api\ControlPanel\Request
+ */
 class PrivateAuth extends Auth
 {
+    /**
+     * @param RequestBuilder $requestBuilder
+     */
     public static function doAuth(RequestBuilder $requestBuilder): void
     {
         $requestBuilder
             ->setDomain("https://cp.crpt.trading")
             ->addHeader(
-                "Bearer",
-                "eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9.eyJpYXQiOjE2MjU1NjM0MTgsImV4cCI6MTYyNTU2NzAxOCwicm9sZXMiOlsiUk9MRV9DTElFTlQiXSwidXNlcm5hbWUiOiJhZDFAY3JwdC50cmFkaW5nIiwiaWQiOiJkNzM3NmZkZS1hN2JlLTRiN2UtYWE3ZS0wYmE0ZTQ3M2VkMGEifQ.DiRa87TnQYhowHd4976FgsKSNcgVuONvh4snu2YTC-CCe3Iwf7FonoJDw4pqGIS4YiZS1EEi0JZ5z-8ijKtrSeAjT_YVwRP9vPSFFi3Uffd4uG-w_G7HHAs21gC9cltqeHz3AeFleImpoyyfXAwA9GfyhaY6CfVRTvCSFlebe6rzbsNAm-BW6h2gKBIxVqxajT9_OJX747aQYRjjuQZMZUrLUXdxiU1Y4qKjaQohDoXNwdU84dha423viXo_VGPCVjbUheN7S6m01Xta1gw7mJVBa0masIl-G9V5jY2ptwH6rJFXMqtBwhUZ19Jy7ZjRaAOSl0ujP_K1yF-ptHMPzNN7sZ8I_XiM9TW7COwVZpHOKSPkejgmUOPK58P4gJEICoXVECJ8GXn7mgqChrJU1MOyWjhZ8WrpPms73y1zzCJjM_EMkQwk4hF30P_Q0hJDcDa2x6hASkp7uXkht2QTBmgZLAO9XcvYQQtS6jmQPPFLKYfkET6GX8v3jC8Sfl7IyDBCncn7yEKJgFSex43R_YgdPvForXbqe1sKXzkaVrY4TK_qfPCmSDmoex5qwwwXNgZntZMXxJsX2bnf-K3FxzvyrPwPSR1DPBZTl02jLe9gL-blpqDFLd7xjXDiHmjnMoC5cl4kEskjxsPod-ZY2CH6tZIjOwR1_cddkscCuLU"
+                "Authorization",
+                "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9.eyJpYXQiOjE2MjU1NzM5NzIsImV4cCI6MTYyNTU3NzU3Miwicm9sZXMiOlsiUk9MRV9BRE1JTiJdLCJ1c2VybmFtZSI6InJza3J5ZGdlQGl0bGFiLXN0dWRpby5jb20iLCJpZCI6ImQyN2UxYjdiLWVmYzAtNGI3My1hNmU3LTczMzJlOTE1NGNlOCJ9.Q-dehWJeL34Vuk4P6nWh3C2-wZA93UKiojOqSDzgiIuQTdL2XKKMtUN84jbxf15k4nYLtP0h5p1rIMWW74RMnTSDutGov6ICvnb_SDbrs1YO1L-X03EIsRLZnzKfTN3XFDkZuJpP326uMWenBMd62ZPI8WQl1iKyE8bysFBbvmYNTRmnjRW1f9kjmG_W6dqdAxpkBrve-Wwzb6WUhFU14fKWceN538GvxHs8jU1tCMge34_fASsjGdSmtvOiv5rw_Lt6vHy7hJUFE5zdhOvsOW9MU7NqD4V5Ssio5nmB17bthye9jAf5wd61devGJD_YpikAJdUKhatBG04Bhdfa3cx5IiCGkAJDUcRKsL_ZN8HvuL3eRpJfrO1nk__VRLQeEuhVTf7sVkyL1-IStFqY3pFUcIJTrYpfMgJLkSoMiXlolFu8Zycas-A85h6hcXIfcfkwh6dj2R6ICKmbo1MSiAwZ3fkpRS8nlFCIMKiHqID1eSEkJmkYKmP9pF50AEOFYvLXmkshnuqm-d1gfBrN2PB5L58buke5USojTH8nXp1I3VzmgnpRIAbibVE-u5HpJ3VZySF7X4RVb5sDHZO-y51hBasLAgYtdPzQUqwF86uvBMvGd2G3u_vPYC2RsCXXzrGaquBp5WHlF2noLC44BtRv4O6xldFd8FJgcsS7i8c"
             );
     }
 }

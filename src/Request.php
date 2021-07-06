@@ -3,7 +3,10 @@
 
 namespace ApiClient;
 
-
+/**
+ * Class Request
+ * @package ApiClient
+ */
 abstract class Request
 {
     /**
@@ -13,8 +16,10 @@ abstract class Request
 
     /**
      * Request constructor.
+     * @param ApiResource $resource
      */
-    public function __construct(ApiResource $resource) {
+    public function __construct(ApiResource $resource)
+    {
         $this->resource = $resource;
     }
 

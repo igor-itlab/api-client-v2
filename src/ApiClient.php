@@ -6,10 +6,20 @@ namespace ApiClient;
 
 use ApiClient\Api\ControlPanel\ControlPanelResource;
 
+/**
+ * Class ApiClient
+ * @package ApiClient
+ */
 class ApiClient
 {
+    /**
+     * @var ApiResource
+     */
     protected ApiResource $resource;
 
+    /**
+     * @var bool
+     */
     protected bool $throwExceptions = true;
 
     /**

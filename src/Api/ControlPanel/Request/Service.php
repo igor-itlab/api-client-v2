@@ -8,8 +8,16 @@ use ApiClient\Api\ControlPanel\ControlPanelRequest;
 use ApiClient\Request;
 use ApiClient\Services\Method;
 
+/**
+ * Class Service
+ * @package ApiClient\Api\ControlPanel\Request
+ */
 class Service extends ControlPanelRequest
 {
+    /**
+     * @param string|null $name
+     * @return mixed
+     */
     public function getAll(string $name = null)
     {
         PrivateAuth::doAuth($this->getRequestBuilder());

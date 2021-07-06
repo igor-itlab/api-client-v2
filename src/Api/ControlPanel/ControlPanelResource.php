@@ -13,6 +13,9 @@ use ApiClient\ApiResource;
  */
 class ControlPanelResource extends ApiResource
 {
+    /**
+     * @return Service
+     */
     public function service(): Service
     {
         return new Service($this);

@@ -26,9 +26,19 @@ class Method
      */
     public string $value;
 
-    protected function __construct() { }
+    /**
+     * Method constructor.
+     */
+    protected function __construct()
+    {
+    }
 
-    public static function __callStatic($name, $arguments)
+    /**
+     * @param $name
+     * @param $arguments
+     * @return Method
+     */
+    public static function __callStatic($name, $arguments): Method
     {
         $instance = new self();
         $properties = get_class_vars(self::class);

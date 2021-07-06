@@ -6,9 +6,17 @@ namespace ApiClient;
 
 use ApiClient\Services\Method;
 
+/**
+ * Class RequestBuilder
+ * @package ApiClient
+ */
 abstract class RequestBuilder
 {
+    /**
+     * @var ApiResource
+     */
     protected ApiResource $resource;
+
     /**
      * @var mixed
      */
@@ -43,6 +51,7 @@ abstract class RequestBuilder
      * @var string
      */
     protected string $domain;
+
     /**
      * @var string
      */
@@ -112,7 +121,7 @@ abstract class RequestBuilder
      */
     public function addHeader($key, $value): RequestBuilder
     {
-        $this->headers[] = $key." ".$value;
+        $this->headers[$key] = $value;
 
         return $this;
     }

@@ -12,12 +12,17 @@ use Symfony\Contracts\HttpClient\Exception\RedirectionExceptionInterface;
 use Symfony\Contracts\HttpClient\Exception\ServerExceptionInterface;
 use Symfony\Contracts\HttpClient\Exception\TransportExceptionInterface;
 
+/**
+ * Class HttpClientRequestBuilder
+ * @package ApiClient\Services
+ */
 class HttpClientRequestBuilder extends RequestBuilder
 {
     /**
      * HttpClientRequestBuilder constructor.
      */
-    public function __construct() {
+    public function __construct()
+    {
         $this->requestClient = new NativeHttpClient();
     }
 

@@ -8,8 +8,13 @@ use ApiClient\Api\ControlPanel\ControlPanelResource;
 use ApiClient\ApiClient;
 use PHPUnit\Framework\TestCase;
 
+/**
+ * Class ApiClientTest
+ * @package ApiClient\Tests
+ */
 class ApiClientTest extends TestCase
 {
+
     public function testApiClientCall()
     {
         $apiClient = new ApiClient();

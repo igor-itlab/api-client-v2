@@ -3,11 +3,20 @@
 
 namespace ApiClient;
 
-
+/**
+ * Class ApiResource
+ * @package ApiClient
+ */
 abstract class ApiResource
 {
+    /**
+     * @var ApiClient
+     */
     protected ApiClient $apiClient;
 
+    /**
+     * @var RequestBuilder
+     */
     protected RequestBuilder $requestBuilder;
 
     /**
