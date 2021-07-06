@@ -4,18 +4,17 @@
 namespace ApiClient\Api\ControlPanel;
 
 
+use ApiClient\Api\ControlPanel\Request\Service;
 use ApiClient\ApiResource;
-use ApiClient\RequestBuilder;
-use ApiClient\Services\HttpClientRequestBuilder;
 
+/**
+ * Class ControlPanelResource
+ * @package ApiClient\Api\ControlPanel
+ */
 class ControlPanelResource extends ApiResource
 {
-    /**
-     * ControlPanelResource constructor.
-     */
-    public function __construct()
+    public function service(): Service
     {
-        parent::__construct(new HttpClientRequestBuilder());
+        return new Service($this);
     }
-
 }

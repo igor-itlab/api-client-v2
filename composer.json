@@ -2,7 +2,10 @@
   "name": "itlab-studio/api-client-v2",
   "type": "library",
   "description": "Library for api call with different resources",
-  "keywords": ["api", "resource"],
+  "keywords": [
+    "api",
+    "resource"
+  ],
   "homepage": "https://itlab-studio.com/",
   "license": "MIT",
   "authors": [
@@ -13,14 +16,14 @@
   ],
   "repositories": [
     {
-      "type":"package",
+      "type": "package",
       "package": {
         "name": "itlab-studio/api-client-v2",
-        "version":"master",
+        "version": "master",
         "source": {
           "url": "https://github.com/igor-itlab/api-client-v2.git",
           "type": "git",
-          "reference":"master"
+          "reference": "master"
         }
       }
     }
@@ -34,7 +37,14 @@
     "symfony/http-client": "^5.3"
   },
   "autoload": {
-    "psr-4": { "ApiClient\\": "src/" }
+    "psr-4": {
+      "ApiClient\\": "src/"
+    }
+  },
+  "autoload-dev": {
+    "psr-4": {
+      "ApiClient\\Tests\\": "tests/"
+    }
   },
   "extra": {
     "symfony": {
@@ -42,5 +52,10 @@
     }
   },
   "minimum-stability": "dev",
-  "prefer-stable": true
+  "prefer-stable": true,
+  "require-dev": {
+    "symfony/phpunit-bridge": "^5.3",
+    "phpunit/phpunit": "^9.5",
+    "symfony/test-pack": "^1.0"
+  }
 }

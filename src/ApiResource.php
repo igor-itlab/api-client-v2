@@ -11,15 +11,6 @@ abstract class ApiResource
     protected RequestBuilder $requestBuilder;
 
     /**
-     * ApiResource constructor.
-     * @param RequestBuilder $requestBuilder
-     */
-    public function __construct(RequestBuilder $requestBuilder)
-    {
-        $this->requestBuilder = $requestBuilder;
-    }
-
-    /**
      * @param ApiClient $apiClient
      */
     public function setApiClient(ApiClient $apiClient): void
@@ -44,10 +35,18 @@ abstract class ApiResource
     }
 
     /**
+     * @param RequestBuilder $requestBuilder
+     */
+    public function setRequestBuilder(RequestBuilder $requestBuilder): void
+    {
+        $this->requestBuilder = $requestBuilder;
+    }
+
+    /**
      * @return mixed
      */
-    final public function send()
+    public function send()
     {
-        return $this->apiClient->send();
+        return $this->apiClient->send($this->getRequestBuilder());
     }
 }

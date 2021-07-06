@@ -4,12 +4,18 @@
 namespace ApiClient;
 
 
+use ApiClient\Api\ControlPanel\ControlPanelResource;
+
 class ApiClient
 {
     protected ApiResource $resource;
 
     protected bool $throwExceptions = true;
 
+    /**
+     * @param ApiResource $apiResource
+     * @return ApiResource|ControlPanelResource
+     */
     public function attachedResource(ApiResource $apiResource): ApiResource
     {
         $this->resource = $apiResource;
@@ -19,14 +25,15 @@ class ApiClient
     }
 
     /**
+     * @param RequestBuilder $requestBuilder
      * @param bool $throw
      * @return mixed
      */
-    public function send(bool $throw = true)
+    public function send(RequestBuilder $requestBuilder, bool $throw = true)
     {
         $this->throwExceptions = $throw;
 
-        $response = $this->resource->getRequestBuilder()->build()->send();
+        $response = $requestBuilder->build()->send();
 
         return $response;
     }

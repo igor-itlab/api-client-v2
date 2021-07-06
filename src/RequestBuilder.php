@@ -17,17 +17,17 @@ abstract class RequestBuilder
     /**
      * @var array
      */
-    protected array $headers;
+    protected array $headers = [];
 
     /**
      * @var array
      */
-    protected array $body;
+    protected array $body = [];
 
     /**
      * @var array
      */
-    protected array $queryParams;
+    protected array $queryParams = [];
 
     /**
      * @var string
@@ -112,7 +112,7 @@ abstract class RequestBuilder
      */
     public function addHeader($key, $value): RequestBuilder
     {
-        $this->headers[$key] = $value;
+        $this->headers[] = $key." ".$value;
 
         return $this;
     }

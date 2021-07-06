@@ -7,11 +7,11 @@ namespace ApiClient\Services;
 /**
  * Class MethodEnum
  * @package ApiClient\Services
- * @method POST()
- * @method GET()
- * @method PUT()
- * @method PATH()
- * @method DELETE()
+ * @method static POST()
+ * @method static GET()
+ * @method static PUT()
+ * @method static PATH()
+ * @method static DELETE()
  */
 class Method
 {
@@ -22,9 +22,11 @@ class Method
     protected static string $DELETE = 'DELETE';
 
     /**
-     * @var mixed
+     * @var string
      */
-    public $value;
+    public string $value;
+
+    protected function __construct() { }
 
     public static function __callStatic($name, $arguments)
     {
@@ -40,9 +42,9 @@ class Method
     }
 
     /**
-     * @return object
+     * @return string
      */
-    public function getValue(): object
+    public function getValue(): string
     {
         return $this->value;
     }

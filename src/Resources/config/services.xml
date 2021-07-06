@@ -5,9 +5,10 @@
         http://symfony.com/schema/dic/services/services-1.0.xsd">
     <services>
         <service id="api_client.client" class="ApiClient\ApiClient" public="true"/>
+        <service id="api_client.control_panel_resource" class="ApiClient\Api\ControlPanel\ControlPanelResource" public="true"/>
 
 
-
+        <service id="ApiClient\Api\ControlPanel\ControlPanelResource" alias="api_client.control_panel_resource" public="false"/>
         <service id="ApiClient\ApiClient" alias="api_client.client" public="false"/>
     </services>
 </container>
