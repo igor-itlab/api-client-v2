@@ -5,12 +5,13 @@ namespace ApiClient\Api\ControlPanel\Request;
 
 
 use ApiClient\Api\ControlPanel\ControlPanelRequest;
-use ApiClient\Request;
+use ApiClient\MappedBy;
 use ApiClient\Services\Method;
 
 /**
  * Class Service
  * @package ApiClient\Api\ControlPanel\Request
+ * @MappedBy(value="ApiClient\Api\ControlPanel\Mapper\Service")
  */
 class Service extends ControlPanelRequest
 {

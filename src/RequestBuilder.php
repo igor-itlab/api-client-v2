@@ -96,6 +96,40 @@ abstract class RequestBuilder
     }
 
     /**
+     * @param $key
+     * @param $value
+     * @return $this
+     */
+    public function addToBody($key, $value): RequestBuilder
+    {
+        $this->body[$key] = $value;
+
+        return $this;
+    }
+
+    /**
+     * @param $key
+     * @return $this
+     */
+    public function removeFromBody($key): RequestBuilder
+    {
+        unset($this->body[$key]);
+
+        return $this;
+    }
+
+    /**
+     * @param array $bodies
+     * @return $this
+     */
+    public function mergeBodies(array $bodies): RequestBuilder
+    {
+        $this->body = array_merge($this->body, $bodies);
+
+        return $this;
+    }
+
+    /**
      * @return array
      */
     public function getQueryParams(): array
@@ -306,8 +340,9 @@ abstract class RequestBuilder
     }
 
     /**
-     * @return array
+     * @return Response
      */
-    abstract public function send(): array;
+    abstract public function send(): Response;
+//    TODO INTERFACE
 
 }

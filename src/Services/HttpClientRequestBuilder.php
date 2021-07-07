@@ -5,6 +5,7 @@ namespace ApiClient\Services;
 
 
 use ApiClient\RequestBuilder;
+use ApiClient\Response;
 use Symfony\Component\HttpClient\NativeHttpClient;
 use Symfony\Contracts\HttpClient\Exception\ClientExceptionInterface;
 use Symfony\Contracts\HttpClient\Exception\DecodingExceptionInterface;
@@ -33,7 +34,7 @@ class HttpClientRequestBuilder extends RequestBuilder
      * @throws DecodingExceptionInterface
      * @throws ClientExceptionInterface
      */
-    public function send(): array
+    public function send(): Response
     {
         $response = $this->requestClient->request(
             $this->getMethod()->getValue(),
@@ -44,7 +45,7 @@ class HttpClientRequestBuilder extends RequestBuilder
             ]
         );
 
-        return $response->toArray($this->getResource()->getApiClient()->isThrowExceptions());
-
+        return new Response($response->getStatusCode(), $response->toArray(false), $this->resource);
     }
+
 }

@@ -34,7 +34,11 @@
     "symfony/http-kernel": "*",
     "symfony/dependency-injection": "*",
     "symfony/config": "*",
-    "symfony/http-client": "^5.3"
+    "symfony/http-client": "^5.3",
+    "doctrine/annotations": "^1.13",
+    "symfony/serializer": "^5.3",
+    "symfony/property-access": "^5.3",
+    "doctrine/collections": "^1.6"
   },
   "autoload": {
     "psr-4": {

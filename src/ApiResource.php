@@ -20,6 +20,11 @@ abstract class ApiResource
     protected RequestBuilder $requestBuilder;
 
     /**
+     * @var Request
+     */
+    protected Request $currentRequest;
+
+    /**
      * @param ApiClient $apiClient
      */
     public function setApiClient(ApiClient $apiClient): void
@@ -46,9 +51,23 @@ abstract class ApiResource
     /**
      * @param RequestBuilder $requestBuilder
      */
-    public function setRequestBuilder(RequestBuilder $requestBuilder): void
+    public function attachedRequestBuilder(RequestBuilder $requestBuilder): void
     {
         $this->requestBuilder = $requestBuilder;
+        $requestBuilder->setResource($this);
+    }
+
+    public function attachedRequest(Request $request): void
+    {
+        $this->currentRequest = $request;
+    }
+
+    /**
+     * @return Request
+     */
+    public function getCurrentRequest(): Request
+    {
+        return $this->currentRequest;
     }
 
     /**

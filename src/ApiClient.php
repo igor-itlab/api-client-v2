@@ -5,6 +5,9 @@ namespace ApiClient;
 
 
 use ApiClient\Api\ControlPanel\ControlPanelResource;
+use Doctrine\Common\Annotations\AnnotationReader;
+use Doctrine\Common\Collections\ArrayCollection;
+use ReflectionClass;
 
 /**
  * Class ApiClient
@@ -18,9 +21,18 @@ class ApiClient
     protected ApiResource $resource;
 
     /**
-     * @var bool
+     * @var AnnotationReader
      */
-    protected bool $throwExceptions = true;
+    protected AnnotationReader $reader;
+
+    /**
+     * ApiClient constructor.
+     */
+    public function __construct()
+    {
+        $this->reader = new AnnotationReader();
+    }
+
 
     /**
      * @param ApiResource $apiResource
@@ -36,23 +48,48 @@ class ApiClient
 
     /**
      * @param RequestBuilder $requestBuilder
-     * @param bool $throw
-     * @return mixed
+     * @return Response|ErrorResponse|ArrayCollection
      */
-    public function send(RequestBuilder $requestBuilder, bool $throw = true)
+    public function send(RequestBuilder $requestBuilder)
     {
-        $this->throwExceptions = $throw;
-
+//        TODO PRE REQUEST EVENT;
         $response = $requestBuilder->build()->send();
 
-        return $response;
+        if ($this->checkStatusCode($response->getStatusCode())) {
+//            TODO ON ERROR EVENT
+            return new ErrorResponse($response);
+        }
+//        TODO ON MAPPING RESPONSE EVENT;
+        return $this->responseMapping($response);
     }
 
     /**
+     * @param Response $response
+     * @return Response|ArrayCollection
+     */
+    private function responseMapping(Response $response)
+    {
+        $annotation = $this->reader->getClassAnnotation(
+            new ReflectionClass($this->resource->getCurrentRequest()),
+            MappedBy::class
+        );
+        if (!$annotation) {
+            return $response;
+        }
+        /**
+         * @var Mapper $mapperInstance
+         */
+        $mapperInstance = new $annotation->value($this->resource);
+
+        return $mapperInstance->mapped($response);
+    }
+
+    /**
+     * @param $code
      * @return bool
      */
-    public function isThrowExceptions(): bool
+    protected function checkStatusCode($code): bool
     {
-        return $this->throwExceptions;
+        return (300 <= $code);
     }
 }

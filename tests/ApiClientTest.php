@@ -18,6 +18,7 @@ class ApiClientTest extends TestCase
     public function testApiClientCall()
     {
         $apiClient = new ApiClient();
-        $date = $apiClient->attachedResource(new ControlPanelResource())->service()->getAll();
+        $date = $apiClient->attachedResource(new ControlPanelResource())->service()->getAll("UaPay");
+        dd($date);
     }
 }

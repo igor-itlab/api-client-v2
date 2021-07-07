@@ -3,10 +3,8 @@
 
 namespace ApiClient\Api\ControlPanel;
 
-
-use ApiClient\ApiResource;
 use ApiClient\Request;
-use ApiClient\Services\HttpClientRequestBuilder;
+use ApiClient\RequestBuilder;
 
 /**
  * Class ControlPanelRequest
@@ -14,14 +12,9 @@ use ApiClient\Services\HttpClientRequestBuilder;
  */
 class ControlPanelRequest extends Request
 {
-    /**
-     * ControlPanelRequest constructor.
-     * @param ApiResource $resource
-     */
-    public function __construct(ApiResource $resource)
+    public function createRequestBuilder(): RequestBuilder
     {
-        parent::__construct($resource);
-        $this->setRequestBuilder((new HttpClientRequestBuilder())->setResource($resource));
+        return parent::createRequestBuilder()->setDomain("https://cp.crpt.trading");
     }
 
 }

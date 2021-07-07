@@ -3,6 +3,8 @@
 
 namespace ApiClient;
 
+use ApiClient\Services\HttpClientRequestBuilder;
+
 /**
  * Class Request
  * @package ApiClient
@@ -21,6 +23,8 @@ abstract class Request
     public function __construct(ApiResource $resource)
     {
         $this->resource = $resource;
+        $this->resource->attachedRequestBuilder($this->createRequestBuilder());
+        $this->resource->attachedRequest($this);
     }
 
     /**
@@ -32,18 +36,18 @@ abstract class Request
     }
 
     /**
-     * @param RequestBuilder $requestBuilder
-     */
-    public function setRequestBuilder(RequestBuilder $requestBuilder): void
-    {
-        $this->resource->setRequestBuilder($requestBuilder);
-    }
-
-    /**
      * @return mixed
      */
     public function send()
     {
         return $this->resource->send();
+    }
+
+    /**
+     * @return RequestBuilder
+     */
+    public function createRequestBuilder(): RequestBuilder
+    {
+        return new HttpClientRequestBuilder();
     }
 }
