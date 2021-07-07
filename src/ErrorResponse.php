@@ -3,16 +3,25 @@
 
 namespace ApiClient;
 
-
+/**
+ * Class ErrorResponse
+ * @package ApiClient
+ */
 class ErrorResponse
 {
+    /**
+     * @var Response
+     */
     protected Response $response;
 
     /**
      * ErrorResponse constructor.
      * @param Response $response
      */
-    public function __construct(Response $response) { $this->response = $response; }
+    public function __construct(Response $response)
+    {
+        $this->response = $response;
+    }
 
     /**
      * @return array

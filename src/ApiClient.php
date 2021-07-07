@@ -5,9 +5,12 @@ namespace ApiClient;
 
 
 use ApiClient\Api\ControlPanel\ControlPanelResource;
+use ApiClient\Events\ApiClientEvents;
+use ApiClient\Events\RequestFailedEvent;
 use Doctrine\Common\Annotations\AnnotationReader;
 use Doctrine\Common\Collections\ArrayCollection;
 use ReflectionClass;
+use Symfony\Component\EventDispatcher\EventDispatcherInterface;
 
 /**
  * Class ApiClient
@@ -26,13 +29,19 @@ class ApiClient
     protected AnnotationReader $reader;
 
     /**
-     * ApiClient constructor.
+     * @var EventDispatcherInterface|null
      */
-    public function __construct()
+    private ?EventDispatcherInterface $eventDispatcher;
+
+    /**
+     * ApiClient constructor.
+     * @param EventDispatcherInterface|null $eventDispatcher
+     */
+    public function __construct(EventDispatcherInterface $eventDispatcher = null)
     {
         $this->reader = new AnnotationReader();
+        $this->eventDispatcher = $eventDispatcher;
     }
-
 
     /**
      * @param ApiResource $apiResource
@@ -57,7 +66,22 @@ class ApiClient
 
         if ($this->checkStatusCode($response->getStatusCode())) {
 //            TODO ON ERROR EVENT
-            return new ErrorResponse($response);
+
+            $errorResponse = new ErrorResponse($response);
+
+            $requestFailed = new RequestFailedEvent(
+                $requestBuilder,
+                $errorResponse
+            );
+
+            if ($this->eventDispatcher) {
+                $this->eventDispatcher->dispatch(
+                    $requestFailed,
+                    ApiClientEvents::REQUEST_FAILED
+                );
+            }
+
+            return $errorResponse;
         }
 //        TODO ON MAPPING RESPONSE EVENT;
         return $this->responseMapping($response);
