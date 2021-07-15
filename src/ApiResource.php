@@ -15,9 +15,9 @@ abstract class ApiResource
     protected ApiClient $apiClient;
 
     /**
-     * @var RequestBuilder
+     * @var RequestBuilderInterface
      */
-    protected RequestBuilder $requestBuilder;
+    protected RequestBuilderInterface $requestBuilder;
 
     /**
      * @var Request
@@ -41,17 +41,17 @@ abstract class ApiResource
     }
 
     /**
-     * @return RequestBuilder
+     * @return RequestBuilderInterface
      */
-    public function getRequestBuilder(): RequestBuilder
+    public function getRequestBuilder(): RequestBuilderInterface
     {
         return $this->requestBuilder;
     }
 
     /**
-     * @param RequestBuilder $requestBuilder
+     * @param RequestBuilderInterface $requestBuilder
      */
-    public function attachedRequestBuilder(RequestBuilder $requestBuilder): void
+    public function attachedRequestBuilder(RequestBuilderInterface $requestBuilder): void
     {
         $this->requestBuilder = $requestBuilder;
         $requestBuilder->setResource($this);

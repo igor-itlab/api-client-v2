@@ -10,7 +10,7 @@ use ApiClient\Services\Method;
  * Class RequestBuilder
  * @package ApiClient
  */
-abstract class RequestBuilder
+abstract class RequestBuilder implements RequestBuilderInterface
 {
     /**
      * @var ApiResource
@@ -330,19 +330,8 @@ abstract class RequestBuilder
     }
 
     /**
-     * @return RequestBuilder
-     */
-    public function build(): RequestBuilder
-    {
-        $this->prepareRequest();
-
-        return $this;
-    }
-
-    /**
      * @return Response
      */
     abstract public function send(): Response;
-//    TODO INTERFACE
 
 }

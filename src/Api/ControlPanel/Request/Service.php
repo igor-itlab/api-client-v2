@@ -24,7 +24,7 @@ class Service extends ControlPanelRequest
         PrivateAuth::doAuth($this->getRequestBuilder());
         $this->getRequestBuilder()
             ->setMethod(Method::GET())
-            ->setPath("api/public/services");
+            ->setPath("api/private/services");
         if ($name) {
             $this->getRequestBuilder()
                 ->addQueryParam("name", $name);

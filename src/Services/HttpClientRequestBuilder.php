@@ -36,6 +36,7 @@ class HttpClientRequestBuilder extends RequestBuilder
      */
     public function send(): Response
     {
+        $this->prepareRequest();
         $response = $this->requestClient->request(
             $this->getMethod()->getValue(),
             $this->getUrl(),

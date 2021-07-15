@@ -56,33 +56,28 @@ class ApiClient
     }
 
     /**
-     * @param RequestBuilder $requestBuilder
+     * @param RequestBuilderInterface $requestBuilder
      * @return Response|ErrorResponse|ArrayCollection
      */
-    public function send(RequestBuilder $requestBuilder)
+    public function send(RequestBuilderInterface $requestBuilder)
     {
 //        TODO PRE REQUEST EVENT;
-        $response = $requestBuilder->build()->send();
+        $response = $requestBuilder->send();
 
         if ($this->checkStatusCode($response->getStatusCode())) {
-//            TODO ON ERROR EVENT
 
             $errorResponse = new ErrorResponse($response);
 
-            $requestFailed = new RequestFailedEvent(
-                $requestBuilder,
-                $errorResponse
-            );
-
             if ($this->eventDispatcher) {
                 $this->eventDispatcher->dispatch(
-                    $requestFailed,
+                    new RequestFailedEvent($requestBuilder, $errorResponse),
                     ApiClientEvents::REQUEST_FAILED
                 );
             }
 
             return $errorResponse;
         }
+
 //        TODO ON MAPPING RESPONSE EVENT;
         return $this->responseMapping($response);
     }
