@@ -32,7 +32,7 @@
     "php": ">=7.4",
     "ext-json": "*",
     "symfony/http-kernel": "^5.3",
-    "symfony/dependency-injection": "^5.3",
+    "symfony/dependency-injection": "*",
     "symfony/config": "*",
     "symfony/http-client": "^5.3",
     "doctrine/annotations": "^1.13",
