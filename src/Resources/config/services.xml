@@ -4,21 +4,16 @@
            xsi:schemaLocation="http://symfony.com/schema/dic/services
         http://symfony.com/schema/dic/services/services-1.0.xsd">
     <services>
-        <service id="api_client.client" class="ApiClient\ApiClient" public="true" >
-            <argument type="service" id="event_dispatcher" on-invalid="null"/>
-        </service>
+        <defaults autowire="true" autoconfigure="true"/>
+
+        <service id="api_client.client" class="ApiClient\ApiClient" public="true" autowire="true"/>
+
+        <service id="ApiClient\ApiClient" alias="api_client.client" public="false"/>
 
         <service id="api_client.control_panel_resource" class="ApiClient\Api\ControlPanel\ControlPanelResource"
                  public="true"/>
 
-
         <service id="ApiClient\Api\ControlPanel\ControlPanelResource" alias="api_client.control_panel_resource"
                  public="false"/>
-        <service id="ApiClient\ApiClient" alias="api_client.client" public="false"/>
-
-        <service id="ApiClient\EventSubscribers\RequestFailedEventSubscriber">
-            <tag name="kernel.event_listener" event="api_client.request_failed" method="onRequestFailedEvent"/>
-        </service>
-
     </services>
 </container>

@@ -326,7 +326,12 @@ abstract class RequestBuilder implements RequestBuilderInterface
 
     protected function prepareRequest(): void
     {
-        $this->url = $this->domain . "/" . $this->path . "?" . http_build_query($this->queryParams);
+        if ($this->queryParams) {
+            $this->url = $this->domain . "/" . $this->path . "?" . http_build_query($this->queryParams);
+
+        } else {
+            $this->url = $this->domain . "/" . $this->path . http_build_query($this->queryParams);
+        }
     }
 
     /**

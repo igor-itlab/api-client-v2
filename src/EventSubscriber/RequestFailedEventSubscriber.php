@@ -1,7 +1,7 @@
 <?php
 
 
-namespace ApiClient\EventSubscribers;
+namespace ApiClient\EventSubscriber;
 
 use ApiClient\Events\ApiClientEvents;
 use ApiClient\Events\RequestFailedEvent;

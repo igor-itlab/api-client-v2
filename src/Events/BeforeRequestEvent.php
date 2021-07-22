@@ -2,16 +2,15 @@
 
 namespace ApiClient\Events;
 
-use ApiClient\ErrorResponse;
 use ApiClient\RequestBuilder;
 use ApiClient\RequestBuilderInterface;
 use Symfony\Contracts\EventDispatcher\Event;
 
 /**
- * Class RequestFailedEvent
+ * Class BeforeRequestEvent
  * @package ApiClient\Events
  */
-class RequestFailedEvent extends Event
+class BeforeRequestEvent extends Event
 {
     /**
      * @var RequestBuilderInterface
@@ -19,22 +18,13 @@ class RequestFailedEvent extends Event
     private RequestBuilderInterface $requestBuilder;
 
     /**
-     * @var ErrorResponse
-     */
-    private ErrorResponse $errorResponse;
-
-    /**
-     * RequestFailedEvent constructor.
+     * BeforeRequestEvent constructor.
      * @param RequestBuilderInterface $requestBuilder
-     * @param ErrorResponse $errorResponse
      */
     public function __construct(
-        RequestBuilderInterface $requestBuilder,
-        ErrorResponse $errorResponse
-    )
+        RequestBuilderInterface $requestBuilder)
     {
         $this->requestBuilder = $requestBuilder;
-        $this->errorResponse = $errorResponse;
     }
 
     /**
@@ -43,14 +33,6 @@ class RequestFailedEvent extends Event
     public function getRequestBuilder(): RequestBuilderInterface
     {
         return $this->requestBuilder;
-    }
-
-    /**
-     * @return ErrorResponse
-     */
-    public function getErrorResponse(): ErrorResponse
-    {
-        return $this->errorResponse;
     }
 
 }

@@ -6,10 +6,13 @@ namespace ApiClient;
 
 use ApiClient\Api\ControlPanel\ControlPanelResource;
 use ApiClient\Events\ApiClientEvents;
+use ApiClient\Events\BeforeRequestEvent;
 use ApiClient\Events\RequestFailedEvent;
+use ApiClient\EventSubscriber\BeforeRequestEventSubscriber;
 use Doctrine\Common\Annotations\AnnotationReader;
 use Doctrine\Common\Collections\ArrayCollection;
 use ReflectionClass;
+use Symfony\Component\EventDispatcher\EventDispatcher;
 use Symfony\Component\EventDispatcher\EventDispatcherInterface;
 
 /**
@@ -29,18 +32,17 @@ class ApiClient
     protected AnnotationReader $reader;
 
     /**
-     * @var EventDispatcherInterface|null
+     * @var EventDispatcherInterface
      */
-    private ?EventDispatcherInterface $eventDispatcher;
+    private EventDispatcherInterface $eventDispatcher;
 
     /**
      * ApiClient constructor.
-     * @param EventDispatcherInterface|null $eventDispatcher
      */
-    public function __construct(EventDispatcherInterface $eventDispatcher = null)
+    public function __construct()
     {
         $this->reader = new AnnotationReader();
-        $this->eventDispatcher = $eventDispatcher;
+        $this->eventDispatcher = new EventDispatcher();
     }
 
     /**
@@ -61,7 +63,15 @@ class ApiClient
      */
     public function send(RequestBuilderInterface $requestBuilder)
     {
-//        TODO PRE REQUEST EVENT;
+        if ($this->eventDispatcher) {
+            $this->eventDispatcher->addSubscriber(new BeforeRequestEventSubscriber());
+
+            $this->eventDispatcher->dispatch(
+                new BeforeRequestEvent($requestBuilder),
+                ApiClientEvents::BEFORE_REQUEST
+            );
+        }
+
         $response = $requestBuilder->send();
 
         if ($this->checkStatusCode($response->getStatusCode())) {
