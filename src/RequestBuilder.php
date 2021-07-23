@@ -335,22 +335,6 @@ abstract class RequestBuilder implements RequestBuilderInterface
     }
 
     /**
-     * @return string
-     */
-    public function makeBody(): string
-    {
-        return 'body';
-    }
-
-    /**
-     * @return string
-     */
-    public function makeHeaders(): string
-    {
-        return 'headers';
-    }
-
-    /**
      * @return Response
      */
     abstract public function send(): Response;

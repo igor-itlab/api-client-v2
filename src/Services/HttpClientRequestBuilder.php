@@ -49,4 +49,20 @@ class HttpClientRequestBuilder extends RequestBuilder
         return new Response($response->getStatusCode(), $response->toArray(false), $this->resource);
     }
 
+    /**
+     * @return string
+     */
+    public function makeBody(): string
+    {
+        return 'body';
+    }
+
+    /**
+     * @return string
+     */
+    public function makeHeaders(): string
+    {
+        return 'headers';
+    }
+
 }
