@@ -41,8 +41,8 @@ class HttpClientRequestBuilder extends RequestBuilder
             $this->getMethod()->getValue(),
             $this->getUrl(),
             [
-                'headers' => $this->getHeaders(),
-                'body' => $this->getBody()
+                $this->makeHeaders() => $this->getHeaders(),
+                $this->makeBody() => $this->getBody()
             ]
         );
 
