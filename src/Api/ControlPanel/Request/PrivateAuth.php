@@ -21,7 +21,14 @@ class PrivateAuth extends Auth
         $requestBuilder
             ->addHeader(
                 "Authorization",
-                "JWS-AUTH-TOKEN eyJhbGciOiJSUzI1NiJ9.eyJpYXQiOjE2Mjc4OTQ4OTQsImV4cCI6MTYyNzg5ODQ5NCwidXNlcklkIjoiZGFlYjNmMzAtZWY4YS0xMWViLWIxN2ItMDI0MmFjMTYwMDA4Iiwicm9sZXMiOlsiUk9MRV9VU0VSIiwiUk9MRV9DTElFTlQiLCJST0xFX1BST0pFQ1QiXX0.mlUq2zVoRSCW-0JaQ5AGxdnv9qgpnMe57hwejeaqGlx8lCrbuId773ozAqIw77L3MCruhSCV4EeDqoyEc9ozRYeqP9ybQ5q6WH6yCMmk1LYShhYauZ5zGRWFdog3IZiJWuq_3xE2eFbbYAoJKZZyalXAvnzNq5NWT8C1D8c8zd9HTXw-S4aSM0qF8CJoUH2NsRKBFmXoyXt2XQrpJoZ-i9-06xxFuZjZMESFSS3jiD_9E2OUgUPF5VklI_mwhqqNuhllKq4BVsAuaUzMW9hC6yHpB3Gqwl0DZHHx9zWwE6tLt37kAhM1nQfVavFxi6FAErjDmZEbmWXcBX9Yb8JjkA4XuACpkIa1fYVVlFSxLzg7LrDHJXBMhw4YcvEIx2UDTiP5dSOX-pVu4mcp23ivyVzP514iuZqLOeM9OF6rwFL3e_BYBYBHTrLUVLFlJjcSPM0j8-XmBVZNt632HfIjRiNZOaw_ds05ciNtPLUOA3PvnJ-bWPDQEx1wT9NlkqNoTx7ac1bIhNn1Ffjp9z7K-gltz3OVKgi8z5OLD-1-4OeggNrQ0ta6PbWNXNn88BXI57buszvlnMaGeZaLvgM2-p6KBito2v5DRIt67DTNwt2bi8e6bcHJtnmQetYET_VP96UBMwcRfxg6xyRqVka1q3Bob4hQ8sNjiWLk4svDo3M"
-            );
+                "Bearer eyJhbGciOiJSUzI1NiJ9.eyJpYXQiOjE2Mjc5MTYzOTcsImV4cCI6MTYyNzkxOTk5NywidXNlcklkIjoiZGFlYjNmMzAtZWY4YS0xMWViLWIxN2ItMDI0MmFjMTYwMDA4Iiwicm9sZXMiOlsiUk9MRV9VU0VSIiwiUk9MRV9DTElFTlQiLCJST0xFX1BST0pFQ1QiLCJST0xFX0FETUlOIl19.Sr0PS9laeM3NJjGn5TDWATyVwJBqTWJWVTIpafaLTB_GGEiOKZexcyXvflIOIFF_9p3ycUxsLOw-YimdVwMHWqoT6-M7O1iR1QiJMmfvM1oGHxLthqxDDOD4DzE-6Xk0UARASbJl1KB_oH7_-kjgLO_ebu9lcUi8hc1Zjwo3yT48Xli5LGNPfj0TsyJF28V9SAwilvr2p-PLuybXPbEiq7DYwsp5x0SdEp8kh0lL1QyrVfBltNyjMLP2CrF1FaS6qCieKegVCH1LR40eV-Z1ddBxNP4281JLaCXe-vYEEQpVCW2s1OCze2nwWGiWKsc5B4IGVplK8meFt2RPfYKIkSB000DoluyUmPxLvE1scLFhd0tF_qlLN6bb7jJxkUNeAYpJp1UQLTLrPbFO7h9QXiJvjWGqIIUyfAgjVNuTdxeG6oKOSSq9Ft_tdIe5MQfia-m0CMTxHnDwNLTutT5mBtSmQbTmeAJ408-eRi8l0P1iZhe7EJ3hPL8tMkoRh5xqcEDJ87MBhi4FY1GTUQd85_GVl0um1Cs-hU0HviHIn2wCj8k5FDcjzDIF7-u1I5UGz-MDjH5HoFbUN4pOk7Afqqf3XspdgoEl-6fbNtiyalWrp4J5p6PUAgfIossHsgSiwm3o6BtMWjiCq2mvkvw7gYqSzGqlMCL3cRSabsb3Bhc"
+            )
+            ->addHeader(
+                "Accept",
+                "application/json"
+            )
+            ->addHeader(
+                "Content-Type",
+                "application/json");
     }
 }

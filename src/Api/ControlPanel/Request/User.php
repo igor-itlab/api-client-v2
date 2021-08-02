@@ -1,33 +1,31 @@
 <?php
 
-
 namespace ApiClient\Api\ControlPanel\Request;
-
 
 use ApiClient\Api\ControlPanel\ControlPanelRequest;
 use ApiClient\MappedBy;
 use ApiClient\Services\Method;
-
 /**
  * Class Service
  * @package ApiClient\Api\ControlPanel\Request
- * @MappedBy(value="ApiClient\Api\ControlPanel\Mapper\Service")
+ * @MappedBy(value="ApiClient\Api\ControlPanel\Mapper\User")
  */
-class Service extends ControlPanelRequest
+class User extends ControlPanelRequest
 {
     /**
-     * @param string|null $name
+     * @param array|null $criteria
      * @return mixed
      */
-    public function getAll(string $name = null)
+    public function getAll(array $criteria = null)
     {
         PrivateAuth::doAuth($this->getRequestBuilder());
         $this->getRequestBuilder()
             ->setMethod(Method::GET())
-            ->setPath("api/services");
-        if ($name) {
+            ->setPath("api/users");
+        if ($criteria) {
+            foreach ($criteria as $key => $value)
             $this->getRequestBuilder()
-                ->addQueryParam("name", $name);
+                ->addQueryParam($key, $value);
         }
 
         return $this->send();
@@ -42,7 +40,7 @@ class Service extends ControlPanelRequest
         PrivateAuth::doAuth($this->getRequestBuilder());
         $this->getRequestBuilder()
             ->setMethod(Method::GET())
-            ->setPath("api/services")
+            ->setPath("api/users")
             ->addQueryParam("id", $id);
 
         return $this->send();
@@ -58,7 +56,22 @@ class Service extends ControlPanelRequest
         PrivateAuth::doAuth($this->getRequestBuilder());
         $this->getRequestBuilder()
             ->setMethod(Method::PUT())
-            ->setPath("api/services/" . $id)
+            ->setPath("api/users/" . $id)
+            ->setBody($body);
+
+        return $this->send();
+    }
+
+    /**
+     * @param array $body
+     * @return mixed
+     */
+    public function create(array $body)
+    {
+        PrivateAuth::doAuth($this->getRequestBuilder());
+        $this->getRequestBuilder()
+            ->setMethod(Method::POST())
+            ->setPath("api/users")
             ->setBody($body);
 
         return $this->send();

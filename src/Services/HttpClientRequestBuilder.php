@@ -42,7 +42,9 @@ class HttpClientRequestBuilder extends RequestBuilder
             $this->getUrl(),
             [
                 $this->makeHeaders() => $this->getHeaders(),
-                $this->makeBody() => $this->getBody()
+                $this->makeBody() => $this->getBody(),
+                "verify_peer"=>false,
+                "verify_host"=>false,
             ]
         );
 
@@ -54,7 +56,7 @@ class HttpClientRequestBuilder extends RequestBuilder
      */
     public function makeBody(): string
     {
-        return 'body';
+        return 'json';
     }
 
     /**

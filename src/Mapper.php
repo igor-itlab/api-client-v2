@@ -98,13 +98,13 @@ abstract class Mapper
         $result = $this->{$func}($arguments[0]);
         $annotation = $this->reader->getMethodAnnotation(new ReflectionMethod($this, $func), ResponseBy::class);
         if (!$annotation) {
-            return $result;
+            return new ArrayCollection($result);
         }
 
         try {
             $denormalized = $this->serializer->denormalize($result, $annotation->value."[]", 'json');
         } catch (ExceptionInterface $e) {
-            return $result;
+            return new ArrayCollection($result);
         }
 
         return new ArrayCollection($denormalized);
