@@ -5,6 +5,7 @@ namespace ApiClient\Tests;
 
 
 use ApiClient\Api\ControlPanel\ControlPanelResource;
+use ApiClient\Api\ControlPanel\Request\PrivateAuth;
 use ApiClient\ApiClient;
 use ApiClient\ApiClientBundle;
 use PHPUnit\Framework\TestCase;
@@ -28,7 +29,7 @@ class ApiClientTest extends TestCase
 
         $this->assertInstanceOf(ApiClient::class, $apiClient);
 
-        $data = $apiClient->attachedResource(new ControlPanelResource())->service()->getAll("UaPay");
+        $data = $apiClient->attachedResource(new ControlPanelResource())->service()->getAll();
         dd($data);
     }
 }

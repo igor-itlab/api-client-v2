@@ -14,7 +14,7 @@ class ControlPanelRequest extends Request
 {
     public function createRequestBuilder(): RequestBuilder
     {
-        return parent::createRequestBuilder()->setDomain("https://cp.crpt.trading");
+        return parent::createRequestBuilder()->setDomain("https://control-panel.dev.com");
     }
 
 }
