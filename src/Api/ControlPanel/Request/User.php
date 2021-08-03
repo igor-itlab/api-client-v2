@@ -56,7 +56,7 @@ class User extends ControlPanelRequest
         PrivateAuth::doAuth($this->getRequestBuilder());
         $this->getRequestBuilder()
             ->setMethod(Method::PUT())
-            ->setPath("api/users/" . $id)
+            ->setPath("api/users/$id")
             ->setBody($body);
 
         return $this->send();

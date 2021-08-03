@@ -4,6 +4,7 @@
 namespace ApiClient\Api\ControlPanel;
 
 
+use ApiClient\Api\ControlPanel\Request\Connection;
 use ApiClient\Api\ControlPanel\Request\Project;
 use ApiClient\Api\ControlPanel\Request\Service;
 use ApiClient\Api\ControlPanel\Request\User;
@@ -37,5 +38,13 @@ class ControlPanelResource extends ApiResource
     public function project(): Project
     {
         return new Project($this);
+    }
+
+    /**
+     * @return Connection
+     */
+    public function connection(): Connection
+    {
+        return new Connection($this);
     }
 }

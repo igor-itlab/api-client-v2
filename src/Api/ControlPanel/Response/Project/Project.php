@@ -1,8 +1,6 @@
 <?php
 
-
 namespace ApiClient\Api\ControlPanel\Response\Project;
-
 
 class Project
 {

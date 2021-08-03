@@ -1,8 +1,6 @@
 <?php
 
-
 namespace ApiClient\Api\ControlPanel\Request;
-
 
 use ApiClient\Auth;
 use ApiClient\RequestBuilder;
@@ -21,7 +19,7 @@ class PrivateAuth extends Auth
         $requestBuilder
             ->addHeader(
                 "Authorization",
-                "Bearer eyJhbGciOiJSUzI1NiJ9.eyJpYXQiOjE2Mjc5MTYzOTcsImV4cCI6MTYyNzkxOTk5NywidXNlcklkIjoiZGFlYjNmMzAtZWY4YS0xMWViLWIxN2ItMDI0MmFjMTYwMDA4Iiwicm9sZXMiOlsiUk9MRV9VU0VSIiwiUk9MRV9DTElFTlQiLCJST0xFX1BST0pFQ1QiLCJST0xFX0FETUlOIl19.Sr0PS9laeM3NJjGn5TDWATyVwJBqTWJWVTIpafaLTB_GGEiOKZexcyXvflIOIFF_9p3ycUxsLOw-YimdVwMHWqoT6-M7O1iR1QiJMmfvM1oGHxLthqxDDOD4DzE-6Xk0UARASbJl1KB_oH7_-kjgLO_ebu9lcUi8hc1Zjwo3yT48Xli5LGNPfj0TsyJF28V9SAwilvr2p-PLuybXPbEiq7DYwsp5x0SdEp8kh0lL1QyrVfBltNyjMLP2CrF1FaS6qCieKegVCH1LR40eV-Z1ddBxNP4281JLaCXe-vYEEQpVCW2s1OCze2nwWGiWKsc5B4IGVplK8meFt2RPfYKIkSB000DoluyUmPxLvE1scLFhd0tF_qlLN6bb7jJxkUNeAYpJp1UQLTLrPbFO7h9QXiJvjWGqIIUyfAgjVNuTdxeG6oKOSSq9Ft_tdIe5MQfia-m0CMTxHnDwNLTutT5mBtSmQbTmeAJ408-eRi8l0P1iZhe7EJ3hPL8tMkoRh5xqcEDJ87MBhi4FY1GTUQd85_GVl0um1Cs-hU0HviHIn2wCj8k5FDcjzDIF7-u1I5UGz-MDjH5HoFbUN4pOk7Afqqf3XspdgoEl-6fbNtiyalWrp4J5p6PUAgfIossHsgSiwm3o6BtMWjiCq2mvkvw7gYqSzGqlMCL3cRSabsb3Bhc"
+                "Bearer eyJhbGciOiJSUzI1NiJ9.eyJpYXQiOjE2Mjc5NzEwMDQsImV4cCI6MTYyNzk3NDYwNCwidXNlcklkIjoiZGFlYjNmMzAtZWY4YS0xMWViLWIxN2ItMDI0MmFjMTYwMDA4Iiwicm9sZXMiOlsiUk9MRV9VU0VSIiwiUk9MRV9DTElFTlQiLCJST0xFX1BST0pFQ1QiLCJST0xFX0FETUlOIl19.aOBgahbm94bcpWYopUgKXALZ86IpATISo2ACEiC3mDJPvjKyCKYyCrF6qRXPhIntsiRuKTrXFGfFaI-X3Wk6NVax5VS6m-wppm834gQIhSO5Of1m6MO1al5qH0VEYc6vuCwon59lzlpBaRPd4wFbCxp3Syni1OE5WjNiO5eizVyIQOKsDjZ6sX7XuCC_R1jcqFnarjPw-oFgmp7XTPpULeuR_tgKKJtbkVvqMu7Qh-KMEZouN43hVYfiEoS2wmPgMyLPqJE34t2cezlkWr358fQ11YDJHbhwCfuVPP3wESDVsBaWChxxnlidbriNF767TldkqY6tyRDMMzLars52oA_ukMa8--FlVKALa2jDuKHw1cOFn_O3B8QeWLvtUqQ1_veF52QQ6rfcogK9eQSqeb8GL4CClu8FzFTrttkN-RUIU0F5XhlSKOquINh8RinAO1n2nxtmhs1T5FplmCP33WRfroQsY9r58e9kSKwJZcULGNvqAuQ_A0ZZgwRyrQa6Fe0YY5h6JkmrSPDDNE67G5SA5RV8yFU9tOSikZzhU6TftB-hkHCWjjLPRTglDzkrNPrOyn9b94DSoZqzcapD7kOvdtCFKvIOA9MBMx2HcrN_J0WwlxO6m__lcWIururwD5b-yNufifDYvfQBP31YZD1i58HwVwUdxhqLx-LmpPw"
             )
             ->addHeader(
                 "Accept",
@@ -29,6 +27,7 @@ class PrivateAuth extends Auth
             )
             ->addHeader(
                 "Content-Type",
-                "application/json");
+                "application/json"
+            );
     }
 }

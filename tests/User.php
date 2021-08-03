@@ -13,6 +13,9 @@ use PHPUnit\Framework\TestCase;
  */
 class User extends TestCase
 {
+    /**
+     * @var object|null
+     */
     protected ?object $apiClient;
 
     /**
@@ -35,16 +38,16 @@ class User extends TestCase
     public function testGetAll()
     {
         /**
-         * @var User $data
+         * @var \ApiClient\Api\ControlPanel\Response\User\User $data
          */
-        $data = $this->apiClient->attachedResource(new ControlPanelResource())->user()->getAll(['createDate[lte]' => 1595585684])->first();
+        $data = $this->apiClient->attachedResource(new ControlPanelResource())->user()->getAll(['createDate[lte]' => 1595585684]);
         dd($data);
     }
 
     public function testGetById()
     {
         /**
-         * @var User $data
+         * @var \ApiClient\Api\ControlPanel\Response\User\User $data
          */
         $data = $this->apiClient->attachedResource(new ControlPanelResource())->user()->getById('d037c71d-941b-4c78-8fd9-ffe46354fce7')->first();
         dd($data);
@@ -71,7 +74,7 @@ class User extends TestCase
         ];
 
         /**
-         * @var User $data
+         * @var \ApiClient\Api\ControlPanel\Response\User\User $data
          */
         $data = $this->apiClient->attachedResource(new ControlPanelResource())->user()->create($body)->first();
         dd($data);
