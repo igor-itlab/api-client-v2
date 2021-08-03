@@ -104,6 +104,7 @@ abstract class Mapper
         try {
             $denormalized = $this->serializer->denormalize($result, $annotation->value."[]", 'json');
         } catch (ExceptionInterface $e) {
+            $result['error'] = $e->getMessage();
             return new ArrayCollection($result);
         }
 

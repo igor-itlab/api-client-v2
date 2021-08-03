@@ -14,19 +14,13 @@ use ApiClient\Services\Method;
 class PaymentSystem extends ControlPanelRequest
 {
     /**
-     * @param int|null $page
      * @return mixed
      */
-    public function getAll(int $page = null)
+    public function getAll(array $criteria = null)
     {
-        PrivateAuth::doAuth($this->getRequestBuilder());
+        $this->setGetAllSettings($criteria);
         $this->getRequestBuilder()
-            ->setMethod(Method::GET())
             ->setPath("api/payment_systems");
-        if ($page) {
-            $this->getRequestBuilder()
-                ->addQueryParam("page", $page);
-        }
 
         return $this->send();
     }

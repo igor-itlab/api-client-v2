@@ -6,6 +6,7 @@ namespace ApiClient\Api\ControlPanel;
 
 use ApiClient\Api\ControlPanel\Request\Balance;
 use ApiClient\Api\ControlPanel\Request\Connection;
+use ApiClient\Api\ControlPanel\Request\Fee\BaseFee;
 use ApiClient\Api\ControlPanel\Request\PaymentSystem;
 use ApiClient\Api\ControlPanel\Request\Project;
 use ApiClient\Api\ControlPanel\Request\Service;
@@ -73,5 +74,13 @@ class ControlPanelResource extends ApiResource
     public function balance(): Balance
     {
         return new Balance($this);
+    }
+
+    /**
+     * @return BaseFee
+     */
+    public function baseFee(): BaseFee
+    {
+        return new BaseFee($this);
     }
 }

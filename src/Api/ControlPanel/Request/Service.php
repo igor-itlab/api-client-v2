@@ -16,19 +16,14 @@ use ApiClient\Services\Method;
 class Service extends ControlPanelRequest
 {
     /**
-     * @param string|null $name
+     * @param array|null $criteria
      * @return mixed
      */
-    public function getAll(string $name = null)
+    public function getAll(array $criteria = null)
     {
-        PrivateAuth::doAuth($this->getRequestBuilder());
+        $this->setGetAllSettings($criteria);
         $this->getRequestBuilder()
-            ->setMethod(Method::GET())
             ->setPath("api/services");
-        if ($name) {
-            $this->getRequestBuilder()
-                ->addQueryParam("name", $name);
-        }
 
         return $this->send();
     }

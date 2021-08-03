@@ -19,16 +19,9 @@ class Currency extends ControlPanelRequest
      */
     public function getAll(array $criteria = null)
     {
-        PrivateAuth::doAuth($this->getRequestBuilder());
+        $this->setGetAllSettings($criteria);
         $this->getRequestBuilder()
-            ->setMethod(Method::GET())
             ->setPath("api/currencies");
-        if ($criteria) {
-            foreach ($criteria as $key => $value) {
-                $this->getRequestBuilder()
-                    ->addQueryParam($key, $value);
-            }
-        }
 
         return $this->send();
     }

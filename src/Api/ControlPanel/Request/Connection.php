@@ -19,20 +19,17 @@ class Connection extends ControlPanelRequest
      */
     public function getAll(array $criteria = null)
     {
-        PrivateAuth::doAuth($this->getRequestBuilder());
+        $this->setGetAllSettings($criteria);
         $this->getRequestBuilder()
-            ->setMethod(Method::GET())
             ->setPath("api/connections");
-        if ($criteria) {
-            foreach ($criteria as $key => $value) {
-                $this->getRequestBuilder()
-                    ->addQueryParam($key, $value);
-            }
-        }
 
         return $this->send();
     }
 
+    /**
+     * @param string $id
+     * @return mixed
+     */
     public function getById(string $id)
     {
         PrivateAuth::doAuth($this->getRequestBuilder());
@@ -44,6 +41,11 @@ class Connection extends ControlPanelRequest
         return $this->send();
     }
 
+    /**
+     * @param string $id
+     * @param array $body
+     * @return mixed
+     */
     public function update(string $id, array $body)
     {
         PrivateAuth::doAuth($this->getRequestBuilder());
@@ -55,6 +57,10 @@ class Connection extends ControlPanelRequest
         return $this->send();
     }
 
+    /**
+     * @param array $body
+     * @return mixed
+     */
     public function create(array $body)
     {
         PrivateAuth::doAuth($this->getRequestBuilder());

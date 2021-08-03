@@ -1,16 +1,18 @@
 <?php
 
-namespace ApiClient\Api\ControlPanel\Request;
+namespace ApiClient\Api\ControlPanel\Request\Fee;
 
 use ApiClient\Api\ControlPanel\ControlPanelRequest;
+use ApiClient\Api\ControlPanel\Request\PrivateAuth;
 use ApiClient\MappedBy;
 use ApiClient\Services\Method;
+
 /**
- * Class User
+ * Class Balance
  * @package ApiClient\Api\ControlPanel\Request
- * @MappedBy(value="ApiClient\Api\ControlPanel\Mapper\User")
+ * @MappedBy(value="ApiClient\Api\ControlPanel\Mapper\Fee\BaseFee")
  */
-class User extends ControlPanelRequest
+class BaseFee extends ControlPanelRequest
 {
     /**
      * @param array|null $criteria
@@ -20,7 +22,7 @@ class User extends ControlPanelRequest
     {
         $this->setGetAllSettings($criteria);
         $this->getRequestBuilder()
-            ->setPath("api/users");
+            ->setPath("api/base_fees");
 
         return $this->send();
     }
@@ -34,7 +36,7 @@ class User extends ControlPanelRequest
         PrivateAuth::doAuth($this->getRequestBuilder());
         $this->getRequestBuilder()
             ->setMethod(Method::GET())
-            ->setPath("api/users")
+            ->setPath("api/base_fees")
             ->addQueryParam("id", $id);
 
         return $this->send();
@@ -50,22 +52,7 @@ class User extends ControlPanelRequest
         PrivateAuth::doAuth($this->getRequestBuilder());
         $this->getRequestBuilder()
             ->setMethod(Method::PUT())
-            ->setPath("api/users/$id")
-            ->setBody($body);
-
-        return $this->send();
-    }
-
-    /**
-     * @param array $body
-     * @return mixed
-     */
-    public function create(array $body)
-    {
-        PrivateAuth::doAuth($this->getRequestBuilder());
-        $this->getRequestBuilder()
-            ->setMethod(Method::POST())
-            ->setPath("api/users")
+            ->setPath("api/base_fees/$id")
             ->setBody($body);
 
         return $this->send();

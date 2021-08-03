@@ -15,12 +15,12 @@ class Balance
     /**
      * @var Currency
      */
-    protected Currency $project;
+    protected Currency $currency;
 
     /**
-     * @var string
+     * @var int
      */
-    protected string $amount;
+    protected int $amount;
 
     /**
      * @var Service
@@ -49,35 +49,35 @@ class Balance
     /**
      * @return Currency
      */
-    public function getProject(): Currency
+    public function getCurrency(): Currency
     {
-        return $this->project;
+        return $this->currency;
     }
 
     /**
-     * @param Currency $project
+     * @param Currency $currency
      * @return Balance
      */
-    public function setProject(Currency $project): Balance
+    public function setCurrency(Currency $currency): Balance
     {
-        $this->project = $project;
+        $this->currency = $currency;
 
         return $this;
     }
 
     /**
-     * @return string
+     * @return int
      */
-    public function getAmount(): string
+    public function getAmount(): int
     {
         return $this->amount;
     }
 
     /**
-     * @param string $amount
+     * @param int $amount
      * @return Balance
      */
-    public function setAmount(string $amount): Balance
+    public function setAmount(int $amount): Balance
     {
         $this->amount = $amount;
 
