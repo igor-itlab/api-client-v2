@@ -6,7 +6,7 @@ use ApiClient\Api\ControlPanel\ControlPanelRequest;
 use ApiClient\MappedBy;
 use ApiClient\Services\Method;
 /**
- * Class Service
+ * Class User
  * @package ApiClient\Api\ControlPanel\Request
  * @MappedBy(value="ApiClient\Api\ControlPanel\Mapper\User")
  */

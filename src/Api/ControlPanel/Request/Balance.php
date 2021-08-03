@@ -7,41 +7,39 @@ use ApiClient\MappedBy;
 use ApiClient\Services\Method;
 
 /**
- * Class Currency
+ * Class Balance
  * @package ApiClient\Api\ControlPanel\Request
- * @MappedBy(value="ApiClient\Api\ControlPanel\Mapper\PaymentSystem")
+ * @MappedBy(value="ApiClient\Api\ControlPanel\Mapper\Balance")
  */
-class PaymentSystem extends ControlPanelRequest
+class Balance extends ControlPanelRequest
 {
     /**
-     * @param int|null $page
+     * @param array|null $criteria
      * @return mixed
      */
-    public function getAll(int $page = null)
+    public function getAll(array $criteria = null)
     {
         PrivateAuth::doAuth($this->getRequestBuilder());
         $this->getRequestBuilder()
             ->setMethod(Method::GET())
-            ->setPath("api/payment_systems");
-        if ($page) {
-            $this->getRequestBuilder()
-                ->addQueryParam("page", $page);
+            ->setPath("api/balances");
+        if ($criteria) {
+            foreach ($criteria as $key => $value) {
+                $this->getRequestBuilder()
+                    ->addQueryParam($key, $value);
+            }
         }
 
         return $this->send();
     }
 
-    /**
-     * @param string $subName
-     * @return mixed
-     */
-    public function getBySubName(string $subName)
+    public function getById(string $id)
     {
         PrivateAuth::doAuth($this->getRequestBuilder());
         $this->getRequestBuilder()
             ->setMethod(Method::GET())
-            ->setPath("api/payment_systems/$subName")
-        ;
+            ->setPath("api/balances")
+            ->addQueryParam("id", $id);
 
         return $this->send();
     }
