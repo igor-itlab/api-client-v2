@@ -1,8 +1,6 @@
 <?php
 
-
 namespace ApiClient\Tests;
-
 
 use ApiClient\Api\ControlPanel\ControlPanelResource;
 use ApiClient\ApiClient;
@@ -10,10 +8,10 @@ use Doctrine\Common\Collections\ArrayCollection;
 use PHPUnit\Framework\TestCase;
 
 /**
- * Class Service
+ * Class PaymentSystem
  * @package ApiClient\Tests
  */
-class Service extends TestCase
+class PaymentSystem extends TestCase
 {
     /**
      * @var object|null
@@ -42,29 +40,16 @@ class Service extends TestCase
         /**
          * @var ArrayCollection $data
          */
-        $data = $this->apiClient->attachedResource(new ControlPanelResource())->service()->getAll();
+        $data = $this->apiClient->attachedResource(new ControlPanelResource())->paymentSystem()->getAll();
         dd($data);
     }
 
-    public function testGetById()
+    public function testGetBySubName()
     {
         /**
-         * @var \ApiClient\Api\ControlPanel\Response\Service\Service $data
+         * @var \ApiClient\Api\ControlPanel\Response\PaymentSystem\PaymentSystem $data
          */
-        $data = $this->apiClient->attachedResource(new ControlPanelResource())->service()->getById('4d2de4e2-6641-4146-bd62-b1f1a1b475eb')->first();
-        dd($data);
-    }
-
-    public function testUpdate()
-    {
-        $body = [
-          'enable' => true
-        ];
-
-        /**
-         * @var \ApiClient\Api\ControlPanel\Response\Service\Service $data
-         */
-        $data = $this->apiClient->attachedResource(new ControlPanelResource())->service()->update('4d2de4e2-6641-4146-bd62-b1f1a1b475eb', $body);
+        $data = $this->apiClient->attachedResource(new ControlPanelResource())->paymentSystem()->getBySubName('visa')->first();
         dd($data);
     }
 }

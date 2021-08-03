@@ -4,6 +4,7 @@ namespace ApiClient\Tests;
 
 use ApiClient\Api\ControlPanel\ControlPanelResource;
 use ApiClient\ApiClient;
+use Doctrine\Common\Collections\ArrayCollection;
 use PHPUnit\Framework\TestCase;
 
 /**
@@ -37,7 +38,7 @@ class Connection extends TestCase
     public function testGetAll()
     {
         /**
-         * @var \ApiClient\Api\ControlPanel\Response\Connection\Connection $data
+         * @var ArrayCollection $data
          */
         $data = $this->apiClient->attachedResource(new ControlPanelResource())->connection()->getAll(['service.id' => '9836ad6c-084a-4eb7-9f34-4f0edf0bf880']);
         dd($data);

@@ -4,6 +4,7 @@ namespace ApiClient\Tests;
 
 use ApiClient\Api\ControlPanel\ControlPanelResource;
 use ApiClient\ApiClient;
+use Doctrine\Common\Collections\ArrayCollection;
 use Exception;
 use PHPUnit\Framework\TestCase;
 
@@ -38,7 +39,7 @@ class User extends TestCase
     public function testGetAll()
     {
         /**
-         * @var \ApiClient\Api\ControlPanel\Response\User\User $data
+         * @var ArrayCollection $data
          */
         $data = $this->apiClient->attachedResource(new ControlPanelResource())->user()->getAll(['createDate[lte]' => 1595585684]);
         dd($data);

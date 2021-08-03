@@ -4,6 +4,7 @@ namespace ApiClient\Tests;
 
 use ApiClient\Api\ControlPanel\ControlPanelResource;
 use ApiClient\ApiClient;
+use Doctrine\Common\Collections\ArrayCollection;
 use PHPUnit\Framework\TestCase;
 
 /**
@@ -37,7 +38,7 @@ class Currency extends TestCase
     public function testGetAll()
     {
         /**
-         * @var \ApiClient\Api\ControlPanel\Response\Currency\Currency $data
+         * @var ArrayCollection $data
          */
         $data = $this->apiClient->attachedResource(new ControlPanelResource())->currency()->getAll();
         dd($data);

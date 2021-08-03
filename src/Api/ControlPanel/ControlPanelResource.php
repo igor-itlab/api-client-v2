@@ -5,6 +5,7 @@ namespace ApiClient\Api\ControlPanel;
 
 
 use ApiClient\Api\ControlPanel\Request\Connection;
+use ApiClient\Api\ControlPanel\Request\PaymentSystem;
 use ApiClient\Api\ControlPanel\Request\Project;
 use ApiClient\Api\ControlPanel\Request\Service;
 use ApiClient\Api\ControlPanel\Request\User;
@@ -55,5 +56,13 @@ class ControlPanelResource extends ApiResource
     public function currency(): Currency
     {
         return new Currency($this);
+    }
+
+    /**
+     * @return PaymentSystem
+     */
+    public function paymentSystem(): PaymentSystem
+    {
+        return new PaymentSystem($this);
     }
 }

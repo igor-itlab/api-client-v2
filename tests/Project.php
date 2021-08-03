@@ -4,6 +4,7 @@ namespace ApiClient\Tests;
 
 use ApiClient\Api\ControlPanel\ControlPanelResource;
 use ApiClient\ApiClient;
+use Doctrine\Common\Collections\ArrayCollection;
 use PHPUnit\Framework\TestCase;
 
 /**
@@ -37,7 +38,7 @@ class Project extends TestCase
     public function testGetAll()
     {
         /**
-         * @var \ApiClient\Api\ControlPanel\Response\Project\Project $data
+         * @var ArrayCollection $data
          */
         $data = $this->apiClient->attachedResource(new ControlPanelResource())->project()->getAll(['name' => 'test proj 6108e1fda181c', 'id' => '56469327-64b7-4002-b598-8d5ea39d2a27']);
         dd($data);

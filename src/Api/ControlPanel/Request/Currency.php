@@ -33,6 +33,10 @@ class Currency extends ControlPanelRequest
         return $this->send();
     }
 
+    /**
+     * @param string $asset
+     * @return mixed
+     */
     public function getByAsset(string $asset)
     {
         PrivateAuth::doAuth($this->getRequestBuilder());
@@ -44,6 +48,10 @@ class Currency extends ControlPanelRequest
         return $this->send();
     }
 
+    /**
+     * @param array $body
+     * @return mixed
+     */
     public function create(array $body)
     {
         PrivateAuth::doAuth($this->getRequestBuilder());
