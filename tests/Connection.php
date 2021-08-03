@@ -79,7 +79,7 @@ class Connection extends TestCase
         /**
          * @var \ApiClient\Api\ControlPanel\Response\Connection\Connection $data
          */
-        $data = $this->apiClient->attachedResource(new ControlPanelResource())->connection()->create($body);
+        $data = $this->apiClient->attachedResource(new ControlPanelResource())->connection()->create($body)->first();
         dd($data);
     }
 }

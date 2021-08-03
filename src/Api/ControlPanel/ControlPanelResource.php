@@ -8,6 +8,7 @@ use ApiClient\Api\ControlPanel\Request\Connection;
 use ApiClient\Api\ControlPanel\Request\Project;
 use ApiClient\Api\ControlPanel\Request\Service;
 use ApiClient\Api\ControlPanel\Request\User;
+use ApiClient\Api\ControlPanel\Request\Currency;
 use ApiClient\ApiResource;
 
 /**
@@ -46,5 +47,13 @@ class ControlPanelResource extends ApiResource
     public function connection(): Connection
     {
         return new Connection($this);
+    }
+
+    /**
+     * @return Currency
+     */
+    public function currency(): Currency
+    {
+        return new Currency($this);
     }
 }
