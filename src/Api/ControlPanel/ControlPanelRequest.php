@@ -34,4 +34,15 @@ class ControlPanelRequest extends Request
             }
         }
     }
+
+    /**
+     * @param $id
+     */
+    public function setGetByIdSettings($id)
+    {
+        PrivateAuth::doAuth($this->getRequestBuilder());
+        $this->getRequestBuilder()
+            ->setMethod(Method::GET())
+            ->addQueryParam("id", $id);
+    }
 }

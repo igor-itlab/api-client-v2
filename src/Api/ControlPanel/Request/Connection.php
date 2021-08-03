@@ -32,11 +32,9 @@ class Connection extends ControlPanelRequest
      */
     public function getById(string $id)
     {
-        PrivateAuth::doAuth($this->getRequestBuilder());
+        $this->setGetByIdSettings($id);
         $this->getRequestBuilder()
-            ->setMethod(Method::GET())
-            ->setPath("api/connections")
-            ->addQueryParam("id", $id);
+            ->setPath("api/connections");
 
         return $this->send();
     }

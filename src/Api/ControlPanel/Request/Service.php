@@ -34,11 +34,9 @@ class Service extends ControlPanelRequest
      */
     public function getById(string $id)
     {
-        PrivateAuth::doAuth($this->getRequestBuilder());
+        $this->setGetByIdSettings($id);
         $this->getRequestBuilder()
-            ->setMethod(Method::GET())
-            ->setPath("api/services")
-            ->addQueryParam("id", $id);
+            ->setPath("api/services");
 
         return $this->send();
     }

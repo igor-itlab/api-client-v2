@@ -28,11 +28,9 @@ class Project extends ControlPanelRequest
 
     public function getById(string $id)
     {
-        PrivateAuth::doAuth($this->getRequestBuilder());
+        $this->setGetByIdSettings($id);
         $this->getRequestBuilder()
-            ->setMethod(Method::GET())
-            ->setPath("api/projects")
-            ->addQueryParam("id", $id);
+            ->setPath("api/projects");
 
         return $this->send();
     }

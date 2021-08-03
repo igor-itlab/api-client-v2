@@ -33,11 +33,9 @@ class BaseFee extends ControlPanelRequest
      */
     public function getById(string $id)
     {
-        PrivateAuth::doAuth($this->getRequestBuilder());
+        $this->setGetByIdSettings($id);
         $this->getRequestBuilder()
-            ->setMethod(Method::GET())
-            ->setPath("api/base_fees")
-            ->addQueryParam("id", $id);
+            ->setPath("api/base_fees");
 
         return $this->send();
     }

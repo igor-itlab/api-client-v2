@@ -31,11 +31,9 @@ class User extends ControlPanelRequest
      */
     public function getById(string $id)
     {
-        PrivateAuth::doAuth($this->getRequestBuilder());
+        $this->setGetByIdSettings($id);
         $this->getRequestBuilder()
-            ->setMethod(Method::GET())
-            ->setPath("api/users")
-            ->addQueryParam("id", $id);
+            ->setPath("api/users");
 
         return $this->send();
     }

@@ -28,11 +28,9 @@ class Balance extends ControlPanelRequest
 
     public function getById(string $id)
     {
-        PrivateAuth::doAuth($this->getRequestBuilder());
+        $this->setGetByIdSettings($id);
         $this->getRequestBuilder()
-            ->setMethod(Method::GET())
-            ->setPath("api/balances")
-            ->addQueryParam("id", $id);
+            ->setPath("api/balances");
 
         return $this->send();
     }
