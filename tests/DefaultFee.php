@@ -11,7 +11,7 @@ use PHPUnit\Framework\TestCase;
  * Class BaseFee
  * @package ApiClient\Tests
  */
-class BaseFee extends TestCase
+class DefaultFee extends TestCase
 {
     /**
      * @var object|null
@@ -40,7 +40,7 @@ class BaseFee extends TestCase
         /**
          * @var ArrayCollection $data
          */
-        $data = $this->apiClient->attachedResource(new ControlPanelResource())->baseFee()->getAll();
+        $data = $this->apiClient->attachedResource(new ControlPanelResource())->defaultFee()->getAll();
         dd($data);
     }
 
@@ -49,21 +49,7 @@ class BaseFee extends TestCase
         /**
          * @var \ApiClient\Api\ControlPanel\Response\Fee\BaseFee $data
          */
-        $data = $this->apiClient->attachedResource(new ControlPanelResource())->baseFee()->getById('4d2de4e1-6641-4146-bd62-b1f1a1b475eb')->first();
-        dd($data);
-    }
-
-    public function testUpdate()
-    {
-        $body = [
-            'min' => '5',
-        ];
-
-        /**
-         * @var \ApiClient\Api\ControlPanel\Response\Fee\BaseFee $data
-         */
-        $data = $this->apiClient->attachedResource(new ControlPanelResource())->baseFee()->update('4d2de4e1-6641-4146-bd62-b1f1a1b475eb',
-            $body);
+        $data = $this->apiClient->attachedResource(new ControlPanelResource())->defaultFee()->getById('4d2de4e1-6641-4146-bd62-b1f1a1b475eb')->first();
         dd($data);
     }
 }
