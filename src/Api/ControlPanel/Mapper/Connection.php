@@ -25,16 +25,6 @@ class Connection extends Mapper
      */
     public function getById(Response $response): array
     {
-        return $response->getResponseContent();
-    }
-
-    /**
-     * @param Response $response
-     * @return array
-     * @ResponseBy(value="ApiClient\Api\ControlPanel\Response\Connection\Connection")
-     */
-    public function update(Response $response): array
-    {
         return [$response->getResponseContent()];
     }
 

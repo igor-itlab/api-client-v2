@@ -1,19 +1,17 @@
 <?php
 
-
 namespace ApiClient\Api\ControlPanel\Request;
-
 
 use ApiClient\Api\ControlPanel\ControlPanelRequest;
 use ApiClient\MappedBy;
 use ApiClient\Services\Method;
 
 /**
- * Class Service
+ * Class Currency
  * @package ApiClient\Api\ControlPanel\Request
- * @MappedBy(value="ApiClient\Api\ControlPanel\Mapper\Service")
+ * @MappedBy(value="ApiClient\Api\ControlPanel\Mapper\Payment")
  */
-class Service extends ControlPanelRequest
+class Payment extends ControlPanelRequest
 {
     /**
      * @param array|null $criteria
@@ -23,7 +21,7 @@ class Service extends ControlPanelRequest
     {
         $this->setGetAllSettings($criteria);
         $this->getRequestBuilder()
-            ->setPath("api/services");
+            ->setPath("api/payments");
 
         return $this->send();
     }
@@ -36,7 +34,22 @@ class Service extends ControlPanelRequest
     {
         $this->setGetByIdSettings($id);
         $this->getRequestBuilder()
-            ->setPath("api/services/$id");
+            ->setPath("api/payments/$id");
+
+        return $this->send();
+    }
+
+    /**
+     * @param array $body
+     * @return mixed
+     */
+    public function create(array $body)
+    {
+        PrivateAuth::doAuth($this->getRequestBuilder());
+        $this->getRequestBuilder()
+            ->setMethod(Method::POST())
+            ->setPath("api/payments")
+            ->setBody($body);
 
         return $this->send();
     }

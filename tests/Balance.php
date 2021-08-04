@@ -49,7 +49,7 @@ class Balance extends TestCase
         /**
          * @var \ApiClient\Api\ControlPanel\Response\Balance\Balance $data
          */
-        $data = $this->apiClient->attachedResource(new ControlPanelResource())->balance()->getById('4d2de4e4-6641-4146-bd62-b1f1a1b475eb')->first();
+        $data = $this->apiClient->attachedResource(new ControlPanelResource())->balance()->getById('4d2de4e4-6741-4146-bd62-b1f1a1b476eb')->first();
         dd($data);
     }
 }

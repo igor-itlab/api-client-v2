@@ -26,15 +26,23 @@ class Project extends ControlPanelRequest
         return $this->send();
     }
 
+    /**
+     * @param string $id
+     * @return mixed
+     */
     public function getById(string $id)
     {
         $this->setGetByIdSettings($id);
         $this->getRequestBuilder()
-            ->setPath("api/projects");
+            ->setPath("api/projects/$id");
 
         return $this->send();
     }
 
+    /**
+     * @param array $body
+     * @return mixed
+     */
     public function create(array $body)
     {
         PrivateAuth::doAuth($this->getRequestBuilder());

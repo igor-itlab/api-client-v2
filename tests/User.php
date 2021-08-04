@@ -41,7 +41,7 @@ class User extends TestCase
         /**
          * @var ArrayCollection $data
          */
-        $data = $this->apiClient->attachedResource(new ControlPanelResource())->user()->getAll(['createDate[lte]' => 1595585684]);
+        $data = $this->apiClient->attachedResource(new ControlPanelResource())->user()->getAll();
         dd($data);
     }
 
@@ -50,7 +50,7 @@ class User extends TestCase
         /**
          * @var \ApiClient\Api\ControlPanel\Response\User\User $data
          */
-        $data = $this->apiClient->attachedResource(new ControlPanelResource())->user()->getById('d037c71d-941b-4c78-8fd9-ffe46354fce7')->first();
+        $data = $this->apiClient->attachedResource(new ControlPanelResource())->user()->getById('daeb3f30-ef8a-11eb-b17b-0242ac160008')->first();
         dd($data);
     }
 

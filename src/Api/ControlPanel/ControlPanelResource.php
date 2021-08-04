@@ -9,7 +9,9 @@ use ApiClient\Api\ControlPanel\Request\Connection;
 use ApiClient\Api\ControlPanel\Request\Fee\BaseFee;
 use ApiClient\Api\ControlPanel\Request\Fee\DefaultFee;
 use ApiClient\Api\ControlPanel\Request\Fee\Fee;
+use ApiClient\Api\ControlPanel\Request\Payment;
 use ApiClient\Api\ControlPanel\Request\PaymentSystem;
+use ApiClient\Api\ControlPanel\Request\Payout;
 use ApiClient\Api\ControlPanel\Request\Project;
 use ApiClient\Api\ControlPanel\Request\Service;
 use ApiClient\Api\ControlPanel\Request\User;
@@ -100,5 +102,21 @@ class ControlPanelResource extends ApiResource
     public function fee(): Fee
     {
         return new Fee($this);
+    }
+
+    /**
+     * @return Payout
+     */
+    public function payout(): Payout
+    {
+        return new Payout($this);
+    }
+
+    /**
+     * @return Payment
+     */
+    public function payment(): Payment
+    {
+        return new Payment($this);
     }
 }

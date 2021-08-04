@@ -40,7 +40,7 @@ class Project extends TestCase
         /**
          * @var ArrayCollection $data
          */
-        $data = $this->apiClient->attachedResource(new ControlPanelResource())->project()->getAll(['name' => 'test proj 6108e1fda181c', 'id' => '56469327-64b7-4002-b598-8d5ea39d2a27']);
+        $data = $this->apiClient->attachedResource(new ControlPanelResource())->project()->getAll();
         dd($data);
     }
 
@@ -49,7 +49,7 @@ class Project extends TestCase
         /**
          * @var \ApiClient\Api\ControlPanel\Response\Project\Project $data
          */
-        $data = $this->apiClient->attachedResource(new ControlPanelResource())->project()->getById('19b0c556-c4d8-42a1-bfe8-e7fe55032655')->first();
+        $data = $this->apiClient->attachedResource(new ControlPanelResource())->project()->getById('a71d2167-8057-47ee-a0ff-82e769e6608d')->first();
         dd($data);
     }
 
@@ -57,15 +57,13 @@ class Project extends TestCase
     {
         $body = [
             'name' => uniqid('test proj '),
-            'user' => [
-                'id' => 'daeb3f30-ef8a-11eb-b17b-0242ac160008',
-            ],
+            'user' => 'daeb3f30-ef8a-11eb-b17b-0242ac160008',
         ];
 
         /**
          * @var \ApiClient\Api\ControlPanel\Response\Project\Project $data
          */
-        $data = $this->apiClient->attachedResource(new ControlPanelResource())->project()->create($body)->first();
+        $data = $this->apiClient->attachedResource(new ControlPanelResource())->project()->create($body);
         dd($data);
     }
 }

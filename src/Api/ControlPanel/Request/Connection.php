@@ -34,23 +34,7 @@ class Connection extends ControlPanelRequest
     {
         $this->setGetByIdSettings($id);
         $this->getRequestBuilder()
-            ->setPath("api/connections");
-
-        return $this->send();
-    }
-
-    /**
-     * @param string $id
-     * @param array $body
-     * @return mixed
-     */
-    public function update(string $id, array $body)
-    {
-        PrivateAuth::doAuth($this->getRequestBuilder());
-        $this->getRequestBuilder()
-            ->setMethod(Method::PUT())
-            ->setPath("api/connections/$id")
-            ->setBody($body);
+            ->setPath("api/connections/$id");
 
         return $this->send();
     }

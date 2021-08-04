@@ -42,7 +42,6 @@ class ControlPanelRequest extends Request
     {
         PrivateAuth::doAuth($this->getRequestBuilder());
         $this->getRequestBuilder()
-            ->setMethod(Method::GET())
-            ->addQueryParam("id", $id);
+            ->setMethod(Method::GET());
     }
 }

@@ -30,7 +30,7 @@ class Balance extends ControlPanelRequest
     {
         $this->setGetByIdSettings($id);
         $this->getRequestBuilder()
-            ->setPath("api/balances");
+            ->setPath("api/balances/$id");
 
         return $this->send();
     }

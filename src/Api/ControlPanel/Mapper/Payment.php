@@ -6,12 +6,12 @@ use ApiClient\Mapper;
 use ApiClient\Response;
 use ApiClient\ResponseBy;
 
-class User extends Mapper
+class Payment extends Mapper
 {
     /**
      * @param Response $response
      * @return array
-     * @ResponseBy(value="ApiClient\Api\ControlPanel\Response\User\User")
+     * @ResponseBy(value="ApiClient\Api\ControlPanel\Response\Transaction\Transaction")
      */
     public function getAll(Response $response): array
     {
@@ -21,7 +21,7 @@ class User extends Mapper
     /**
      * @param Response $response
      * @return array
-     * @ResponseBy(value="ApiClient\Api\ControlPanel\Response\User\User")
+     * @ResponseBy(value="ApiClient\Api\ControlPanel\Response\Transaction\Transaction")
      */
     public function getById(Response $response): array
     {
@@ -31,17 +31,7 @@ class User extends Mapper
     /**
      * @param Response $response
      * @return array
-     * @ResponseBy(value="ApiClient\Api\ControlPanel\Response\User\User")
-     */
-    public function update(Response $response): array
-    {
-        return [$response->getResponseContent()];
-    }
-
-    /**
-     * @param Response $response
-     * @return array
-     * @ResponseBy(value="ApiClient\Api\ControlPanel\Response\User\User")
+     * @ResponseBy(value="ApiClient\Api\ControlPanel\Response\Transaction\Transaction")
      */
     public function create(Response $response): array
     {

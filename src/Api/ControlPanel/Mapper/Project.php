@@ -25,7 +25,7 @@ class Project extends Mapper
      */
     public function getById(Response $response): array
     {
-        return $response->getResponseContent();
+        return [$response->getResponseContent()];
     }
 
     /**

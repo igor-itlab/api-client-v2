@@ -33,7 +33,7 @@ class User extends ControlPanelRequest
     {
         $this->setGetByIdSettings($id);
         $this->getRequestBuilder()
-            ->setPath("api/users");
+            ->setPath("api/users/$id");
 
         return $this->send();
     }

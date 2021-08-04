@@ -27,16 +27,6 @@ class Service extends Mapper
      */
     public function getById(Response $response): array
     {
-        return $response->getResponseContent();
-    }
-
-    /**
-     * @param Response $response
-     * @return array
-     * @ResponseBy(value="ApiClient\Api\ControlPanel\Response\Service\Service")
-     */
-    public function update(Response $response): array
-    {
         return [$response->getResponseContent()];
     }
 }

@@ -3,15 +3,12 @@
 namespace ApiClient\Tests;
 
 use ApiClient\Api\ControlPanel\ControlPanelResource;
+use ApiClient\Api\ControlPanel\Response\Transaction\Transaction;
 use ApiClient\ApiClient;
 use Doctrine\Common\Collections\ArrayCollection;
 use PHPUnit\Framework\TestCase;
 
-/**
- * Class Connection
- * @package ApiClient\Tests
- */
-class Connection extends TestCase
+class Payment extends TestCase
 {
     /**
      * @var object|null
@@ -40,33 +37,37 @@ class Connection extends TestCase
         /**
          * @var ArrayCollection $data
          */
-        $data = $this->apiClient->attachedResource(new ControlPanelResource())->connection()->getAll(['service.id' => '9836ad6c-084a-4eb7-9f34-4f0edf0bf880']);
+        $data = $this->apiClient->attachedResource(new ControlPanelResource())->payment()->getAll();
         dd($data);
     }
 
     public function testGetById()
     {
         /**
-         * @var \ApiClient\Api\ControlPanel\Response\Connection\Connection $data
+         * @var Transaction $data
          */
-        $data = $this->apiClient->attachedResource(new ControlPanelResource())->connection()->getById('3fb78895-cafe-49e5-86a4-8090d947afd0')->first();
+        $data = $this->apiClient->attachedResource(new ControlPanelResource())->payment()->getById('a71d2167-8057-47ee-a0ff-82e769e6608d')->first();
         dd($data);
     }
 
     public function testCreate()
     {
         $body = [
-            'service' => '4d2de4e2-6641-4146-bd62-b1f1a1b475eb',
-            'project' => '19b0c556-c4d8-42a1-bfe8-e7fe55032655',
-            "connectionFields" => [
-                "string",
-            ],
+            "returnUrl" => "https://api-platform.com/docs/core/content-negotiation/#configuring-formats-globally",
+            "paymentSystem" => "VISA",
+            "amount" => "20",
+            "currency" => "UAH",
+            "referenceId" => "fv8n9gk7j9ygdh89h57k8=ght6hhm;f33",
+            "callBackUrl" => "https://api-platform.com/docs/core/content-negotiation/#configuring-formats-globally",
+            "connection" => "1df629f8-1684-4ab6-ac9a-bd41e2fc3656",
+            "attributes" => [],
+            "signature" => "string",
         ];
 
         /**
-         * @var \ApiClient\Api\ControlPanel\Response\Connection\Connection $data
+         * @var Transaction $data
          */
-        $data = $this->apiClient->attachedResource(new ControlPanelResource())->connection()->create($body)->first();
+        $data = $this->apiClient->attachedResource(new ControlPanelResource())->payment()->create($body)->first();
         dd($data);
     }
 }

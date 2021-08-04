@@ -51,20 +51,7 @@ class Service extends TestCase
         /**
          * @var \ApiClient\Api\ControlPanel\Response\Service\Service $data
          */
-        $data = $this->apiClient->attachedResource(new ControlPanelResource())->service()->getById('4d2de4e2-6641-4146-bd62-b1f1a1b475eb')->first();
-        dd($data);
-    }
-
-    public function testUpdate()
-    {
-        $body = [
-          'enable' => true
-        ];
-
-        /**
-         * @var \ApiClient\Api\ControlPanel\Response\Service\Service $data
-         */
-        $data = $this->apiClient->attachedResource(new ControlPanelResource())->service()->update('4d2de4e2-6641-4146-bd62-b1f1a1b475eb', $body);
+        $data = $this->apiClient->attachedResource(new ControlPanelResource())->service()->getById('9836ad6c-084a-4eb7-9f34-4f0edf0bf880')->first();
         dd($data);
     }
 }
