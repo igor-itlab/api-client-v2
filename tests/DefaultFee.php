@@ -8,7 +8,7 @@ use Doctrine\Common\Collections\ArrayCollection;
 use PHPUnit\Framework\TestCase;
 
 /**
- * Class BaseFee
+ * Class DefaultFee
  * @package ApiClient\Tests
  */
 class DefaultFee extends TestCase

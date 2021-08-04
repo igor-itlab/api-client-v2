@@ -6,7 +6,7 @@ use ApiClient\Api\ControlPanel\ControlPanelRequest;
 use ApiClient\MappedBy;
 
 /**
- * Class DefaultFee
+ * Class Fee
  * @package ApiClient\Api\ControlPanel\Request
  * @MappedBy(value="ApiClient\Api\ControlPanel\Mapper\Fee\Fee")
  */
