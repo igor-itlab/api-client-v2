@@ -28,16 +28,20 @@ class ControlPanelResource extends ApiResource
 
     protected string $projectId;
 
-    public function __construct($secret = null, $projectId = null)
+    /**
+     * @param string|null $secret
+     * @param string|null $projectId
+     */
+    public function __construct(string $secret = null, string $projectId = null)
     {
         $this->secret = $secret;
         $this->projectId = $projectId;
     }
 
     /**
-     * @return mixed|string|null
+     * @return string|null
      */
-    public function getSecret()
+    public function getSecret(): ?string
     {
         return $this->secret;
     }
@@ -54,9 +58,9 @@ class ControlPanelResource extends ApiResource
     }
 
     /**
-     * @return mixed|string|null
+     * @return string|null
      */
-    public function getProjectId()
+    public function getProjectId(): ?string
     {
         return $this->projectId;
     }

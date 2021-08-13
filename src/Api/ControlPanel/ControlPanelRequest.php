@@ -29,6 +29,9 @@ class ControlPanelRequest extends Request
         parent::__construct($resource);
     }
 
+    /**
+     * @return RequestBuilder
+     */
     public function createRequestBuilder(): RequestBuilder
     {
         return parent::createRequestBuilder()
