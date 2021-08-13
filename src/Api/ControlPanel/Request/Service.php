@@ -6,7 +6,6 @@ namespace ApiClient\Api\ControlPanel\Request;
 
 use ApiClient\Api\ControlPanel\ControlPanelRequest;
 use ApiClient\MappedBy;
-use ApiClient\Services\Method;
 
 /**
  * Class Service

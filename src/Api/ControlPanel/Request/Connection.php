@@ -45,7 +45,6 @@ class Connection extends ControlPanelRequest
      */
     public function create(array $body)
     {
-        PrivateAuth::doAuth($this->getRequestBuilder());
         $this->getRequestBuilder()
             ->setMethod(Method::POST())
             ->setPath("api/connections")

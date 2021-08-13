@@ -43,7 +43,7 @@ class Service extends TestCase
         /**
          * @var ArrayCollection $data
          */
-        $data = $this->apiClient->attachedResource(new ControlPanelResource())->service()->getAll();
+        $data = $this->apiClient->attachedResource(new ControlPanelResource('qCCikc-9e-satjfSR3Yxl_96IGzxTTVvdEkzc8KzVoM', '20268202-aa27-45d7-9dac-e15aaa6871fe'))->service()->getAll();
         dd($data);
     }
 

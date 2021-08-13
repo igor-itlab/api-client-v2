@@ -24,6 +24,51 @@ use ApiClient\ApiResource;
  */
 class ControlPanelResource extends ApiResource
 {
+    protected string $secret;
+
+    protected string $projectId;
+
+    public function __construct($secret = null, $projectId = null)
+    {
+        $this->secret = $secret;
+        $this->projectId = $projectId;
+    }
+
+    /**
+     * @return mixed|string|null
+     */
+    public function getSecret()
+    {
+        return $this->secret;
+    }
+
+    /**
+     * @param string $secret
+     * @return $this
+     */
+    public function setSecret(string $secret): ControlPanelResource
+    {
+        $this->secret = $secret;
+
+        return $this;
+    }
+
+    /**
+     * @return mixed|string|null
+     */
+    public function getProjectId()
+    {
+        return $this->projectId;
+    }
+
+    /**
+     * @param mixed|string|null $projectId
+     */
+    public function setProjectId($projectId): void
+    {
+        $this->projectId = $projectId;
+    }
+
     /**
      * @return Service
      */

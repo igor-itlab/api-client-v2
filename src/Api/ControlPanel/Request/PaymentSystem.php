@@ -31,7 +31,6 @@ class PaymentSystem extends ControlPanelRequest
      */
     public function getBySubName(string $subName)
     {
-        PrivateAuth::doAuth($this->getRequestBuilder());
         $this->getRequestBuilder()
             ->setMethod(Method::GET())
             ->setPath("api/payment_systems/$subName")

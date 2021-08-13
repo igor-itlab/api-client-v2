@@ -45,7 +45,6 @@ class User extends ControlPanelRequest
      */
     public function update(string $id, array $body)
     {
-        PrivateAuth::doAuth($this->getRequestBuilder());
         $this->getRequestBuilder()
             ->setMethod(Method::PUT())
             ->setPath("api/users/$id")
@@ -60,7 +59,6 @@ class User extends ControlPanelRequest
      */
     public function create(array $body)
     {
-        PrivateAuth::doAuth($this->getRequestBuilder());
         $this->getRequestBuilder()
             ->setMethod(Method::POST())
             ->setPath("api/users")
