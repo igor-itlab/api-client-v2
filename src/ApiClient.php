@@ -12,6 +12,8 @@ use Doctrine\Common\Annotations\AnnotationReader;
 use Doctrine\Common\Collections\ArrayCollection;
 use ReflectionClass;
 use Symfony\Component\EventDispatcher\EventDispatcherInterface;
+use Symfony\Component\Validator\Validator\ValidatorInterface;
+use Symfony\Component\Validator\ValidatorBuilder;
 
 /**
  * Class ApiClient
@@ -35,12 +37,18 @@ class ApiClient
     protected ?EventDispatcherInterface $eventDispatcher;
 
     /**
+     * @var ValidatorInterface|null
+     */
+    private ?ValidatorInterface $validator;
+
+    /**
      * ApiClient constructor.
      */
-    public function __construct(EventDispatcherInterface $eventDispatcher = null)
+    public function __construct(EventDispatcherInterface $eventDispatcher = null, ValidatorInterface $validator = null)
     {
         $this->reader = new AnnotationReader();
         $this->eventDispatcher = $eventDispatcher;
+        $this->validator = $validator;
     }
 
     /**
@@ -84,7 +92,12 @@ class ApiClient
             return $errorResponse;
         }
 
-//        TODO ON MAPPING RESPONSE EVENT;
+//        $response = $this->responseMapping($response);
+//        if ($this->validator){
+//            $errors = $this->validator->validate($response);
+//            dd($errors);
+//        }
+
         return $this->responseMapping($response);
     }
 

@@ -39,7 +39,8 @@
     "symfony/serializer": "*",
     "symfony/property-access": "*",
     "doctrine/collections": "*",
-    "symfony/event-dispatcher": "*"
+    "symfony/event-dispatcher": "*",
+    "symfony/validator": "^5.3"
   },
   "autoload": {
     "psr-4": {

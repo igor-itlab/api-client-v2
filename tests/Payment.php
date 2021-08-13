@@ -56,10 +56,10 @@ class Payment extends TestCase
             "returnUrl" => "https://api-platform.com/docs/core/content-negotiation/#configuring-formats-globally",
             "paymentSystem" => "VISA",
             "amount" => "20",
-            "currency" => "UAH",
+            "currency" => "EUR",
             "referenceId" => "fv8n9gk7j9ygdh89h57k8=ght6hhm;f33",
             "callBackUrl" => "https://api-platform.com/docs/core/content-negotiation/#configuring-formats-globally",
-            "connection" => "1df629f8-1684-4ab6-ac9a-bd41e2fc3656",
+            "connection" => "6bdf54c1-f8f0-11eb-a420-0242ac160008",
             "attributes" => [],
             "signature" => "string",
         ];
