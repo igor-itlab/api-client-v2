@@ -8,6 +8,7 @@
 
         <service id="api_client.client" class="ApiClient\ApiClient" public="true">
             <argument type="service" id="event_dispatcher" on-invalid="null"/>
+            <argument type="service" id="validator" on-invalid="null"/>
         </service>
         <service id="ApiClient\ApiClient" alias="api_client.client" public="false"/>
 

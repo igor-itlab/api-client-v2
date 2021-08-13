@@ -8,6 +8,7 @@ use ApiClient\Api\ControlPanel\ControlPanelResource;
 use ApiClient\ApiClient;
 use Doctrine\Common\Collections\ArrayCollection;
 use PHPUnit\Framework\TestCase;
+use Symfony\Component\Validator\ValidatorBuilder;
 
 /**
  * Class Service
