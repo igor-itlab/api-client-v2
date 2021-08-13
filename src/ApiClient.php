@@ -92,11 +92,11 @@ class ApiClient
             return $errorResponse;
         }
 
-        $response = $this->responseMapping($response);
-        if ($this->validator){
-            $errors = $this->validator->validate($response);
-            dd($errors);
-        }
+//        $response = $this->responseMapping($response);
+//        if ($this->validator){
+//            $errors = $this->validator->validate($response);
+//            dd($errors);
+//        }
 
         return $this->responseMapping($response);
     }
