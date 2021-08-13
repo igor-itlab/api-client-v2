@@ -28,9 +28,9 @@ abstract class Request
     }
 
     /**
-     * @return RequestBuilder
+     * @return RequestBuilderInterface
      */
-    public function getRequestBuilder(): RequestBuilder
+    public function getRequestBuilder(): RequestBuilderInterface
     {
         return $this->resource->getRequestBuilder();
     }
@@ -44,9 +44,9 @@ abstract class Request
     }
 
     /**
-     * @return RequestBuilder
+     * @return RequestBuilderInterface
      */
-    public function createRequestBuilder(): RequestBuilder
+    public function createRequestBuilder(): RequestBuilderInterface
     {
         return new HttpClientRequestBuilder();
     }
