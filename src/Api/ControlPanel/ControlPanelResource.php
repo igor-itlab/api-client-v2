@@ -18,6 +18,8 @@ use ApiClient\Api\ControlPanel\Request\Transaction\Payout;
 use ApiClient\Api\ControlPanel\Request\Transaction\TransactionAttribute;
 use ApiClient\Api\ControlPanel\Request\User;
 use ApiClient\Api\ControlPanel\Request\Currency;
+use ApiClient\Api\ControlPanel\Request\Verification\VerificationAttribute;
+use ApiClient\Api\ControlPanel\Request\Verification\VerificationSchema;
 use ApiClient\ApiResource;
 
 /**
@@ -185,5 +187,21 @@ class ControlPanelResource extends ApiResource
     public function transactionAttribute(): TransactionAttribute
     {
         return new TransactionAttribute($this);
+    }
+
+    /**
+     * @return VerificationAttribute
+     */
+    public function verificationAttribute(): VerificationAttribute
+    {
+        return new VerificationAttribute($this);
+    }
+
+    /**
+     * @return VerificationSchema
+     */
+    public function verificationSchema(): VerificationSchema
+    {
+        return new VerificationSchema($this);
     }
 }
