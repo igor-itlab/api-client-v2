@@ -5,7 +5,6 @@ namespace ApiClient\Tests;
 use ApiClient\Api\ControlPanel\ControlPanelResource;
 use ApiClient\ApiClient;
 use Doctrine\Common\Collections\ArrayCollection;
-use Exception;
 use PHPUnit\Framework\TestCase;
 
 /**
