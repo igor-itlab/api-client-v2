@@ -14,30 +14,69 @@ class Transaction
      */
     protected string $returnUrl;
 
+    /**
+     * @var array
+     */
     protected array $attributes;
 
+    /**
+     * @var array
+     */
     protected array $flowData;
 
-    protected string $processingId;
+    /**
+     * @var string|null
+     */
+    protected ?string $processingId;
 
+    /**
+     * @var PaymentSystem
+     */
     protected PaymentSystem $paymentSystem;
 
+    /**
+     * @var string
+     */
     protected string $amount;
 
+    /**
+     * @var Currency
+     */
     protected Currency $currency;
 
+    /**
+     * @var string
+     */
     protected string $referenceId;
 
+    /**
+     * @var string
+     */
     protected string $processedAmount;
 
+    /**
+     * @var string
+     */
     protected string $id;
 
+    /**
+     * @var string
+     */
     protected string $callBackUrl;
 
+    /**
+     * @var Status
+     */
     protected Status $status;
 
+    /**
+     * @var Connection
+     */
     protected Connection $connection;
 
+    /**
+     * @var int
+     */
     protected int $createdAt;
 
     /**
@@ -98,18 +137,18 @@ class Transaction
     }
 
     /**
-     * @return string
+     * @return string|null
      */
-    public function getProcessingId(): string
+    public function getProcessingId(): ?string
     {
         return $this->processingId;
     }
 
     /**
-     * @param string $processingId
+     * @param string|null $processingId
      * @return Transaction
      */
-    public function setProcessingId(string $processingId): Transaction
+    public function setProcessingId(?string $processingId): Transaction
     {
         $this->processingId = $processingId;
 
