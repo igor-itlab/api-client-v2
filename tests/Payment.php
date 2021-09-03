@@ -37,7 +37,7 @@ class Payment extends TestCase
         /**
          * @var ArrayCollection $data
          */
-        $data = $this->apiClient->attachedResource(new ControlPanelResource())->payment()->getAll();
+        $data = $this->apiClient->attachedResource(new ControlPanelResource('qCCikc-9e-satjfSR3Yxl_96IGzxTTVvdEkzc8KzVoM', '20268202-aa27-45d7-9dac-e15aaa6871fe'))->payment()->getAll();
         dd($data);
     }
 
@@ -46,7 +46,7 @@ class Payment extends TestCase
         /**
          * @var Transaction $data
          */
-        $data = $this->apiClient->attachedResource(new ControlPanelResource())->payment()->getById('a71d2167-8057-47ee-a0ff-82e769e6608d')->first();
+        $data = $this->apiClient->attachedResource(new ControlPanelResource('qCCikc-9e-satjfSR3Yxl_96IGzxTTVvdEkzc8KzVoM', '20268202-aa27-45d7-9dac-e15aaa6871fe'))->payment()->getById('a71d2167-8057-47ee-a0ff-82e769e6608d')->first();
         dd($data);
     }
 
@@ -67,7 +67,7 @@ class Payment extends TestCase
         /**
          * @var Transaction $data
          */
-        $data = $this->apiClient->attachedResource(new ControlPanelResource())->payment()->create($body)->first();
+        $data = $this->apiClient->attachedResource(new ControlPanelResource('qCCikc-9e-satjfSR3Yxl_96IGzxTTVvdEkzc8KzVoM', '20268202-aa27-45d7-9dac-e15aaa6871fe'))->payment()->create($body)->first();
         dd($data);
     }
 }

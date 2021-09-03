@@ -41,7 +41,7 @@ class User extends TestCase
         /**
          * @var ArrayCollection $data
          */
-        $data = $this->apiClient->attachedResource(new ControlPanelResource())->user()->getAll();
+        $data = $this->apiClient->attachedResource(new ControlPanelResource('qCCikc-9e-satjfSR3Yxl_96IGzxTTVvdEkzc8KzVoM', '20268202-aa27-45d7-9dac-e15aaa6871fe'))->user()->getAll();
         dd($data);
     }
 
@@ -50,7 +50,7 @@ class User extends TestCase
         /**
          * @var \ApiClient\Api\ControlPanel\Response\User\User $data
          */
-        $data = $this->apiClient->attachedResource(new ControlPanelResource())->user()->getById('daeb3f30-ef8a-11eb-b17b-0242ac160008')->first();
+        $data = $this->apiClient->attachedResource(new ControlPanelResource('qCCikc-9e-satjfSR3Yxl_96IGzxTTVvdEkzc8KzVoM', '20268202-aa27-45d7-9dac-e15aaa6871fe'))->user()->getById('daeb3f30-ef8a-11eb-b17b-0242ac160008')->first();
         dd($data);
     }
 
@@ -60,7 +60,7 @@ class User extends TestCase
             'firstname' => uniqid()
         ];
 
-        $data = $this->apiClient->attachedResource(new ControlPanelResource())->user()->update('daeb3f30-ef8a-11eb-b17b-0242ac160008', $body)->first();
+        $data = $this->apiClient->attachedResource(new ControlPanelResource('qCCikc-9e-satjfSR3Yxl_96IGzxTTVvdEkzc8KzVoM', '20268202-aa27-45d7-9dac-e15aaa6871fe'))->user()->update('daeb3f30-ef8a-11eb-b17b-0242ac160008', $body)->first();
         dd($data);
     }
 
@@ -77,7 +77,7 @@ class User extends TestCase
         /**
          * @var \ApiClient\Api\ControlPanel\Response\User\User $data
          */
-        $data = $this->apiClient->attachedResource(new ControlPanelResource())->user()->create($body)->first();
+        $data = $this->apiClient->attachedResource(new ControlPanelResource('qCCikc-9e-satjfSR3Yxl_96IGzxTTVvdEkzc8KzVoM', '20268202-aa27-45d7-9dac-e15aaa6871fe'))->user()->create($body)->first();
         dd($data);
     }
 }

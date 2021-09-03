@@ -40,7 +40,7 @@ class Balance extends TestCase
         /**
          * @var ArrayCollection $data
          */
-        $data = $this->apiClient->attachedResource(new ControlPanelResource())->balance()->getAll();
+        $data = $this->apiClient->attachedResource(new ControlPanelResource('qCCikc-9e-satjfSR3Yxl_96IGzxTTVvdEkzc8KzVoM', '20268202-aa27-45d7-9dac-e15aaa6871fe'))->balance()->getAll();
         dd($data);
     }
 
@@ -49,7 +49,7 @@ class Balance extends TestCase
         /**
          * @var \ApiClient\Api\ControlPanel\Response\Balance\Balance $data
          */
-        $data = $this->apiClient->attachedResource(new ControlPanelResource())->balance()->getById('4d2de4e4-6741-4146-bd62-b1f1a1b476eb')->first();
+        $data = $this->apiClient->attachedResource(new ControlPanelResource('qCCikc-9e-satjfSR3Yxl_96IGzxTTVvdEkzc8KzVoM', '20268202-aa27-45d7-9dac-e15aaa6871fe'))->balance()->getById('4d2de4e4-6741-4146-bd62-b1f1a1b476eb')->first();
         dd($data);
     }
 }

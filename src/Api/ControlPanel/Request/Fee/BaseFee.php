@@ -3,7 +3,6 @@
 namespace ApiClient\Api\ControlPanel\Request\Fee;
 
 use ApiClient\Api\ControlPanel\ControlPanelRequest;
-use ApiClient\Api\ControlPanel\Request\PrivateAuth;
 use ApiClient\MappedBy;
 use ApiClient\Services\Method;
 
@@ -20,9 +19,14 @@ class BaseFee extends ControlPanelRequest
      */
     public function getAll(array $criteria = null)
     {
-        $this->setGetAllSettings($criteria);
-        $this->getRequestBuilder()
+        $rb = $this->getRequestBuilder()
+            ->setMethod(Method::GET())
             ->setPath("api/base_fees");
+
+        if ($criteria) {
+            $rb
+                ->setQueryParams($criteria);
+        }
 
         return $this->send();
     }
@@ -33,9 +37,9 @@ class BaseFee extends ControlPanelRequest
      */
     public function getById(string $id)
     {
-        $this->setGetByIdSettings($id);
         $this->getRequestBuilder()
-            ->setPath("api/base_fees");
+            ->setMethod(Method::GET())
+            ->setPath("api/base_fees/$id");
 
         return $this->send();
     }
@@ -47,7 +51,6 @@ class BaseFee extends ControlPanelRequest
      */
     public function update(string $id, array $body)
     {
-        PrivateAuth::doAuth($this->getRequestBuilder());
         $this->getRequestBuilder()
             ->setMethod(Method::PUT())
             ->setPath("api/base_fees/$id")

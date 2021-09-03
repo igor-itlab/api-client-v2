@@ -40,7 +40,7 @@ class Connection extends TestCase
         /**
          * @var ArrayCollection $data
          */
-        $data = $this->apiClient->attachedResource(new ControlPanelResource())->connection()->getAll(['service.id' => '9836ad6c-084a-4eb7-9f34-4f0edf0bf880']);
+        $data = $this->apiClient->attachedResource(new ControlPanelResource('qCCikc-9e-satjfSR3Yxl_96IGzxTTVvdEkzc8KzVoM', '20268202-aa27-45d7-9dac-e15aaa6871fe'))->connection()->getAll();
         dd($data);
     }
 
@@ -49,7 +49,7 @@ class Connection extends TestCase
         /**
          * @var \ApiClient\Api\ControlPanel\Response\Connection\Connection $data
          */
-        $data = $this->apiClient->attachedResource(new ControlPanelResource())->connection()->getById('3fb78895-cafe-49e5-86a4-8090d947afd0')->first();
+        $data = $this->apiClient->attachedResource(new ControlPanelResource('qCCikc-9e-satjfSR3Yxl_96IGzxTTVvdEkzc8KzVoM', '20268202-aa27-45d7-9dac-e15aaa6871fe'))->connection()->getById('3fb78895-cafe-49e5-86a4-8090d947afd0')->first();
         dd($data);
     }
 

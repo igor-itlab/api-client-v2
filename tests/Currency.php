@@ -40,7 +40,7 @@ class Currency extends TestCase
         /**
          * @var ArrayCollection $data
          */
-        $data = $this->apiClient->attachedResource(new ControlPanelResource())->currency()->getAll();
+        $data = $this->apiClient->attachedResource(new ControlPanelResource('qCCikc-9e-satjfSR3Yxl_96IGzxTTVvdEkzc8KzVoM', '20268202-aa27-45d7-9dac-e15aaa6871fe'))->currency()->getAll();
         dd($data);
     }
 
@@ -49,7 +49,7 @@ class Currency extends TestCase
         /**
          * @var \ApiClient\Api\ControlPanel\Response\Currency\Currency $data
          */
-        $data = $this->apiClient->attachedResource(new ControlPanelResource())->currency()->getByAsset('UAH')->first();
+        $data = $this->apiClient->attachedResource(new ControlPanelResource('qCCikc-9e-satjfSR3Yxl_96IGzxTTVvdEkzc8KzVoM', '20268202-aa27-45d7-9dac-e15aaa6871fe'))->currency()->getByAsset('UAH')->first();
         dd($data);
     }
 
@@ -63,7 +63,7 @@ class Currency extends TestCase
         /**
          * @var \ApiClient\Api\ControlPanel\Response\Currency\Currency $data
          */
-        $data = $this->apiClient->attachedResource(new ControlPanelResource())->currency()->create($body)->first();
+        $data = $this->apiClient->attachedResource(new ControlPanelResource('qCCikc-9e-satjfSR3Yxl_96IGzxTTVvdEkzc8KzVoM', '20268202-aa27-45d7-9dac-e15aaa6871fe'))->currency()->create($body)->first();
         dd($data);
     }
 }

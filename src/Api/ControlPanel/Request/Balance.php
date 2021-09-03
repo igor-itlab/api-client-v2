@@ -19,17 +19,26 @@ class Balance extends ControlPanelRequest
      */
     public function getAll(array $criteria = null)
     {
-        $this->setGetAllSettings($criteria);
-        $this->getRequestBuilder()
+        $rb = $this->getRequestBuilder()
+            ->setMethod(Method::GET())
             ->setPath("api/balances");
+
+        if ($criteria) {
+            $rb
+                ->setQueryParams($criteria);
+        }
 
         return $this->send();
     }
 
+    /**
+     * @param string $id
+     * @return mixed
+     */
     public function getById(string $id)
     {
-        $this->setGetByIdSettings($id);
         $this->getRequestBuilder()
+            ->setMethod(Method::GET())
             ->setPath("api/balances/$id");
 
         return $this->send();

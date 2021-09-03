@@ -52,7 +52,7 @@ class Service extends TestCase
         /**
          * @var \ApiClient\Api\ControlPanel\Response\Service\Service $data
          */
-        $data = $this->apiClient->attachedResource(new ControlPanelResource())->service()->getById('9836ad6c-084a-4eb7-9f34-4f0edf0bf880')->first();
+        $data = $this->apiClient->attachedResource(new ControlPanelResource('qCCikc-9e-satjfSR3Yxl_96IGzxTTVvdEkzc8KzVoM', '20268202-aa27-45d7-9dac-e15aaa6871fe'))->service()->getById('9836ad6c-084a-4eb7-9f34-4f0edf0bf880')->first();
         dd($data);
     }
 }
