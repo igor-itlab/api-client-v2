@@ -45,16 +45,37 @@ class Payment extends ControlPanelRequest
     }
 
     /**
-     * @param array $body
+     * @param string $returnUrl
+     * @param string $paymentSystem
+     * @param string $amount
+     * @param string $currency
+     * @param string $referenceId
+     * @param string $callBackUrl
+     * @param string $connection
+     * @param array $attributes
      * @return mixed
      */
-    public function create(array $body)
+    public function create(string $returnUrl, string $paymentSystem, string $amount, string $currency, string $referenceId, string $callBackUrl, string $connection, array $attributes = [])
     {
+        $body = [
+            "returnUrl" => $returnUrl,
+            "paymentSystem" => $paymentSystem,
+            "amount" => $amount,
+            "currency" => $currency,
+            "referenceId" => $referenceId,
+            "callBackUrl" => $callBackUrl,
+            "connection" => $connection
+        ];
+
+        if(!empty($attributes)) {
+            $body['attributes'] =  $attributes;
+        }
+
         $this->getRequestBuilder()
             ->setMethod(Method::POST())
-            ->setPath("api/payments")
-            ->addHeader('Signature', hash_hmac('sha256', base64_encode(json_encode($body)), $this->resource->getSecret()))
-            ->setBody($body);
+            ->setPath("api/payouts")
+            ->setBody($body)
+            ->addHeader('Signature', hash_hmac('sha256', base64_encode(json_encode($body)), $this->resource->getSecret()));
 
         return $this->send();
     }

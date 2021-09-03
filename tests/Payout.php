@@ -63,7 +63,7 @@ class Payout extends TestCase
             "paymentSystem" => "VISA",
             "amount" => "20",
             "currency" => "UAH",
-            "referenceId" => "test api client 1",
+            "referenceId" => "test api client 6",
             "callBackUrl" => "https://api-platform.com/docs/core/content-negotiation/#configuring-formats-globally",
             "connection" => "1df629f8-1684-4ab6-ac9a-bd41e2fc3656",
             "attributes" => [
@@ -72,14 +72,27 @@ class Payout extends TestCase
                     "value" => "test",
                 ],
             ],
-            "signature" => "string",
         ];
 
         /**
          * @var ArrayCollection $data
          */
         $data = $this->apiClient->attachedResource(new ControlPanelResource('qCCikc-9e-satjfSR3Yxl_96IGzxTTVvdEkzc8KzVoM',
-            '20268202-aa27-45d7-9dac-e15aaa6871fe'))->payout()->create($body);
+            '20268202-aa27-45d7-9dac-e15aaa6871fe'))->payout()->create(
+            "https://api-platform.com/docs/core/content-negotiation/#configuring-formats-globally",
+            "VISA",
+            "20",
+            "UAH",
+            "test api client 66",
+            "https://api-platform.com/docs/core/content-negotiation/#configuring-formats-globally",
+            "1df629f8-1684-4ab6-ac9a-bd41e2fc3656",
+            [
+                [
+                    "attribute" => 2,
+                    "value" => "test",
+                ],
+            ]
+        );
         dd($data);
     }
 }
