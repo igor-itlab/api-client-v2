@@ -18,9 +18,14 @@ class PaymentSystem extends ControlPanelRequest
      */
     public function getAll(array $criteria = null)
     {
-        $this->setGetAllSettings($criteria);
-        $this->getRequestBuilder()
+        $rb = $this->getRequestBuilder()
+            ->setMethod(Method::GET())
             ->setPath("api/payment_systems");
+
+        if ($criteria) {
+            $rb
+                ->setQueryParams($criteria);
+        }
 
         return $this->send();
     }

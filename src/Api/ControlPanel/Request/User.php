@@ -5,6 +5,7 @@ namespace ApiClient\Api\ControlPanel\Request;
 use ApiClient\Api\ControlPanel\ControlPanelRequest;
 use ApiClient\MappedBy;
 use ApiClient\Services\Method;
+
 /**
  * Class User
  * @package ApiClient\Api\ControlPanel\Request
@@ -18,9 +19,14 @@ class User extends ControlPanelRequest
      */
     public function getAll(array $criteria = null)
     {
-        $this->setGetAllSettings($criteria);
-        $this->getRequestBuilder()
+        $rb = $this->getRequestBuilder()
+            ->setMethod(Method::GET())
             ->setPath("api/users");
+
+        if ($criteria) {
+            $rb
+                ->setQueryParams($criteria);
+        }
 
         return $this->send();
     }
@@ -31,8 +37,8 @@ class User extends ControlPanelRequest
      */
     public function getById(string $id)
     {
-        $this->setGetByIdSettings($id);
         $this->getRequestBuilder()
+            ->setMethod(Method::GET())
             ->setPath("api/users/$id");
 
         return $this->send();

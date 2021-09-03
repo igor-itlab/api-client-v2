@@ -46,31 +46,8 @@ class ControlPanelRequest extends Request
             )
             ->addHeader(
                 "Authorization",
-                'JWS-AUTH-TOKEN '.$this->securityManager->getJwtToken($this->resource->getProjectId(), $this->resource->getSecret())
+                'JWS-AUTH-TOKEN '.$this->securityManager->getJwtToken($this->resource->getProjectId(),
+                    $this->resource->getSecret())
             );
-    }
-
-    /**
-     * @param array|null $criteria
-     */
-    public function setGetAllSettings(array $criteria = null)
-    {
-        $this->getRequestBuilder()
-            ->setMethod(Method::GET());
-        if ($criteria) {
-            foreach ($criteria as $key => $value) {
-                $this->getRequestBuilder()
-                    ->addQueryParam($key, $value);
-            }
-        }
-    }
-
-    /**
-     * @param $id
-     */
-    public function setGetByIdSettings($id)
-    {
-        $this->getRequestBuilder()
-            ->setMethod(Method::GET());
     }
 }
