@@ -40,16 +40,18 @@ class BaseFee extends TestCase
         /**
          * @var ArrayCollection $data
          */
-        $data = $this->apiClient->attachedResource(new ControlPanelResource('qCCikc-9e-satjfSR3Yxl_96IGzxTTVvdEkzc8KzVoM', '20268202-aa27-45d7-9dac-e15aaa6871fe'))->baseFee()->getAll();
+        $data = $this->apiClient->attachedResource(new ControlPanelResource('qCCikc-9e-satjfSR3Yxl_96IGzxTTVvdEkzc8KzVoM',
+            '20268202-aa27-45d7-9dac-e15aaa6871fe'))->baseFee()->getAll();
         dd($data);
     }
 
     public function testGetById()
     {
         /**
-         * @var \ApiClient\Api\ControlPanel\Response\Fee\BaseFee $data
+         * @var ArrayCollection $data
          */
-        $data = $this->apiClient->attachedResource(new ControlPanelResource('qCCikc-9e-satjfSR3Yxl_96IGzxTTVvdEkzc8KzVoM', '20268202-aa27-45d7-9dac-e15aaa6871fe'))->baseFee()->getById('4d2de4e1-6641-4146-bd62-b1f1a1b475eb')->first();
+        $data = $this->apiClient->attachedResource(new ControlPanelResource('qCCikc-9e-satjfSR3Yxl_96IGzxTTVvdEkzc8KzVoM',
+            '20268202-aa27-45d7-9dac-e15aaa6871fe'))->baseFee()->getById('4d2de4e4-6645-4146-bd62-b1f1a1b475eb');
         dd($data);
     }
 
@@ -60,10 +62,10 @@ class BaseFee extends TestCase
         ];
 
         /**
-         * @var \ApiClient\Api\ControlPanel\Response\Fee\BaseFee $data
+         * @var ArrayCollection $data
          */
-        $data = $this->apiClient->attachedResource(new ControlPanelResource())->baseFee()->update('4d2de4e1-6641-4146-bd62-b1f1a1b475eb',
-            $body);
+        $data = $this->apiClient->attachedResource(new ControlPanelResource('qCCikc-9e-satjfSR3Yxl_96IGzxTTVvdEkzc8KzVoM',
+            '20268202-aa27-45d7-9dac-e15aaa6871fe'))->baseFee()->update('4d2de4e1-6641-4146-bd62-b1f1a1b475eb', $body);
         dd($data);
     }
 }

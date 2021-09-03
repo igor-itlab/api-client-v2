@@ -8,6 +8,10 @@ use ApiClient\ApiClient;
 use Doctrine\Common\Collections\ArrayCollection;
 use PHPUnit\Framework\TestCase;
 
+/**
+ * Class VerificationSchema
+ * @package ApiClient\Tests
+ */
 class VerificationSchema extends TestCase
 {
     /**
@@ -45,10 +49,10 @@ class VerificationSchema extends TestCase
     public function testGetBySubName()
     {
         /**
-         * @var Transaction $data
+         * @var ArrayCollection $data
          */
         $data = $this->apiClient->attachedResource(new ControlPanelResource('qCCikc-9e-satjfSR3Yxl_96IGzxTTVvdEkzc8KzVoM',
-            '20268202-aa27-45d7-9dac-e15aaa6871fe'))->verificationSchema()->getBySubName('test')->first();
+            '20268202-aa27-45d7-9dac-e15aaa6871fe'))->verificationSchema()->getBySubName('test');
         dd($data);
     }
 }

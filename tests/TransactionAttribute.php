@@ -3,11 +3,14 @@
 namespace ApiClient\Tests;
 
 use ApiClient\Api\ControlPanel\ControlPanelResource;
-use ApiClient\Api\ControlPanel\Response\Transaction\Transaction;
 use ApiClient\ApiClient;
 use Doctrine\Common\Collections\ArrayCollection;
 use PHPUnit\Framework\TestCase;
 
+/**
+ * Class TransactionAttribute
+ * @package ApiClient\Tests
+ */
 class TransactionAttribute extends TestCase
 {
     /**
@@ -45,7 +48,7 @@ class TransactionAttribute extends TestCase
     public function testGetById()
     {
         /**
-         * @var Transaction $data
+         * @var ArrayCollection $data
          */
         $data = $this->apiClient->attachedResource(new ControlPanelResource('qCCikc-9e-satjfSR3Yxl_96IGzxTTVvdEkzc8KzVoM',
             '20268202-aa27-45d7-9dac-e15aaa6871fe'))->transactionAttribute()->getById('a71d2167-8057-47ee-a0ff-82e769e6608d')->first();

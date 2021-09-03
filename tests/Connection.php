@@ -40,16 +40,18 @@ class Connection extends TestCase
         /**
          * @var ArrayCollection $data
          */
-        $data = $this->apiClient->attachedResource(new ControlPanelResource('qCCikc-9e-satjfSR3Yxl_96IGzxTTVvdEkzc8KzVoM', '20268202-aa27-45d7-9dac-e15aaa6871fe'))->connection()->getAll();
+        $data = $this->apiClient->attachedResource(new ControlPanelResource('qCCikc-9e-satjfSR3Yxl_96IGzxTTVvdEkzc8KzVoM',
+            '20268202-aa27-45d7-9dac-e15aaa6871fe'))->connection()->getAll();
         dd($data);
     }
 
     public function testGetById()
     {
         /**
-         * @var \ApiClient\Api\ControlPanel\Response\Connection\Connection $data
+         * @var ArrayCollection $data
          */
-        $data = $this->apiClient->attachedResource(new ControlPanelResource('qCCikc-9e-satjfSR3Yxl_96IGzxTTVvdEkzc8KzVoM', '20268202-aa27-45d7-9dac-e15aaa6871fe'))->connection()->getById('3fb78895-cafe-49e5-86a4-8090d947afd0')->first();
+        $data = $this->apiClient->attachedResource(new ControlPanelResource('qCCikc-9e-satjfSR3Yxl_96IGzxTTVvdEkzc8KzVoM',
+            '20268202-aa27-45d7-9dac-e15aaa6871fe'))->connection()->getById('dc61e552-019e-11ec-af72-0242ac160008');
         dd($data);
     }
 
@@ -57,16 +59,17 @@ class Connection extends TestCase
     {
         $body = [
             'service' => '4d2de4e2-6641-4146-bd62-b1f1a1b475eb',
-            'project' => '19b0c556-c4d8-42a1-bfe8-e7fe55032655',
+            'project' => '20268202-aa27-45d7-9dac-e15aaa6871fe',
             "connectionFields" => [
                 "string",
             ],
         ];
 
         /**
-         * @var \ApiClient\Api\ControlPanel\Response\Connection\Connection $data
+         * @var ArrayCollection $data
          */
-        $data = $this->apiClient->attachedResource(new ControlPanelResource())->connection()->create($body)->first();
+        $data = $this->apiClient->attachedResource(new ControlPanelResource('qCCikc-9e-satjfSR3Yxl_96IGzxTTVvdEkzc8KzVoM',
+            '20268202-aa27-45d7-9dac-e15aaa6871fe'))->connection()->create($body);
         dd($data);
     }
 }

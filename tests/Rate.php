@@ -40,16 +40,18 @@ class Rate extends TestCase
         /**
          * @var ArrayCollection $data
          */
-        $data = $this->apiClient->attachedResource(new ControlPanelResource('qCCikc-9e-satjfSR3Yxl_96IGzxTTVvdEkzc8KzVoM', '20268202-aa27-45d7-9dac-e15aaa6871fe'))->rate()->getAll();
+        $data = $this->apiClient->attachedResource(new ControlPanelResource('qCCikc-9e-satjfSR3Yxl_96IGzxTTVvdEkzc8KzVoM',
+            '20268202-aa27-45d7-9dac-e15aaa6871fe'))->rate()->getAll();
         dd($data);
     }
 
     public function testGetById()
     {
         /**
-         * @var \ApiClient\Api\ControlPanel\Response\Service\Service $data
+         * @var ArrayCollection $data
          */
-        $data = $this->apiClient->attachedResource(new ControlPanelResource('qCCikc-9e-satjfSR3Yxl_96IGzxTTVvdEkzc8KzVoM', '20268202-aa27-45d7-9dac-e15aaa6871fe'))->rate()->getById('9836ad6c-084a-4eb7-9f34-4f0edf0bf880')->first();
+        $data = $this->apiClient->attachedResource(new ControlPanelResource('qCCikc-9e-satjfSR3Yxl_96IGzxTTVvdEkzc8KzVoM',
+            '20268202-aa27-45d7-9dac-e15aaa6871fe'))->rate()->getById('d584649b-0b0e-11ec-8240-0242ac160008');
         dd($data);
     }
 }
