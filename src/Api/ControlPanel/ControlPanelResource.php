@@ -9,12 +9,13 @@ use ApiClient\Api\ControlPanel\Request\Connection;
 use ApiClient\Api\ControlPanel\Request\Fee\BaseFee;
 use ApiClient\Api\ControlPanel\Request\Fee\DefaultFee;
 use ApiClient\Api\ControlPanel\Request\Fee\Fee;
-use ApiClient\Api\ControlPanel\Request\Payment;
 use ApiClient\Api\ControlPanel\Request\PaymentSystem;
-use ApiClient\Api\ControlPanel\Request\Payout;
 use ApiClient\Api\ControlPanel\Request\Project;
 use ApiClient\Api\ControlPanel\Request\Rate;
 use ApiClient\Api\ControlPanel\Request\Service;
+use ApiClient\Api\ControlPanel\Request\Transaction\Payment;
+use ApiClient\Api\ControlPanel\Request\Transaction\Payout;
+use ApiClient\Api\ControlPanel\Request\Transaction\TransactionAttribute;
 use ApiClient\Api\ControlPanel\Request\User;
 use ApiClient\Api\ControlPanel\Request\Currency;
 use ApiClient\ApiResource;
@@ -176,5 +177,13 @@ class ControlPanelResource extends ApiResource
     public function rate(): Rate
     {
         return new Rate($this);
+    }
+
+    /**
+     * @return TransactionAttribute
+     */
+    public function transactionAttribute(): TransactionAttribute
+    {
+        return new TransactionAttribute($this);
     }
 }

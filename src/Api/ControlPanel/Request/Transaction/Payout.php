@@ -1,6 +1,6 @@
 <?php
 
-namespace ApiClient\Api\ControlPanel\Request;
+namespace ApiClient\Api\ControlPanel\Request\Transaction;
 
 use ApiClient\Api\ControlPanel\ControlPanelRequest;
 use ApiClient\MappedBy;
@@ -9,9 +9,9 @@ use ApiClient\Services\Method;
 /**
  * Class Currency
  * @package ApiClient\Api\ControlPanel\Request
- * @MappedBy(value="ApiClient\Api\ControlPanel\Mapper\Payment")
+ * @MappedBy(value="ApiClient\Api\ControlPanel\Mapper\Transaction\Payout")
  */
-class Payment extends ControlPanelRequest
+class Payout extends ControlPanelRequest
 {
     /**
      * @param array|null $criteria
@@ -21,7 +21,7 @@ class Payment extends ControlPanelRequest
     {
         $rb = $this->getRequestBuilder()
             ->setMethod(Method::GET())
-            ->setPath("api/payments");
+            ->setPath("api/payouts");
 
         if ($criteria) {
             $rb
@@ -39,7 +39,7 @@ class Payment extends ControlPanelRequest
     {
         $this->getRequestBuilder()
             ->setMethod(Method::GET())
-            ->setPath("api/payments/$id");
+            ->setPath("api/payouts/$id");
 
         return $this->send();
     }
@@ -52,7 +52,7 @@ class Payment extends ControlPanelRequest
     {
         $this->getRequestBuilder()
             ->setMethod(Method::POST())
-            ->setPath("api/payments")
+            ->setPath("api/payouts")
             ->setBody($body);
 
         return $this->send();

@@ -1,12 +1,12 @@
 <?php
 
-namespace ApiClient\Api\ControlPanel\Mapper;
+namespace ApiClient\Api\ControlPanel\Mapper\Transaction;
 
 use ApiClient\Mapper;
 use ApiClient\Response;
 use ApiClient\ResponseBy;
 
-class Payout extends Mapper
+class Payment extends Mapper
 {
     /**
      * @param Response $response
