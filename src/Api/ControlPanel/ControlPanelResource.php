@@ -13,6 +13,7 @@ use ApiClient\Api\ControlPanel\Request\Payment;
 use ApiClient\Api\ControlPanel\Request\PaymentSystem;
 use ApiClient\Api\ControlPanel\Request\Payout;
 use ApiClient\Api\ControlPanel\Request\Project;
+use ApiClient\Api\ControlPanel\Request\Rate;
 use ApiClient\Api\ControlPanel\Request\Service;
 use ApiClient\Api\ControlPanel\Request\User;
 use ApiClient\Api\ControlPanel\Request\Currency;
@@ -167,5 +168,13 @@ class ControlPanelResource extends ApiResource
     public function payment(): Payment
     {
         return new Payment($this);
+    }
+
+    /**
+     * @return Rate
+     */
+    public function rate(): Rate
+    {
+        return new Rate($this);
     }
 }
