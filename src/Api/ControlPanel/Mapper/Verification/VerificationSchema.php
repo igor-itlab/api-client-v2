@@ -6,6 +6,10 @@ use ApiClient\Mapper;
 use ApiClient\Response;
 use ApiClient\ResponseBy;
 
+/**
+ * Class VerificationSchema
+ * @package ApiClient\Api\ControlPanel\Mapper\Verification;
+ */
 class VerificationSchema extends Mapper
 {
     /**

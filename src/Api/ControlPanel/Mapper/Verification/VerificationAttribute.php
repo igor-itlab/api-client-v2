@@ -6,6 +6,10 @@ use ApiClient\Mapper;
 use ApiClient\Response;
 use ApiClient\ResponseBy;
 
+/**
+ * Class VerificationAttribute
+ * @package ApiClient\Api\ControlPanel\Mapper\Verification;
+ */
 class VerificationAttribute extends Mapper
 {
     /**

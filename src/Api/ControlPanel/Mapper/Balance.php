@@ -6,6 +6,10 @@ use ApiClient\Mapper;
 use ApiClient\Response;
 use ApiClient\ResponseBy;
 
+/**
+ * Class Balance
+ * @package ApiClient\Api\ControlPanel\Mapper;
+ */
 class Balance extends Mapper
 {
     /**

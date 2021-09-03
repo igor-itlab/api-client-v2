@@ -6,6 +6,10 @@ use ApiClient\Mapper;
 use ApiClient\Response;
 use ApiClient\ResponseBy;
 
+/**
+ * Class Rate
+ * @package ApiClient\Api\ControlPanel\Mapper;
+ */
 class Rate extends Mapper
 {
     /**

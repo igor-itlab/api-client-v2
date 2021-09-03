@@ -1,13 +1,15 @@
 <?php
 
-
 namespace ApiClient\Api\ControlPanel\Mapper;
-
 
 use ApiClient\Mapper;
 use ApiClient\Response;
 use ApiClient\ResponseBy;
 
+/**
+ * Class Service
+ * @package ApiClient\Api\ControlPanel\Mapper;
+ */
 class Service extends Mapper
 {
     /**

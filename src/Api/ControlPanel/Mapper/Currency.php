@@ -6,6 +6,10 @@ use ApiClient\Mapper;
 use ApiClient\Response;
 use ApiClient\ResponseBy;
 
+/**
+ * Class Currency
+ * @package ApiClient\Api\ControlPanel\Mapper;
+ */
 class Currency extends Mapper
 {
     /**

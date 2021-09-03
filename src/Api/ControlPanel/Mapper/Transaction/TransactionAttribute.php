@@ -6,6 +6,10 @@ use ApiClient\Mapper;
 use ApiClient\Response;
 use ApiClient\ResponseBy;
 
+/**
+ * Class TransactionAttribute
+ * @package ApiClient\Api\ControlPanel\Mapper\Transaction;
+ */
 class TransactionAttribute extends Mapper
 {
     /**
