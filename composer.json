@@ -40,7 +40,9 @@
     "symfony/property-access": "*",
     "doctrine/collections": "*",
     "symfony/event-dispatcher": "*",
-    "symfony/validator": "^5.3"
+    "symfony/validator": "^5.3",
+    "web-token/jwt-framework": "^2.1",
+    "ramsey/uuid-doctrine": "^1.6"
   },
   "autoload": {
     "psr-4": {

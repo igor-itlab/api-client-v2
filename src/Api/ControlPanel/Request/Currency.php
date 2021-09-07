@@ -19,9 +19,14 @@ class Currency extends ControlPanelRequest
      */
     public function getAll(array $criteria = null)
     {
-        $this->setGetAllSettings($criteria);
-        $this->getRequestBuilder()
+        $rb = $this->getRequestBuilder()
+            ->setMethod(Method::GET())
             ->setPath("api/currencies");
+
+        if ($criteria) {
+            $rb
+                ->setQueryParams($criteria);
+        }
 
         return $this->send();
     }
@@ -32,7 +37,6 @@ class Currency extends ControlPanelRequest
      */
     public function getByAsset(string $asset)
     {
-        PrivateAuth::doAuth($this->getRequestBuilder());
         $this->getRequestBuilder()
             ->setMethod(Method::GET())
             ->setPath("api/currencies")
@@ -47,7 +51,6 @@ class Currency extends ControlPanelRequest
      */
     public function create(array $body)
     {
-        PrivateAuth::doAuth($this->getRequestBuilder());
         $this->getRequestBuilder()
             ->setMethod(Method::POST())
             ->setPath("api/currencies")

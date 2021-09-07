@@ -6,6 +6,10 @@ use ApiClient\Mapper;
 use ApiClient\Response;
 use ApiClient\ResponseBy;
 
+/**
+ * Class User
+ * @package ApiClient\Api\ControlPanel\Mapper;
+ */
 class User extends Mapper
 {
     /**

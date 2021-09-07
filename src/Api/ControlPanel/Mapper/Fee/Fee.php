@@ -6,6 +6,10 @@ use ApiClient\Mapper;
 use ApiClient\Response;
 use ApiClient\ResponseBy;
 
+/**
+ * Class Fee
+ * @package ApiClient\Api\ControlPanel\Mapper\Fee
+ */
 class Fee extends Mapper
 {
     /**
@@ -25,6 +29,6 @@ class Fee extends Mapper
      */
     public function getById(Response $response): array
     {
-        return $response->getResponseContent();
+        return [$response->getResponseContent()];
     }
 }

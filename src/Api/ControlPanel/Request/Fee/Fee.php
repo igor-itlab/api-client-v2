@@ -4,6 +4,7 @@ namespace ApiClient\Api\ControlPanel\Request\Fee;
 
 use ApiClient\Api\ControlPanel\ControlPanelRequest;
 use ApiClient\MappedBy;
+use ApiClient\Services\Method;
 
 /**
  * Class Fee
@@ -18,9 +19,14 @@ class Fee extends ControlPanelRequest
      */
     public function getAll(array $criteria = null)
     {
-        $this->setGetAllSettings($criteria);
-        $this->getRequestBuilder()
+        $rb = $this->getRequestBuilder()
+            ->setMethod(Method::GET())
             ->setPath("api/fees");
+
+        if ($criteria) {
+            $rb
+                ->setQueryParams($criteria);
+        }
 
         return $this->send();
     }
@@ -31,9 +37,9 @@ class Fee extends ControlPanelRequest
      */
     public function getById(string $id)
     {
-        $this->setGetByIdSettings($id);
         $this->getRequestBuilder()
-            ->setPath("api/fees");
+            ->setMethod(Method::GET())
+            ->setPath("api/fees/$id");
 
         return $this->send();
     }

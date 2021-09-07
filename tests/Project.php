@@ -40,16 +40,18 @@ class Project extends TestCase
         /**
          * @var ArrayCollection $data
          */
-        $data = $this->apiClient->attachedResource(new ControlPanelResource())->project()->getAll();
+        $data = $this->apiClient->attachedResource(new ControlPanelResource('qCCikc-9e-satjfSR3Yxl_96IGzxTTVvdEkzc8KzVoM',
+            '20268202-aa27-45d7-9dac-e15aaa6871fe'))->project()->getAll();
         dd($data);
     }
 
     public function testGetById()
     {
         /**
-         * @var \ApiClient\Api\ControlPanel\Response\Project\Project $data
+         * @var ArrayCollection $data
          */
-        $data = $this->apiClient->attachedResource(new ControlPanelResource())->project()->getById('a71d2167-8057-47ee-a0ff-82e769e6608d')->first();
+        $data = $this->apiClient->attachedResource(new ControlPanelResource('qCCikc-9e-satjfSR3Yxl_96IGzxTTVvdEkzc8KzVoM',
+            '20268202-aa27-45d7-9dac-e15aaa6871fe'))->project()->getById('20268202-aa27-45d7-9dac-e15aaa6871fe');
         dd($data);
     }
 
@@ -61,9 +63,10 @@ class Project extends TestCase
         ];
 
         /**
-         * @var \ApiClient\Api\ControlPanel\Response\Project\Project $data
+         * @var ArrayCollection $data
          */
-        $data = $this->apiClient->attachedResource(new ControlPanelResource())->project()->create($body);
+        $data = $this->apiClient->attachedResource(new ControlPanelResource('qCCikc-9e-satjfSR3Yxl_96IGzxTTVvdEkzc8KzVoM',
+            '20268202-aa27-45d7-9dac-e15aaa6871fe'))->project()->create($body);
         dd($data);
     }
 }

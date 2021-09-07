@@ -6,6 +6,10 @@ use ApiClient\Mapper;
 use ApiClient\Response;
 use ApiClient\ResponseBy;
 
+/**
+ * Class PaymentSystem
+ * @package ApiClient\Api\ControlPanel\Mapper;
+ */
 class PaymentSystem extends Mapper
 {
     /**

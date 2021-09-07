@@ -6,6 +6,10 @@ use ApiClient\Mapper;
 use ApiClient\Response;
 use ApiClient\ResponseBy;
 
+/**
+ * Class Connection
+ * @package ApiClient\Api\ControlPanel\Mapper;
+ */
 class Connection extends Mapper
 {
     /**

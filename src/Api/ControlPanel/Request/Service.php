@@ -21,9 +21,14 @@ class Service extends ControlPanelRequest
      */
     public function getAll(array $criteria = null)
     {
-        $this->setGetAllSettings($criteria);
-        $this->getRequestBuilder()
+        $rb = $this->getRequestBuilder()
+            ->setMethod(Method::GET())
             ->setPath("api/services");
+
+        if ($criteria) {
+            $rb
+                ->setQueryParams($criteria);
+        }
 
         return $this->send();
     }
@@ -34,8 +39,8 @@ class Service extends ControlPanelRequest
      */
     public function getById(string $id)
     {
-        $this->setGetByIdSettings($id);
         $this->getRequestBuilder()
+            ->setMethod(Method::GET())
             ->setPath("api/services/$id");
 
         return $this->send();

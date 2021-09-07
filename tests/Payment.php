@@ -8,6 +8,10 @@ use ApiClient\ApiClient;
 use Doctrine\Common\Collections\ArrayCollection;
 use PHPUnit\Framework\TestCase;
 
+/**
+ * Class Payment
+ * @package ApiClient\Tests
+ */
 class Payment extends TestCase
 {
     /**
@@ -37,16 +41,18 @@ class Payment extends TestCase
         /**
          * @var ArrayCollection $data
          */
-        $data = $this->apiClient->attachedResource(new ControlPanelResource())->payment()->getAll();
+        $data = $this->apiClient->attachedResource(new ControlPanelResource('qCCikc-9e-satjfSR3Yxl_96IGzxTTVvdEkzc8KzVoM',
+            '20268202-aa27-45d7-9dac-e15aaa6871fe'))->payment()->getAll();
         dd($data);
     }
 
     public function testGetById()
     {
         /**
-         * @var Transaction $data
+         * @var ArrayCollection $data
          */
-        $data = $this->apiClient->attachedResource(new ControlPanelResource())->payment()->getById('a71d2167-8057-47ee-a0ff-82e769e6608d')->first();
+        $data = $this->apiClient->attachedResource(new ControlPanelResource('qCCikc-9e-satjfSR3Yxl_96IGzxTTVvdEkzc8KzVoM',
+            '20268202-aa27-45d7-9dac-e15aaa6871fe'))->payment()->getById('455c5dcf-2888-48c7-bb06-7b0c89b47fb1');
         dd($data);
     }
 
@@ -56,18 +62,32 @@ class Payment extends TestCase
             "returnUrl" => "https://api-platform.com/docs/core/content-negotiation/#configuring-formats-globally",
             "paymentSystem" => "VISA",
             "amount" => "20",
-            "currency" => "EUR",
-            "referenceId" => "fv8n9gk7j9ygdh89h57k8=ght6hhm;f33",
+            "currency" => "UAH",
+            "referenceId" => "test api client 3",
             "callBackUrl" => "https://api-platform.com/docs/core/content-negotiation/#configuring-formats-globally",
-            "connection" => "6bdf54c1-f8f0-11eb-a420-0242ac160008",
-            "attributes" => [],
+            "connection" => "1df629f8-1684-4ab6-ac9a-bd41e2fc3656",
             "signature" => "string",
         ];
 
         /**
-         * @var Transaction $data
+         * @var ArrayCollection $data
          */
-        $data = $this->apiClient->attachedResource(new ControlPanelResource())->payment()->create($body)->first();
+        $data = $this->apiClient->attachedResource(new ControlPanelResource('qCCikc-9e-satjfSR3Yxl_96IGzxTTVvdEkzc8KzVoM',
+            '20268202-aa27-45d7-9dac-e15aaa6871fe'))->payment()->create(
+            "https://api-platform.com/docs/core/content-negotiation/#configuring-formats-globally",
+            "VISA",
+            "20",
+            "UAH",
+            "test api client 66",
+            "https://api-platform.com/docs/core/content-negotiation/#configuring-formats-globally",
+            "1df629f8-1684-4ab6-ac9a-bd41e2fc3656",
+            [
+                [
+                    "attribute" => 2,
+                    "value" => "test",
+                ],
+            ]
+        );
         dd($data);
     }
 }
