@@ -15,44 +15,44 @@ class Fee
     protected BaseFee $baseFee;
 
     /**
-     * @var int
+     * @var float
      */
-    protected int $percent;
+    protected float $percent;
 
     /**
-     * @var int
+     * @var float
      */
-    protected int $constant;
+    protected float $constant;
 
     /**
-     * @var int
+     * @var float
      */
-    protected int $min;
+    protected float $min;
 
     /**
-     * @var int
+     * @var float
      */
-    protected int $max;
+    protected float $max;
 
     /**
-     * @var int
+     * @var float
      */
-    protected int $cleanPercent;
+    protected float $cleanPercent;
 
     /**
-     * @var int
+     * @var float
      */
-    protected int $cleanConstant;
+    protected float $cleanConstant;
 
     /**
-     * @var int
+     * @var float
      */
-    protected int $cleanMin;
+    protected float $cleanMin;
 
     /**
-     * @var int
+     * @var float
      */
-    protected int $cleanMax;
+    protected float $cleanMax;
 
     /**
      * @return string
@@ -93,154 +93,131 @@ class Fee
     }
 
     /**
-     * @return int
+     * @return float
      */
-    public function getPercent(): int
+    public function getPercent(): float
     {
         return $this->percent;
     }
 
     /**
-     * @param int $percent
-     * @return Fee
+     * @param float $percent
      */
-    public function setPercent(int $percent): Fee
+    public function setPercent(float $percent): void
     {
         $this->percent = $percent;
-
-        return $this;
     }
 
     /**
-     * @return int
+     * @return float
      */
-    public function getConstant(): int
+    public function getConstant(): float
     {
         return $this->constant;
     }
 
     /**
-     * @param int $constant
-     * @return Fee
+     * @param float $constant
      */
-    public function setConstant(int $constant): Fee
+    public function setConstant(float $constant): void
     {
         $this->constant = $constant;
-
-        return $this;
     }
 
     /**
-     * @return int
+     * @return float
      */
-    public function getMin(): int
+    public function getMin(): float
     {
         return $this->min;
     }
 
     /**
-     * @param int $min
-     * @return Fee
+     * @param float $min
      */
-    public function setMin(int $min): Fee
+    public function setMin(float $min): void
     {
         $this->min = $min;
-
-        return $this;
     }
 
     /**
-     * @return int
+     * @return float
      */
-    public function getMax(): int
+    public function getMax(): float
     {
         return $this->max;
     }
 
     /**
-     * @param int $max
-     * @return Fee
+     * @param float $max
      */
-    public function setMax(int $max): Fee
+    public function setMax(float $max): void
     {
         $this->max = $max;
-
-        return $this;
     }
 
     /**
-     * @return int
+     * @return float
      */
-    public function getCleanPercent(): int
+    public function getCleanPercent(): float
     {
         return $this->cleanPercent;
     }
 
     /**
-     * @return int
+     * @param float $cleanPercent
      */
-    public function getCleanConstant(): int
+    public function setCleanPercent(float $cleanPercent): void
+    {
+        $this->cleanPercent = $cleanPercent;
+    }
+
+    /**
+     * @return float
+     */
+    public function getCleanConstant(): float
     {
         return $this->cleanConstant;
     }
 
     /**
-     * @return int
+     * @param float $cleanConstant
      */
-    public function getCleanMin(): int
+    public function setCleanConstant(float $cleanConstant): void
+    {
+        $this->cleanConstant = $cleanConstant;
+    }
+
+    /**
+     * @return float
+     */
+    public function getCleanMin(): float
     {
         return $this->cleanMin;
     }
 
     /**
-     * @return int
+     * @param float $cleanMin
      */
-    public function getCleanMax(): int
+    public function setCleanMin(float $cleanMin): void
+    {
+        $this->cleanMin = $cleanMin;
+    }
+
+    /**
+     * @return float
+     */
+    public function getCleanMax(): float
     {
         return $this->cleanMax;
     }
 
     /**
-     * @param int $cleanPercent
-     * @return Fee
+     * @param float $cleanMax
      */
-    public function setCleanPercent(int $cleanPercent): Fee
-    {
-        $this->cleanPercent = $cleanPercent;
-
-        return $this;
-    }
-
-    /**
-     * @param int $cleanConstant
-     * @return Fee
-     */
-    public function setCleanConstant(int $cleanConstant): Fee
-    {
-        $this->cleanConstant = $cleanConstant;
-
-        return $this;
-    }
-
-    /**
-     * @param int $cleanMin
-     * @return Fee
-     */
-    public function setCleanMin(int $cleanMin): Fee
-    {
-        $this->cleanMin = $cleanMin;
-
-        return $this;
-    }
-
-    /**
-     * @param int $cleanMax
-     * @return Fee
-     */
-    public function setCleanMax(int $cleanMax): Fee
+    public function setCleanMax(float $cleanMax): void
     {
         $this->cleanMax = $cleanMax;
-
-        return $this;
     }
+
 }

@@ -9,32 +9,30 @@ class DefaultFee
      */
     protected int $id;
 
-
     /**
      * @var BaseFee
      */
     protected BaseFee $baseFee;
 
+    /**
+     * @var float
+     */
+    protected float $percent;
 
     /**
-     * @var int
+     * @var float
      */
-    protected int $percent;
+    protected float $constant;
 
     /**
-     * @var int
+     * @var float
      */
-    protected int $constant;
+    protected float $min;
 
     /**
-     * @var int
+     * @var float
      */
-    protected int $min;
-
-    /**
-     * @var int
-     */
-    protected int $max;
+    protected float $max;
 
     /**
      * @var int
@@ -82,82 +80,6 @@ class DefaultFee
     /**
      * @return int
      */
-    public function getPercent(): int
-    {
-        return $this->percent;
-    }
-
-    /**
-     * @param int $percent
-     * @return DefaultFee
-     */
-    public function setPercent(int $percent): DefaultFee
-    {
-        $this->percent = $percent;
-
-        return $this;
-    }
-
-    /**
-     * @return int
-     */
-    public function getConstant(): int
-    {
-        return $this->constant;
-    }
-
-    /**
-     * @param int $constant
-     * @return DefaultFee
-     */
-    public function setConstant(int $constant): DefaultFee
-    {
-        $this->constant = $constant;
-
-        return $this;
-    }
-
-    /**
-     * @return int
-     */
-    public function getMin(): int
-    {
-        return $this->min;
-    }
-
-    /**
-     * @param int $min
-     * @return DefaultFee
-     */
-    public function setMin(int $min): DefaultFee
-    {
-        $this->min = $min;
-
-        return $this;
-    }
-
-    /**
-     * @return int
-     */
-    public function getMax(): int
-    {
-        return $this->max;
-    }
-
-    /**
-     * @param int $max
-     * @return DefaultFee
-     */
-    public function setMax(int $max): DefaultFee
-    {
-        $this->max = $max;
-
-        return $this;
-    }
-
-    /**
-     * @return int
-     */
     public function getCreatedAt(): int
     {
         return $this->createdAt;
@@ -172,5 +94,69 @@ class DefaultFee
         $this->createdAt = $createdAt;
 
         return $this;
+    }
+
+    /**
+     * @return float
+     */
+    public function getPercent(): float
+    {
+        return $this->percent;
+    }
+
+    /**
+     * @param float $percent
+     */
+    public function setPercent(float $percent): void
+    {
+        $this->percent = $percent;
+    }
+
+    /**
+     * @return float
+     */
+    public function getConstant(): float
+    {
+        return $this->constant;
+    }
+
+    /**
+     * @param float $constant
+     */
+    public function setConstant(float $constant): void
+    {
+        $this->constant = $constant;
+    }
+
+    /**
+     * @return float
+     */
+    public function getMin(): float
+    {
+        return $this->min;
+    }
+
+    /**
+     * @param float $min
+     */
+    public function setMin(float $min): void
+    {
+        $this->min = $min;
+    }
+
+    /**
+     * @return float
+     */
+    public function getMax(): float
+    {
+        return $this->max;
+    }
+
+    /**
+     * @param float $max
+     */
+    public function setMax(float $max): void
+    {
+        $this->max = $max;
     }
 }
