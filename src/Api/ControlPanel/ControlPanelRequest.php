@@ -35,7 +35,7 @@ class ControlPanelRequest extends Request
     public function createRequestBuilder(): RequestBuilder
     {
         return parent::createRequestBuilder()
-            ->setDomain("https://control-panel.dev.com")
+            ->setDomain("https://dev18.itlab-studio.com")
             ->addHeader(
                 "Accept",
                 "application/json"
