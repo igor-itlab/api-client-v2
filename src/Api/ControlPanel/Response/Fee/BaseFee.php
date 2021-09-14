@@ -27,7 +27,7 @@ class BaseFee
     /**
      * @var Currency
      */
-    protected Currency $project;
+    protected Currency $currency;
 
     /**
      * @var float
@@ -107,25 +107,6 @@ class BaseFee
     public function setPaymentSystem(PaymentSystem $paymentSystem): BaseFee
     {
         $this->paymentSystem = $paymentSystem;
-
-        return $this;
-    }
-
-    /**
-     * @return Currency
-     */
-    public function getProject(): Currency
-    {
-        return $this->project;
-    }
-
-    /**
-     * @param Currency $project
-     * @return BaseFee
-     */
-    public function setProject(Currency $project): BaseFee
-    {
-        $this->project = $project;
 
         return $this;
     }
@@ -211,6 +192,22 @@ class BaseFee
     public function setMax(float $max): void
     {
         $this->max = $max;
+    }
+
+    /**
+     * @return Currency
+     */
+    public function getCurrency(): Currency
+    {
+        return $this->currency;
+    }
+
+    /**
+     * @param Currency $currency
+     */
+    public function setCurrency(Currency $currency): void
+    {
+        $this->currency = $currency;
     }
 
 }
