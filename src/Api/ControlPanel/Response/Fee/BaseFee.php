@@ -13,7 +13,6 @@ class BaseFee
      */
     protected string $id;
 
-
     /**
      * @var Service
      */
@@ -53,6 +52,11 @@ class BaseFee
      * @var int
      */
     protected int $createdAt;
+
+    /**
+     * @var string
+     */
+    protected string $type;
 
     /**
      * @return string
@@ -208,6 +212,22 @@ class BaseFee
     public function setCurrency(Currency $currency): void
     {
         $this->currency = $currency;
+    }
+
+    /**
+     * @return string
+     */
+    public function getType(): string
+    {
+        return $this->type;
+    }
+
+    /**
+     * @param string $type
+     */
+    public function setType(string $type): void
+    {
+        $this->type = $type;
     }
 
 }
