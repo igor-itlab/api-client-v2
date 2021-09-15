@@ -73,7 +73,7 @@ class Payment extends ControlPanelRequest
 
         $this->getRequestBuilder()
             ->setMethod(Method::POST())
-            ->setPath("api/payouts")
+            ->setPath("api/payments")
             ->setBody($body)
             ->addHeader('Signature', hash_hmac('sha256', base64_encode(json_encode($body)), $this->resource->getSecret()));
 
