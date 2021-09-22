@@ -12,7 +12,8 @@ use ApiClient\Api\ControlPanel\Request\Fee\Fee;
 use ApiClient\Api\ControlPanel\Request\PaymentSystem;
 use ApiClient\Api\ControlPanel\Request\Project;
 use ApiClient\Api\ControlPanel\Request\Rate;
-use ApiClient\Api\ControlPanel\Request\Service;
+use ApiClient\Api\ControlPanel\Request\Service\Service;
+use ApiClient\Api\ControlPanel\Request\Service\ServiceRelationship;
 use ApiClient\Api\ControlPanel\Request\Transaction\Payment;
 use ApiClient\Api\ControlPanel\Request\Transaction\Payout;
 use ApiClient\Api\ControlPanel\Request\Transaction\TransactionAttribute;
@@ -203,5 +204,13 @@ class ControlPanelResource extends ApiResource
     public function verificationSchema(): VerificationSchema
     {
         return new VerificationSchema($this);
+    }
+
+    /**
+     * @return ServiceRelationship
+     */
+    public function serviceRelationship(): ServiceRelationship
+    {
+        return new ServiceRelationship($this);
     }
 }
