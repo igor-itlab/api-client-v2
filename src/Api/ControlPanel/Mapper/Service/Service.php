@@ -1,6 +1,6 @@
 <?php
 
-namespace ApiClient\Api\ControlPanel\Mapper;
+namespace ApiClient\Api\ControlPanel\Mapper\Service;
 
 use ApiClient\Mapper;
 use ApiClient\Response;
