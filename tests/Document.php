@@ -8,10 +8,10 @@ use Doctrine\Common\Collections\ArrayCollection;
 use PHPUnit\Framework\TestCase;
 
 /**
- * Class ServiceRelationship
+ * Class Document
  * @package ApiClient\Tests
  */
-class ServiceRelationship extends TestCase
+class Document extends TestCase
 {
     /**
      * @var object|null
@@ -41,7 +41,7 @@ class ServiceRelationship extends TestCase
          * @var ArrayCollection $data
          */
         $data = $this->apiClient->attachedResource(new ControlPanelResource('qCCikc-9e-satjfSR3Yxl_96IGzxTTVvdEkzc8KzVoM',
-            '20268202-aa27-45d7-9dac-e15aaa6871fe'))->serviceRelationship()->getAll(['service.id' => '9836ad6c-084a-4eb7-9f34-4f0edf0bf880']);
+            '20268202-aa27-45d7-9dac-e15aaa6871fe'))->document()->getAll();
         dd($data);
     }
 
@@ -51,7 +51,23 @@ class ServiceRelationship extends TestCase
          * @var ArrayCollection $data
          */
         $data = $this->apiClient->attachedResource(new ControlPanelResource('qCCikc-9e-satjfSR3Yxl_96IGzxTTVvdEkzc8KzVoM',
-            '20268202-aa27-45d7-9dac-e15aaa6871fe'))->serviceRelationship()->getById('032c5142-1b10-11ec-bc7a-94aead56a745');
+            '20268202-aa27-45d7-9dac-e15aaa6871fe'))->document()->getById('4d2de4e4-6741-4146-bd62-b1f1a1b476eb');
+        dd($data);
+    }
+
+    public function testCreate()
+    {
+        /**
+         * @var \ApiClient\Api\ControlPanel\Response\Verification\VerificationSchema $verificationSchema
+         */
+        $verificationSchema = $this->apiClient->attachedResource(new ControlPanelResource('qCCikc-9e-satjfSR3Yxl_96IGzxTTVvdEkzc8KzVoM',
+            '20268202-aa27-45d7-9dac-e15aaa6871fe'))->verificationSchema()->getBySubName('KYC(Card)')->first();
+
+        /**
+         * @var ArrayCollection $data
+         */
+        $data = $this->apiClient->attachedResource(new ControlPanelResource('qCCikc-9e-satjfSR3Yxl_96IGzxTTVvdEkzc8KzVoM',
+            '20268202-aa27-45d7-9dac-e15aaa6871fe'))->document()->create('KYC(Card)', [['attribute' => 4, 'value' => 'test']], 'c5c6c068-ff55-11eb-a37a-0242ac160008', 'https://control-panel.dev.com/api/docs');
         dd($data);
     }
 }
