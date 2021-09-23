@@ -6,6 +6,7 @@ namespace ApiClient\Api\ControlPanel;
 
 use ApiClient\Api\ControlPanel\Request\Balance;
 use ApiClient\Api\ControlPanel\Request\Connection;
+use ApiClient\Api\ControlPanel\Request\Document;
 use ApiClient\Api\ControlPanel\Request\Fee\BaseFee;
 use ApiClient\Api\ControlPanel\Request\Fee\DefaultFee;
 use ApiClient\Api\ControlPanel\Request\Fee\Fee;
@@ -212,5 +213,13 @@ class ControlPanelResource extends ApiResource
     public function serviceRelationship(): ServiceRelationship
     {
         return new ServiceRelationship($this);
+    }
+
+    /**
+     * @return Document
+     */
+    public function document(): Document
+    {
+        return new Document($this);
     }
 }
