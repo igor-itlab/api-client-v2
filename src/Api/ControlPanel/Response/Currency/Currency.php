@@ -15,6 +15,11 @@ class Currency
     protected string $type;
 
     /**
+     * @var string
+     */
+    protected string $name;
+
+    /**
      * @return string
      */
     public function getAsset(): string
@@ -48,6 +53,25 @@ class Currency
     public function setType(string $type): Currency
     {
         $this->type = $type;
+
+        return $this;
+    }
+
+    /**
+     * @return string
+     */
+    public function getName(): string
+    {
+        return $this->name;
+    }
+
+    /**
+     * @param string $name
+     * @return Currency
+     */
+    public function setName(string $name): Currency
+    {
+        $this->name = $name;
 
         return $this;
     }
