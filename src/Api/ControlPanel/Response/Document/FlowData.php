@@ -15,6 +15,15 @@ class FlowData
     protected string $value;
 
     /**
+     * @param array $flowData
+     */
+    public function __construct(array $flowData)
+    {
+        $this->name = $flowData['name'];
+        $this->value = $flowData['value'];
+    }
+
+    /**
      * @return string
      */
     public function getName(): string

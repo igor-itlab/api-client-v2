@@ -14,9 +14,9 @@ class Document
     protected VerificationSchema $schema;
 
     /**
-     * @var FlowData
+     * @var array
      */
-    protected FlowData $flowData;
+    protected array $flowData;
 
     /**
      * @var array
@@ -49,9 +49,9 @@ class Document
     protected int $createdAt;
 
     /**
-     * @var string
+     * @var string|null
      */
-    protected string $processingId;
+    protected ?string $processingId;
 
     /**
      * @return VerificationSchema
@@ -70,19 +70,22 @@ class Document
     }
 
     /**
-     * @return FlowData
+     * @return array
      */
-    public function getFlowData(): FlowData
+    public function getFlowData(): array
     {
         return $this->flowData;
     }
 
     /**
-     * @param FlowData $flowData
+     * @param array $flowData
      */
-    public function setFlowData(FlowData $flowData): void
+    public function setFlowData(array $flowData): void
     {
-        $this->flowData = $flowData;
+        foreach ($flowData as $data)
+        {
+            $this->flowData[] = new FlowData($data);
+        }
     }
 
     /**
@@ -182,17 +185,17 @@ class Document
     }
 
     /**
-     * @return string
+     * @return string|null
      */
-    public function getProcessingId(): string
+    public function getProcessingId(): ?string
     {
         return $this->processingId;
     }
 
     /**
-     * @param string $processingId
+     * @param string|null $processingId
      */
-    public function setProcessingId(string $processingId): void
+    public function setProcessingId(?string $processingId): void
     {
         $this->processingId = $processingId;
     }
