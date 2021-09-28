@@ -6,13 +6,15 @@ namespace ApiClient\Api\ControlPanel;
 
 use ApiClient\Api\ControlPanel\Request\Balance;
 use ApiClient\Api\ControlPanel\Request\Connection;
+use ApiClient\Api\ControlPanel\Request\Document;
 use ApiClient\Api\ControlPanel\Request\Fee\BaseFee;
 use ApiClient\Api\ControlPanel\Request\Fee\DefaultFee;
 use ApiClient\Api\ControlPanel\Request\Fee\Fee;
 use ApiClient\Api\ControlPanel\Request\PaymentSystem;
 use ApiClient\Api\ControlPanel\Request\Project;
 use ApiClient\Api\ControlPanel\Request\Rate;
-use ApiClient\Api\ControlPanel\Request\Service;
+use ApiClient\Api\ControlPanel\Request\Service\Service;
+use ApiClient\Api\ControlPanel\Request\Service\ServiceRelationship;
 use ApiClient\Api\ControlPanel\Request\Transaction\Payment;
 use ApiClient\Api\ControlPanel\Request\Transaction\Payout;
 use ApiClient\Api\ControlPanel\Request\Transaction\TransactionAttribute;
@@ -203,5 +205,21 @@ class ControlPanelResource extends ApiResource
     public function verificationSchema(): VerificationSchema
     {
         return new VerificationSchema($this);
+    }
+
+    /**
+     * @return ServiceRelationship
+     */
+    public function serviceRelationship(): ServiceRelationship
+    {
+        return new ServiceRelationship($this);
+    }
+
+    /**
+     * @return Document
+     */
+    public function document(): Document
+    {
+        return new Document($this);
     }
 }

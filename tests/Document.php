@@ -8,10 +8,10 @@ use Doctrine\Common\Collections\ArrayCollection;
 use PHPUnit\Framework\TestCase;
 
 /**
- * Class Project
+ * Class Document
  * @package ApiClient\Tests
  */
-class Project extends TestCase
+class Document extends TestCase
 {
     /**
      * @var object|null
@@ -41,7 +41,7 @@ class Project extends TestCase
          * @var ArrayCollection $data
          */
         $data = $this->apiClient->attachedResource(new ControlPanelResource('qCCikc-9e-satjfSR3Yxl_96IGzxTTVvdEkzc8KzVoM',
-            '20268202-aa27-45d7-9dac-e15aaa6871fe'))->project()->getAll();
+            '20268202-aa27-45d7-9dac-e15aaa6871fe'))->document()->getAll();
         dd($data);
     }
 
@@ -51,22 +51,23 @@ class Project extends TestCase
          * @var ArrayCollection $data
          */
         $data = $this->apiClient->attachedResource(new ControlPanelResource('qCCikc-9e-satjfSR3Yxl_96IGzxTTVvdEkzc8KzVoM',
-            '20268202-aa27-45d7-9dac-e15aaa6871fe'))->project()->getById('20268202-aa27-45d7-9dac-e15aaa6871fe');
+            '20268202-aa27-45d7-9dac-e15aaa6871fe'))->document()->getById('4d2de4e4-6741-4146-bd62-b1f1a1b476eb');
         dd($data);
     }
 
     public function testCreate()
     {
-        $body = [
-            'name' => uniqid('test proj '),
-            'user' => '3fc4262b-636c-4725-8569-9699bf1f23a7',
-        ];
+        /**
+         * @var \ApiClient\Api\ControlPanel\Response\Verification\VerificationSchema $verificationSchema
+         */
+        $verificationSchema = $this->apiClient->attachedResource(new ControlPanelResource('qCCikc-9e-satjfSR3Yxl_96IGzxTTVvdEkzc8KzVoM',
+            '20268202-aa27-45d7-9dac-e15aaa6871fe'))->verificationSchema()->getBySubName('KYC(Card)')->first();
 
         /**
          * @var ArrayCollection $data
          */
         $data = $this->apiClient->attachedResource(new ControlPanelResource('qCCikc-9e-satjfSR3Yxl_96IGzxTTVvdEkzc8KzVoM',
-            '20268202-aa27-45d7-9dac-e15aaa6871fe'))->project()->create($body);
+            '20268202-aa27-45d7-9dac-e15aaa6871fe'))->document()->create('KYC(Card)', [['attribute' => 4, 'value' => 'test']], 'c5c6c068-ff55-11eb-a37a-0242ac160008', 'https://control-panel.dev.com/api/docs');
         dd($data);
     }
 }

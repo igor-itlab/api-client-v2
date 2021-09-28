@@ -18,9 +18,9 @@ class Balance
     protected Currency $currency;
 
     /**
-     * @var int
+     * @var float
      */
-    protected int $amount;
+    protected float $amount;
 
     /**
      * @var Service
@@ -66,18 +66,18 @@ class Balance
     }
 
     /**
-     * @return int
+     * @return float
      */
-    public function getAmount(): int
+    public function getAmount(): float
     {
         return $this->amount;
     }
 
     /**
-     * @param int $amount
+     * @param float $amount
      * @return Balance
      */
-    public function setAmount(int $amount): Balance
+    public function setAmount(float $amount): Balance
     {
         $this->amount = $amount;
 

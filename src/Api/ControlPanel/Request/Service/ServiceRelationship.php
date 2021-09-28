@@ -1,19 +1,17 @@
 <?php
 
-
-namespace ApiClient\Api\ControlPanel\Request;
-
+namespace ApiClient\Api\ControlPanel\Request\Service;
 
 use ApiClient\Api\ControlPanel\ControlPanelRequest;
 use ApiClient\MappedBy;
 use ApiClient\Services\Method;
 
 /**
- * Class Service
- * @package ApiClient\Api\ControlPanel\Request
- * @MappedBy(value="ApiClient\Api\ControlPanel\Mapper\Service")
+ * Class ServiceRelationship
+ * @package ApiClient\Api\ControlPanel\Request\Service
+ * @MappedBy(value="ApiClient\Api\ControlPanel\Mapper\Service\ServiceRelationship")
  */
-class Service extends ControlPanelRequest
+class ServiceRelationship extends ControlPanelRequest
 {
     /**
      * @param array|null $criteria
@@ -23,7 +21,7 @@ class Service extends ControlPanelRequest
     {
         $rb = $this->getRequestBuilder()
             ->setMethod(Method::GET())
-            ->setPath("api/services");
+            ->setPath("api/service_relationships");
 
         if ($criteria) {
             $rb
@@ -41,7 +39,7 @@ class Service extends ControlPanelRequest
     {
         $this->getRequestBuilder()
             ->setMethod(Method::GET())
-            ->setPath("api/services/$id");
+            ->setPath("api/service_relationships/$id");
 
         return $this->send();
     }

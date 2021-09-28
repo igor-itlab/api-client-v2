@@ -8,10 +8,10 @@ use Doctrine\Common\Collections\ArrayCollection;
 use PHPUnit\Framework\TestCase;
 
 /**
- * Class Project
+ * Class ServiceRelationship
  * @package ApiClient\Tests
  */
-class Project extends TestCase
+class ServiceRelationship extends TestCase
 {
     /**
      * @var object|null
@@ -41,7 +41,7 @@ class Project extends TestCase
          * @var ArrayCollection $data
          */
         $data = $this->apiClient->attachedResource(new ControlPanelResource('qCCikc-9e-satjfSR3Yxl_96IGzxTTVvdEkzc8KzVoM',
-            '20268202-aa27-45d7-9dac-e15aaa6871fe'))->project()->getAll();
+            '20268202-aa27-45d7-9dac-e15aaa6871fe'))->serviceRelationship()->getAll(['service.id' => '9836ad6c-084a-4eb7-9f34-4f0edf0bf880']);
         dd($data);
     }
 
@@ -51,22 +51,7 @@ class Project extends TestCase
          * @var ArrayCollection $data
          */
         $data = $this->apiClient->attachedResource(new ControlPanelResource('qCCikc-9e-satjfSR3Yxl_96IGzxTTVvdEkzc8KzVoM',
-            '20268202-aa27-45d7-9dac-e15aaa6871fe'))->project()->getById('20268202-aa27-45d7-9dac-e15aaa6871fe');
-        dd($data);
-    }
-
-    public function testCreate()
-    {
-        $body = [
-            'name' => uniqid('test proj '),
-            'user' => '3fc4262b-636c-4725-8569-9699bf1f23a7',
-        ];
-
-        /**
-         * @var ArrayCollection $data
-         */
-        $data = $this->apiClient->attachedResource(new ControlPanelResource('qCCikc-9e-satjfSR3Yxl_96IGzxTTVvdEkzc8KzVoM',
-            '20268202-aa27-45d7-9dac-e15aaa6871fe'))->project()->create($body);
+            '20268202-aa27-45d7-9dac-e15aaa6871fe'))->serviceRelationship()->getById('032c5142-1b10-11ec-bc7a-94aead56a745');
         dd($data);
     }
 }
