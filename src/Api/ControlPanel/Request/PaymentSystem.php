@@ -20,7 +20,7 @@ class PaymentSystem extends ControlPanelRequest
     {
         $rb = $this->getRequestBuilder()
             ->setMethod(Method::GET())
-            ->setPath("api/payment_systems");
+            ->setPath("api/payment-systems");
 
         if ($criteria) {
             $rb
@@ -38,7 +38,7 @@ class PaymentSystem extends ControlPanelRequest
     {
         $this->getRequestBuilder()
             ->setMethod(Method::GET())
-            ->setPath("api/payment_systems/$subName")
+            ->setPath("api/payment-systems/$subName")
         ;
 
         return $this->send();

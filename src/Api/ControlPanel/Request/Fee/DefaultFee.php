@@ -21,7 +21,7 @@ class DefaultFee extends ControlPanelRequest
     {
         $rb = $this->getRequestBuilder()
             ->setMethod(Method::GET())
-            ->setPath("api/default_fees");
+            ->setPath("api/default-fees");
 
         if ($criteria) {
             $rb
@@ -39,7 +39,7 @@ class DefaultFee extends ControlPanelRequest
     {
         $this->getRequestBuilder()
             ->setMethod(Method::GET())
-            ->setPath("api/default_fees/$id");
+            ->setPath("api/default-fees/$id");
 
         return $this->send();
     }

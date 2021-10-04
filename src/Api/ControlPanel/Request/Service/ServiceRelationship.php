@@ -21,7 +21,7 @@ class ServiceRelationship extends ControlPanelRequest
     {
         $rb = $this->getRequestBuilder()
             ->setMethod(Method::GET())
-            ->setPath("api/service_relationships");
+            ->setPath("api/service-relationships");
 
         if ($criteria) {
             $rb
@@ -39,7 +39,7 @@ class ServiceRelationship extends ControlPanelRequest
     {
         $this->getRequestBuilder()
             ->setMethod(Method::GET())
-            ->setPath("api/service_relationships/$id");
+            ->setPath("api/service-relationships/$id");
 
         return $this->send();
     }

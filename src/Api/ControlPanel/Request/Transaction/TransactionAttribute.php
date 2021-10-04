@@ -21,7 +21,7 @@ class TransactionAttribute extends ControlPanelRequest
     {
         $rb = $this->getRequestBuilder()
             ->setMethod(Method::GET())
-            ->setPath("api/transaction_attributes");
+            ->setPath("api/transaction-attributes");
 
         if ($criteria) {
             $rb
@@ -39,7 +39,7 @@ class TransactionAttribute extends ControlPanelRequest
     {
         $this->getRequestBuilder()
             ->setMethod(Method::GET())
-            ->setPath("api/transaction_attributes/$id");
+            ->setPath("api/transaction-attributes/$id");
 
         return $this->send();
     }

@@ -21,7 +21,7 @@ class VerificationSchema extends ControlPanelRequest
     {
         $rb = $this->getRequestBuilder()
             ->setMethod(Method::GET())
-            ->setPath("api/verification_schemas");
+            ->setPath("api/verification-schemas");
 
         if ($criteria) {
             $rb
@@ -39,7 +39,7 @@ class VerificationSchema extends ControlPanelRequest
     {
         $this->getRequestBuilder()
             ->setMethod(Method::GET())
-            ->setPath("api/verification_schemas/$subName");
+            ->setPath("api/verification-schemas/$subName");
 
         return $this->send();
     }

@@ -21,7 +21,7 @@ class BaseFee extends ControlPanelRequest
     {
         $rb = $this->getRequestBuilder()
             ->setMethod(Method::GET())
-            ->setPath("api/base_fees");
+            ->setPath("api/base-fees");
 
         if ($criteria) {
             $rb
@@ -39,7 +39,7 @@ class BaseFee extends ControlPanelRequest
     {
         $this->getRequestBuilder()
             ->setMethod(Method::GET())
-            ->setPath("api/base_fees/$id");
+            ->setPath("api/base-fees/$id");
 
         return $this->send();
     }
@@ -53,7 +53,7 @@ class BaseFee extends ControlPanelRequest
     {
         $this->getRequestBuilder()
             ->setMethod(Method::PUT())
-            ->setPath("api/base_fees/$id")
+            ->setPath("api/base-fees/$id")
             ->setBody($body);
 
         return $this->send();

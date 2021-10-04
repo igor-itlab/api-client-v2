@@ -21,7 +21,7 @@ class VerificationAttribute extends ControlPanelRequest
     {
         $rb = $this->getRequestBuilder()
             ->setMethod(Method::GET())
-            ->setPath("api/verification_attributes");
+            ->setPath("api/verification-attributes");
 
         if ($criteria) {
             $rb
@@ -39,7 +39,7 @@ class VerificationAttribute extends ControlPanelRequest
     {
         $this->getRequestBuilder()
             ->setMethod(Method::GET())
-            ->setPath("api/verification_attributes/$id");
+            ->setPath("api/verification-attributes/$id");
 
         return $this->send();
     }
