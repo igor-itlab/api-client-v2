@@ -44,21 +44,6 @@ class Payout extends ControlPanelRequest
         return $this->send();
     }
 
-//    /**
-//     * @param array $body
-//     * @return mixed
-//     */
-//    public function create(array $body)
-//    {
-//        $this->getRequestBuilder()
-//            ->setMethod(Method::POST())
-//            ->setPath("api/payouts")
-//            ->addHeader('Signature', hash_hmac('sha256', base64_encode(json_encode($body)), $this->resource->getSecret()))
-//            ->setBody($body);
-//
-//        return $this->send();
-//    }
-
     /**
      * @param string $returnUrl
      * @param string $paymentSystem
