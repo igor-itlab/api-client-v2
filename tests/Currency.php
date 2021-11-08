@@ -11,37 +11,15 @@ use PHPUnit\Framework\TestCase;
  * Class Currency
  * @package ApiClient\Tests
  */
-class Currency extends TestCase
+class Currency extends ApiClientTest
 {
-    /**
-     * @var object|null
-     */
-    protected ?object $apiClient;
-
-    /**
-     * @param string|null $name
-     * @param array $data
-     * @param string $dataName
-     */
-    public function __construct(?string $name = null, array $data = [], $dataName = '')
-    {
-        parent::__construct($name, $data, $dataName);
-        $test = new ApiClientKernel('test', true);
-
-        $test->boot();
-        $container = $test->getContainer();
-        $this->apiClient = $container->get('api_client.client');
-
-        $this->assertInstanceOf(ApiClient::class, $this->apiClient);
-    }
-
     public function testGetAll()
     {
         /**
          * @var ArrayCollection $data
          */
-        $data = $this->apiClient->attachedResource(new ControlPanelResource('qCCikc-9e-satjfSR3Yxl_96IGzxTTVvdEkzc8KzVoM',
-            '20268202-aa27-45d7-9dac-e15aaa6871fe'))->currency()->getAll();
+        $data = $this->apiClient->attachedResource(new ControlPanelResource(self::SECRET,
+            self::PROJECT_ID))->currency()->getAll();
         dd($data);
     }
 
@@ -50,8 +28,8 @@ class Currency extends TestCase
         /**
          * @var ArrayCollection $data
          */
-        $data = $this->apiClient->attachedResource(new ControlPanelResource('qCCikc-9e-satjfSR3Yxl_96IGzxTTVvdEkzc8KzVoM',
-            '20268202-aa27-45d7-9dac-e15aaa6871fe'))->currency()->getByAsset('UAH');
+        $data = $this->apiClient->attachedResource(new ControlPanelResource(self::SECRET,
+            self::PROJECT_ID))->currency()->getByAsset('UAH');
         dd($data);
     }
 
@@ -65,8 +43,8 @@ class Currency extends TestCase
         /**
          * @var ArrayCollection $data
          */
-        $data = $this->apiClient->attachedResource(new ControlPanelResource('qCCikc-9e-satjfSR3Yxl_96IGzxTTVvdEkzc8KzVoM',
-            '20268202-aa27-45d7-9dac-e15aaa6871fe'))->currency()->create($body);
+        $data = $this->apiClient->attachedResource(new ControlPanelResource(self::SECRET,
+            self::PROJECT_ID))->currency()->create($body);
         dd($data);
     }
 }

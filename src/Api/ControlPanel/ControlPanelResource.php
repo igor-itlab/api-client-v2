@@ -10,6 +10,7 @@ use ApiClient\Api\ControlPanel\Request\Document;
 use ApiClient\Api\ControlPanel\Request\Fee\BaseFee;
 use ApiClient\Api\ControlPanel\Request\Fee\DefaultFee;
 use ApiClient\Api\ControlPanel\Request\Fee\Fee;
+use ApiClient\Api\ControlPanel\Request\Network;
 use ApiClient\Api\ControlPanel\Request\PaymentSystem;
 use ApiClient\Api\ControlPanel\Request\Project;
 use ApiClient\Api\ControlPanel\Request\Rate;
@@ -221,5 +222,13 @@ class ControlPanelResource extends ApiResource
     public function document(): Document
     {
         return new Document($this);
+    }
+
+    /**
+     * @return Network
+     */
+    public function network(): Network
+    {
+        return new Network($this);
     }
 }
