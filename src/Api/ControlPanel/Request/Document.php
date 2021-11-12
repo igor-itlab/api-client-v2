@@ -65,15 +65,9 @@ class Document extends ControlPanelRequest
             'schema'     => $schemaSubName,
             'attributes' => $attributes,
             'connection' => $connection,
+            'callBackUrl' => $callBackUrl,
+            'lang' => $lang,
         ];
-
-        if ($callBackUrl) {
-            $body['callBackUrl'] = $callBackUrl;
-        }
-
-        if ($lang) {
-            $body['lang'] = $lang;
-        }
 
         $this->getRequestBuilder()
             ->setMethod(Method::POST())
