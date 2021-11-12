@@ -50,22 +50,29 @@ class Document extends ControlPanelRequest
      * @param array $attributes
      * @param string $connection
      * @param string|null $callBackUrl
+     * @param string $lang
      * @return mixed
      */
     public function create(
         string $schemaSubName,
-        array $attributes,
+        array  $attributes,
         string $connection,
-        string $callBackUrl = null
-    ) {
+        string $callBackUrl = 'https://test.com',
+        string $lang = 'en'
+    )
+    {
         $body = [
-            'schema' => $schemaSubName,
+            'schema'     => $schemaSubName,
             'attributes' => $attributes,
             'connection' => $connection,
         ];
 
         if ($callBackUrl) {
             $body['callBackUrl'] = $callBackUrl;
+        }
+
+        if ($lang) {
+            $body['lang'] = $lang;
         }
 
         $this->getRequestBuilder()

@@ -39,7 +39,7 @@ class Document extends ApiClientTest
          * @var ArrayCollection $data
          */
         $data = $this->apiClient->attachedResource(new ControlPanelResource(self::SECRET,
-            self::PROJECT_ID))->document()->create('KYC(Card)', [['attribute' => 4, 'value' => 'test']], 'c5c6c068-ff55-11eb-a37a-0242ac160008', 'https://control-panel.dev.com/api/docs');
+            self::PROJECT_ID))->document()->create('KYC(Card)', [['attribute' => 4, 'value' => 'test']], 'c5c6c068-ff55-11eb-a37a-0242ac160008');
         dd($data);
     }
 }
