@@ -42,7 +42,8 @@
     "symfony/event-dispatcher": "*",
     "symfony/validator": "^5.3",
     "web-token/jwt-framework": "^2.1",
-    "ramsey/uuid-doctrine": "^1.6"
+    "ramsey/uuid-doctrine": "^1.6",
+    "symfony/property-info": "^5.3"
   },
   "autoload": {
     "psr-4": {
