@@ -16,7 +16,12 @@ class RateHistory
     /**
      * @var float
      */
-    protected float $rate;
+    protected float $selling;
+
+    /**
+     * @var float
+     */
+    protected float $purchase;
 
     /**
      * @var int
@@ -48,25 +53,6 @@ class RateHistory
     public function setId(int $id): self
     {
         $this->id = $id;
-
-        return $this;
-    }
-
-    /**
-     * @return float
-     */
-    public function getRate(): float
-    {
-        return $this->rate;
-    }
-
-    /**
-     * @param float $rate
-     * @return RateHistory
-     */
-    public function setRate(float $rate): self
-    {
-        $this->rate = $rate;
 
         return $this;
     }
@@ -126,5 +112,37 @@ class RateHistory
         $this->service = $service;
 
         return $this;
+    }
+
+    /**
+     * @return float
+     */
+    public function getSelling(): float
+    {
+        return $this->selling;
+    }
+
+    /**
+     * @param float $selling
+     */
+    public function setSelling(float $selling): void
+    {
+        $this->selling = $selling;
+    }
+
+    /**
+     * @return float
+     */
+    public function getPurchase(): float
+    {
+        return $this->purchase;
+    }
+
+    /**
+     * @param float $purchase
+     */
+    public function setPurchase(float $purchase): void
+    {
+        $this->purchase = $purchase;
     }
 }

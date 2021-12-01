@@ -2,6 +2,7 @@
 
 namespace ApiClient\Api\ControlPanel\Response\Rate;
 
+use ApiClient\Api\ControlPanel\Response\Connection\Connection;
 use ApiClient\Api\ControlPanel\Response\Currency\Currency;
 use ApiClient\Api\ControlPanel\Response\Service\Service;
 
@@ -18,14 +19,19 @@ class Rate
     protected Currency $currency;
 
     /**
-     * @var Service
+     * @var Connection
      */
-    protected Service $service;
+    protected Connection $connection;
 
     /**
      * @var string
      */
-    protected string $rate;
+    protected string $rateSelling;
+
+    /**
+     * @var string
+     */
+    protected string $ratePurchase;
 
     /**
      * @var string
@@ -86,20 +92,20 @@ class Rate
     }
 
     /**
-     * @return Service
+     * @return string
      */
-    public function getService(): Service
+    public function getRateSelling(): string
     {
-        return $this->service;
+        return $this->rateSelling;
     }
 
     /**
-     * @param Service $service
+     * @param string $rateSelling
      * @return Rate
      */
-    public function setService(Service $service): Rate
+    public function setRateSelling(string $rateSelling): Rate
     {
-        $this->service = $service;
+        $this->rateSelling = $rateSelling;
 
         return $this;
     }
@@ -107,20 +113,17 @@ class Rate
     /**
      * @return string
      */
-    public function getRate(): string
+    public function getRatePurchase(): string
     {
-        return $this->rate;
+        return $this->ratePurchase;
     }
 
     /**
-     * @param string $rate
-     * @return Rate
+     * @param string $ratePurchase
      */
-    public function setRate(string $rate): Rate
+    public function setRatePurchase(string $ratePurchase): void
     {
-        $this->rate = $rate;
-
-        return $this;
+        $this->ratePurchase = $ratePurchase;
     }
 
     /**
@@ -198,5 +201,21 @@ class Rate
         $this->cleanPurchase = $cleanPurchase;
 
         return $this;
+    }
+
+    /**
+     * @return Connection
+     */
+    public function getConnection(): Connection
+    {
+        return $this->connection;
+    }
+
+    /**
+     * @param Connection $connection
+     */
+    public function setConnection(Connection $connection): void
+    {
+        $this->connection = $connection;
     }
 }
