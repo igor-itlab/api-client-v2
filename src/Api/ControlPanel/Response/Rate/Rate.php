@@ -34,24 +34,24 @@ class Rate
     protected string $ratePurchase;
 
     /**
-     * @var string
+     * @var float
      */
-    protected string $selling;
-
-    /**
-     * @var string
-     */
-    protected string $purchase;
+    protected float $selling;
 
     /**
      * @var float
      */
-    protected float $cleanSelling;
+    protected float $purchase;
 
     /**
-     * @var float
+     * @var string
      */
-    protected float $cleanPurchase;
+    protected string $cleanSelling;
+
+    /**
+     * @var string
+     */
+    protected string $cleanPurchase;
 
     /**
      * @return string
@@ -127,27 +127,27 @@ class Rate
     }
 
     /**
-     * @return string
+     * @return float
      */
-    public function getSelling(): string
+    public function getSelling(): float
     {
         return $this->selling;
     }
 
     /**
      *
-     * @return float
+     * @return string
      */
-    public function getCleanSelling(): float
+    public function getCleanSelling(): string
     {
         return $this->cleanSelling;
     }
 
     /**
-     * @param string $selling
+     * @param float $selling
      * @return Rate
      */
-    public function setSelling(string $selling): Rate
+    public function setSelling(float $selling): Rate
     {
         $this->selling = $selling;
 
@@ -155,26 +155,26 @@ class Rate
     }
 
     /**
-     * @return string
+     * @return float
      */
-    public function getPurchase(): string
+    public function getPurchase(): float
     {
         return $this->purchase;
     }
 
     /**
-     * @return float
+     * @return string
      */
-    public function getCleanPurchase(): float
+    public function getCleanPurchase(): string
     {
         return $this->cleanPurchase;
     }
 
     /**
-     * @param string $purchase
+     * @param float $purchase
      * @return Rate
      */
-    public function setPurchase(string $purchase): Rate
+    public function setPurchase(float $purchase): Rate
     {
         $this->purchase = $purchase;
 
@@ -182,10 +182,10 @@ class Rate
     }
 
     /**
-     * @param float $cleanSelling
+     * @param string $cleanSelling
      * @return Rate
      */
-    public function setCleanSelling(float $cleanSelling): Rate
+    public function setCleanSelling(string $cleanSelling): Rate
     {
         $this->cleanSelling = $cleanSelling;
 
@@ -193,10 +193,10 @@ class Rate
     }
 
     /**
-     * @param float $cleanPurchase
+     * @param string $cleanPurchase
      * @return Rate
      */
-    public function setCleanPurchase(float $cleanPurchase): Rate
+    public function setCleanPurchase(string $cleanPurchase): Rate
     {
         $this->cleanPurchase = $cleanPurchase;
 
