@@ -14,9 +14,9 @@ class Rate
     protected string $id;
 
     /**
-     * @var Currency
+     * @var RateBase
      */
-    protected Currency $currency;
+    protected RateBase $rateBase;
 
     /**
      * @var Connection
@@ -73,20 +73,20 @@ class Rate
     }
 
     /**
-     * @return Currency
+     * @return RateBase
      */
-    public function getCurrency(): Currency
+    public function getRateBase(): RateBase
     {
-        return $this->currency;
+        return $this->rateBase;
     }
 
     /**
-     * @param Currency $currency
+     * @param RateBase $rateBase
      * @return Rate
      */
-    public function setCurrency(Currency $currency): Rate
+    public function setRateBase(RateBase $rateBase): self
     {
-        $this->currency = $currency;
+        $this->rateBase = $rateBase;
 
         return $this;
     }
