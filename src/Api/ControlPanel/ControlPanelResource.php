@@ -10,6 +10,7 @@ use ApiClient\Api\ControlPanel\Request\Document;
 use ApiClient\Api\ControlPanel\Request\Fee\BaseFee;
 use ApiClient\Api\ControlPanel\Request\Fee\DefaultFee;
 use ApiClient\Api\ControlPanel\Request\Fee\Fee;
+use ApiClient\Api\ControlPanel\Request\Fee\RangeFee;
 use ApiClient\Api\ControlPanel\Request\Network;
 use ApiClient\Api\ControlPanel\Request\PaymentSystem;
 use ApiClient\Api\ControlPanel\Request\Project;
@@ -158,6 +159,14 @@ class ControlPanelResource extends ApiResource
     public function fee(): Fee
     {
         return new Fee($this);
+    }
+
+    /**
+     * @return RangeFee
+     */
+    public function rangeFee(): RangeFee
+    {
+        return new RangeFee($this);
     }
 
     /**

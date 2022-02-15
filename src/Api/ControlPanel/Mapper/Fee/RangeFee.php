@@ -1,0 +1,34 @@
+<?php
+
+namespace ApiClient\Api\ControlPanel\Mapper\Fee;
+
+use ApiClient\Mapper;
+use ApiClient\Response;
+use ApiClient\ResponseBy;
+
+/**
+ * Class Fee
+ * @package ApiClient\Api\ControlPanel\Mapper\Fee
+ */
+class RangeFee extends Mapper
+{
+    /**
+     * @param Response $response
+     * @return array
+     * @ResponseBy(value="ApiClient\Api\ControlPanel\Response\Fee\RangeFee")
+     */
+    public function getAll(Response $response): array
+    {
+        return $response->getResponseContent();
+    }
+
+    /**
+     * @param Response $response
+     * @return array
+     * @ResponseBy(value="ApiClient\Api\ControlPanel\Response\Fee\RangeFee")
+     */
+    public function getById(Response $response): array
+    {
+        return [$response->getResponseContent()];
+    }
+}
