@@ -55,7 +55,7 @@ class Payment extends ControlPanelRequest
      * @param array $attributes
      * @return mixed
      */
-    public function create(string $returnUrl, string $paymentSystem, string $amount, string $currency, string $referenceId, string $callBackUrl, string $connection, array $attributes = [])
+    public function create(string $returnUrl, string $paymentSystem, string $amount, string $currency, string $referenceId, string $callBackUrl, string $connection, array $attributes = [], string $note = null)
     {
         $body = [
             "returnUrl" => $returnUrl,
@@ -69,6 +69,10 @@ class Payment extends ControlPanelRequest
 
         if(!empty($attributes)) {
             $body['attributes'] =  $attributes;
+        }
+
+        if($note) {
+            $body['note'] =  $note;
         }
 
         $this->getRequestBuilder()

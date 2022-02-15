@@ -2,6 +2,7 @@
 
 namespace ApiClient\Api\ControlPanel\Response\Rate;
 
+use ApiClient\Api\ControlPanel\Response\Connection\Connection;
 use ApiClient\Api\ControlPanel\Response\Currency\Currency;
 use ApiClient\Api\ControlPanel\Response\Service\Service;
 
@@ -13,39 +14,44 @@ class Rate
     protected string $id;
 
     /**
-     * @var Currency
+     * @var RateBase
      */
-    protected Currency $currency;
+    protected RateBase $rateBase;
 
     /**
-     * @var Service
+     * @var Connection
      */
-    protected Service $service;
-
-    /**
-     * @var string
-     */
-    protected string $rate;
+    protected Connection $connection;
 
     /**
      * @var string
      */
-    protected string $selling;
+    protected string $rateSelling;
 
     /**
      * @var string
      */
-    protected string $purchase;
+    protected string $ratePurchase;
 
     /**
      * @var float
      */
-    protected float $cleanSelling;
+    protected float $selling;
 
     /**
      * @var float
      */
-    protected float $cleanPurchase;
+    protected float $purchase;
+
+    /**
+     * @var string
+     */
+    protected string $cleanSelling;
+
+    /**
+     * @var string
+     */
+    protected string $cleanPurchase;
 
     /**
      * @return string
@@ -67,39 +73,20 @@ class Rate
     }
 
     /**
-     * @return Currency
+     * @return RateBase
      */
-    public function getCurrency(): Currency
+    public function getRateBase(): RateBase
     {
-        return $this->currency;
+        return $this->rateBase;
     }
 
     /**
-     * @param Currency $currency
+     * @param RateBase $rateBase
      * @return Rate
      */
-    public function setCurrency(Currency $currency): Rate
+    public function setRateBase(RateBase $rateBase): self
     {
-        $this->currency = $currency;
-
-        return $this;
-    }
-
-    /**
-     * @return Service
-     */
-    public function getService(): Service
-    {
-        return $this->service;
-    }
-
-    /**
-     * @param Service $service
-     * @return Rate
-     */
-    public function setService(Service $service): Rate
-    {
-        $this->service = $service;
+        $this->rateBase = $rateBase;
 
         return $this;
     }
@@ -107,18 +94,18 @@ class Rate
     /**
      * @return string
      */
-    public function getRate(): string
+    public function getRateSelling(): string
     {
-        return $this->rate;
+        return $this->rateSelling;
     }
 
     /**
-     * @param string $rate
+     * @param string $rateSelling
      * @return Rate
      */
-    public function setRate(string $rate): Rate
+    public function setRateSelling(string $rateSelling): Rate
     {
-        $this->rate = $rate;
+        $this->rateSelling = $rateSelling;
 
         return $this;
     }
@@ -126,25 +113,41 @@ class Rate
     /**
      * @return string
      */
-    public function getSelling(): string
+    public function getRatePurchase(): string
+    {
+        return $this->ratePurchase;
+    }
+
+    /**
+     * @param string $ratePurchase
+     */
+    public function setRatePurchase(string $ratePurchase): void
+    {
+        $this->ratePurchase = $ratePurchase;
+    }
+
+    /**
+     * @return float
+     */
+    public function getSelling(): float
     {
         return $this->selling;
     }
 
     /**
      *
-     * @return float
+     * @return string
      */
-    public function getCleanSelling(): float
+    public function getCleanSelling(): string
     {
         return $this->cleanSelling;
     }
 
     /**
-     * @param string $selling
+     * @param float $selling
      * @return Rate
      */
-    public function setSelling(string $selling): Rate
+    public function setSelling(float $selling): Rate
     {
         $this->selling = $selling;
 
@@ -152,26 +155,26 @@ class Rate
     }
 
     /**
-     * @return string
+     * @return float
      */
-    public function getPurchase(): string
+    public function getPurchase(): float
     {
         return $this->purchase;
     }
 
     /**
-     * @return float
+     * @return string
      */
-    public function getCleanPurchase(): float
+    public function getCleanPurchase(): string
     {
         return $this->cleanPurchase;
     }
 
     /**
-     * @param string $purchase
+     * @param float $purchase
      * @return Rate
      */
-    public function setPurchase(string $purchase): Rate
+    public function setPurchase(float $purchase): Rate
     {
         $this->purchase = $purchase;
 
@@ -179,10 +182,10 @@ class Rate
     }
 
     /**
-     * @param float $cleanSelling
+     * @param string $cleanSelling
      * @return Rate
      */
-    public function setCleanSelling(float $cleanSelling): Rate
+    public function setCleanSelling(string $cleanSelling): Rate
     {
         $this->cleanSelling = $cleanSelling;
 
@@ -190,13 +193,29 @@ class Rate
     }
 
     /**
-     * @param float $cleanPurchase
+     * @param string $cleanPurchase
      * @return Rate
      */
-    public function setCleanPurchase(float $cleanPurchase): Rate
+    public function setCleanPurchase(string $cleanPurchase): Rate
     {
         $this->cleanPurchase = $cleanPurchase;
 
         return $this;
+    }
+
+    /**
+     * @return Connection
+     */
+    public function getConnection(): Connection
+    {
+        return $this->connection;
+    }
+
+    /**
+     * @param Connection $connection
+     */
+    public function setConnection(Connection $connection): void
+    {
+        $this->connection = $connection;
     }
 }

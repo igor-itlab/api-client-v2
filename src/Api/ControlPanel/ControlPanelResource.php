@@ -15,6 +15,7 @@ use ApiClient\Api\ControlPanel\Request\Network;
 use ApiClient\Api\ControlPanel\Request\PaymentSystem;
 use ApiClient\Api\ControlPanel\Request\Project;
 use ApiClient\Api\ControlPanel\Request\Rate;
+use ApiClient\Api\ControlPanel\Request\RateHistory;
 use ApiClient\Api\ControlPanel\Request\Service\Service;
 use ApiClient\Api\ControlPanel\Request\Service\ServiceRelationship;
 use ApiClient\Api\ControlPanel\Request\Transaction\Payment;
@@ -239,5 +240,13 @@ class ControlPanelResource extends ApiResource
     public function network(): Network
     {
         return new Network($this);
+    }
+
+    /**
+     * @return RateHistory
+     */
+    public function rateHistory(): RateHistory
+    {
+        return new RateHistory($this);
     }
 }
