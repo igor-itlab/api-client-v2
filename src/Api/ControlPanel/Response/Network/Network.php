@@ -36,6 +36,11 @@ class Network
     protected array $attributes;
 
     /**
+     * @var array
+     */
+    protected array $country;
+
+    /**
      * @return int
      */
     public function getId(): int
@@ -129,5 +134,21 @@ class Network
     public function setAttributes(array $attributes): void
     {
         $this->attributes = $attributes;
+    }
+
+    /**
+     * @return array
+     */
+    public function getCountry(): array
+    {
+        return $this->country;
+    }
+
+    /**
+     * @param array $country
+     */
+    public function setCountry(array $country): void
+    {
+        $this->country = $country;
     }
 }
