@@ -16,11 +16,11 @@ class Network extends ControlPanelRequest
     /**
      * @return mixed
      */
-    public function getAll()
+    public function getAll(string $language = "ru")
     {
         $this->getRequestBuilder()
             ->setMethod(Method::GET())
-            ->setPath("api/network");
+            ->setPath("api/network?language=" . $language);
 
         return $this->send();
     }
