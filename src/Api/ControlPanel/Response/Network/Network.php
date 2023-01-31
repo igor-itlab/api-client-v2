@@ -36,6 +36,16 @@ class Network
     protected array $attributes;
 
     /**
+     * @var array
+     */
+    protected array $country;
+
+    /**
+     * @var bool
+     */
+    protected bool $active;
+
+    /**
      * @return int
      */
     public function getId(): int
@@ -129,5 +139,37 @@ class Network
     public function setAttributes(array $attributes): void
     {
         $this->attributes = $attributes;
+    }
+
+    /**
+     * @return array
+     */
+    public function getCountry(): array
+    {
+        return $this->country;
+    }
+
+    /**
+     * @param array $country
+     */
+    public function setCountry(array $country): void
+    {
+        $this->country = $country;
+    }
+
+    /**
+     * @return bool
+     */
+    public function isActive(): bool
+    {
+        return $this->active;
+    }
+
+    /**
+     * @param bool $active
+     */
+    public function setActive(bool $active): void
+    {
+        $this->active = $active;
     }
 }

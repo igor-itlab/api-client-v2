@@ -43,12 +43,25 @@ class HttpClientRequestBuilder extends RequestBuilder
             [
                 $this->makeHeaders() => $this->getHeaders(),
                 $this->makeBody() => $this->getBody(),
-                "verify_peer"=>false,
-                "verify_host"=>false,
+                "verify_peer" => false,
+                "verify_host" => false,
             ]
         );
 
-        return new Response($response->getStatusCode(), $response->toArray(false), $this->resource);
+        try {
+            $responseData = $response->toArray(false);
+        } catch (\Throwable $exception) {
+
+            $responseData = [];
+
+            $content = $response->getContent(false);
+
+            if ($this->isHTML($content)) {
+                $responseData = $this->conevertHTMLToObject($content);
+            }
+        }
+
+        return new Response($response->getStatusCode(), $responseData, $this->resource);
     }
 
     /**
@@ -65,6 +78,50 @@ class HttpClientRequestBuilder extends RequestBuilder
     public function makeHeaders(): string
     {
         return 'headers';
+    }
+
+    /**
+     * @param $string
+     * @return bool
+     */
+    public function isHTML($string)
+    {
+        return $string != strip_tags($string) ? true : false;
+    }
+
+    /**
+     * @param $html
+     * @return array
+     */
+    public function conevertHTMLToObject(string $html)
+    {
+        $dom = new \DOMDocument();
+        $dom->loadHTML($html);
+
+        return $this->convertElementToObject($dom->documentElement);
+    }
+
+    /**
+     * @param $element
+     * @return array
+     */
+    public function convertElementToObject($element)
+    {
+        $obj = ["tag" => "body"];
+
+        foreach ($element->attributes as $attribute) {
+            $obj[$attribute->name] = $attribute->value;
+        }
+
+        foreach ($element->childNodes as $subElement) {
+            if ($subElement->nodeType == XML_TEXT_NODE) {
+                $obj["html"] = $subElement->wholeText;
+            } else {
+                $obj["children"][] = $this->convertElementToObject($subElement);
+            }
+        }
+
+        return $obj;
     }
 
 }
