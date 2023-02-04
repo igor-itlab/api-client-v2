@@ -31,7 +31,7 @@
   "require": {
     "php": ">=7.4",
     "ext-json": "*",
-    "symfony/http-kernel": "*",
+    "symfony/http-kernel": "5.4.20",
     "symfony/dependency-injection": "*",
     "symfony/config": "*",
     "symfony/http-client": "*",
