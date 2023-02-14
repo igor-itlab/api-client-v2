@@ -44,6 +44,16 @@ class TransactionAttribute
     protected string $type;
 
     /**
+     * @var string
+     */
+    protected string $regex = "";
+
+    /**
+     * @var string
+     */
+    protected string $placeholder = "";
+
+    /**
      * @var Service
      */
     protected Service $service;
@@ -199,4 +209,44 @@ class TransactionAttribute
 
         return $this;
     }
+
+    /**
+     * @return string
+     */
+    public function getRegex(): string
+    {
+        return $this->regex;
+    }
+
+    /**
+     * @param string $regex
+     * @return TransactionAttribute
+     */
+    public function setRegex(string $regex): TransactionAttribute
+    {
+        $this->regex = $regex;
+
+        return $this;
+    }
+
+    /**
+     * @return string
+     */
+    public function getPlaceholder(): string
+    {
+        return $this->placeholder;
+    }
+
+    /**
+     * @param string $placeholder
+     * @return TransactionAttribute
+     */
+    public function setPlaceholder(string $placeholder): TransactionAttribute
+    {
+        $this->placeholder = $placeholder;
+
+        return $this;
+    }
+
+
 }
