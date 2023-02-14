@@ -36,7 +36,7 @@ class ControlPanelRequest extends Request
     {
 
         return parent::createRequestBuilder()
-            ->setDomain("https://cp.crpt.trading")
+            ->setDomain("https://cp.incoin.ltd")
             ->addHeader(
                 "Accept",
                 "application/json"
