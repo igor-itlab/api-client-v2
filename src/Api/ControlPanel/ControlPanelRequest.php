@@ -36,7 +36,7 @@ class ControlPanelRequest extends Request
     {
 
         return parent::createRequestBuilder()
-            ->setDomain("https://cp.incoin.ltd")
+            ->setDomain("https://cp.exsoft.io")
             ->addHeader(
                 "Accept",
                 "application/json"
