@@ -14,6 +14,7 @@ use ApiClient\Api\ControlPanel\Request\Fee\RangeFee;
 use ApiClient\Api\ControlPanel\Request\Network;
 use ApiClient\Api\ControlPanel\Request\PaymentSystem;
 use ApiClient\Api\ControlPanel\Request\Project;
+use ApiClient\Api\ControlPanel\Request\ProjectVerificationSchema;
 use ApiClient\Api\ControlPanel\Request\Rate;
 use ApiClient\Api\ControlPanel\Request\RateHistory;
 use ApiClient\Api\ControlPanel\Request\Service\Service;
@@ -248,5 +249,13 @@ class ControlPanelResource extends ApiResource
     public function rateHistory(): RateHistory
     {
         return new RateHistory($this);
+    }
+
+    /**
+     * @return ProjectVerificationSchema
+     */
+    public function projectVerificationSchema(): ProjectVerificationSchema
+    {
+        return new ProjectVerificationSchema($this);
     }
 }
