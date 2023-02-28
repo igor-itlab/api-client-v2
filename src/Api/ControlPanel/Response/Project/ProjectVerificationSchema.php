@@ -21,7 +21,7 @@ class ProjectVerificationSchema
     /**
      * @var ServiceRelationship
      */
-    protected ServiceRelationship $serviceRelationship;
+    protected ServiceRelationship $serviceRelationships;
 
     /**
      * @var VerificationSchema
@@ -67,18 +67,18 @@ class ProjectVerificationSchema
     /**
      * @return ServiceRelationship
      */
-    public function getServiceRelationship(): ServiceRelationship
+    public function getServiceRelationships(): ServiceRelationship
     {
-        return $this->serviceRelationship;
+        return $this->serviceRelationships;
     }
 
     /**
-     * @param ServiceRelationship $serviceRelationship
+     * @param ServiceRelationship $serviceRelationships
      * @return ProjectVerificationSchema
      */
-    public function setServiceRelationship(ServiceRelationship $serviceRelationship): ProjectVerificationSchema
+    public function setServiceRelationships(ServiceRelationship $serviceRelationships): ProjectVerificationSchema
     {
-        $this->serviceRelationship = $serviceRelationship;
+        $this->serviceRelationships = $serviceRelationships;
         return $this;
     }
 
