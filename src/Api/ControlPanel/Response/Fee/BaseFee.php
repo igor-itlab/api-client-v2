@@ -59,6 +59,11 @@ class BaseFee
     protected string $type;
 
     /**
+     * @var bool
+     */
+    protected bool $active;
+
+    /**
      * @return string
      */
     public function getId(): string
@@ -228,6 +233,22 @@ class BaseFee
     public function setType(string $type): void
     {
         $this->type = $type;
+    }
+
+    /**
+     * @return bool
+     */
+    public function isActive(): bool
+    {
+        return $this->active;
+    }
+
+    /**
+     * @param bool $active
+     */
+    public function setActive(bool $active): void
+    {
+        $this->active = $active;
     }
 
 }
