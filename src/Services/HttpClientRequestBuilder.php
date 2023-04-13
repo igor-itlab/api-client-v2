@@ -42,9 +42,9 @@ class HttpClientRequestBuilder extends RequestBuilder
             $this->getUrl(),
             [
                 $this->makeHeaders() => $this->getHeaders(),
-                $this->makeBody() => $this->getBody(),
-                "verify_peer" => false,
-                "verify_host" => false,
+                $this->makeBody()    => $this->getBody(),
+                "verify_peer"        => false,
+                "verify_host"        => false,
             ]
         );
 
@@ -58,7 +58,15 @@ class HttpClientRequestBuilder extends RequestBuilder
 
             if ($this->isHTML($content)) {
                 $responseData = $this->conevertHTMLToObject($content);
+                return new Response($response->getStatusCode(), $responseData, $this->resource);
             }
+
+            parse_str(str_replace("\n", "", $content), $parsedContent);
+
+            if (is_array($parsedContent)) {
+                $responseData = $parsedContent;
+            }
+
         }
 
         return new Response($response->getStatusCode(), $responseData, $this->resource);
