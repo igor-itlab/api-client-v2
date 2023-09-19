@@ -3,7 +3,6 @@
 namespace ApiClient\Api\ControlPanel\Request;
 
 use ApiClient\Api\ControlPanel\ControlPanelRequest;
-use ApiClient\Api\ControlPanel\Response\Verification\VerificationSchema;
 use ApiClient\MappedBy;
 use ApiClient\Services\Method;
 
@@ -14,6 +13,7 @@ use ApiClient\Services\Method;
  */
 class Document extends ControlPanelRequest
 {
+
     /**
      * @param array|null $criteria
      * @return mixed
@@ -62,11 +62,11 @@ class Document extends ControlPanelRequest
     )
     {
         $body = [
-            'schema'     => $schemaSubName,
-            'attributes' => $attributes,
-            'connection' => $connection,
+            'schema'      => $schemaSubName,
+            'attributes'  => $attributes,
+            'connection'  => $connection,
             'callBackUrl' => $callBackUrl,
-            'lang' => $lang,
+            'lang'        => $lang,
         ];
 
         $this->getRequestBuilder()
@@ -76,4 +76,37 @@ class Document extends ControlPanelRequest
 
         return $this->send();
     }
+
+    /**
+     * @param string $clientEmail
+     * @param string $connection
+     * @param string $schemaSubName
+     * @param string|null $resettingVerificationStep
+     * @param string|null $callBackUrl
+     * @return mixed
+     */
+    public function reset(
+        string $clientEmail,
+        string $connection,
+        string $schemaSubName,
+        string $resettingVerificationStep = null,
+        string $callBackUrl = 'https://test.com'
+    )
+    {
+        $body = [
+            'schema'                    => $schemaSubName,
+            'connection'                => $connection,
+            'callBackUrl'               => $callBackUrl,
+            'clientEmail'               => $clientEmail,
+            'resettingVerificationStep' => $resettingVerificationStep
+        ];
+
+        $this->getRequestBuilder()
+            ->setMethod(Method::POST())
+            ->setPath("api/reset-documents")
+            ->setBody($body);
+
+        return $this->send();
+    }
+
 }

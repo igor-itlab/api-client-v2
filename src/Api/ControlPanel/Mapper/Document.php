@@ -12,6 +12,7 @@ use ApiClient\ResponseBy;
  */
 class Document extends Mapper
 {
+
     /**
      * @param Response $response
      * @return array
@@ -41,4 +42,15 @@ class Document extends Mapper
     {
         return [$response->getResponseContent()];
     }
+
+    /**
+     * @param Response $response
+     * @return array
+     * @ResponseBy(value="ApiClient\Api\ControlPanel\Response\Document\Document")
+     */
+    public function reset(Response $response): array
+    {
+        return [$response->getResponseContent()];
+    }
+
 }
