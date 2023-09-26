@@ -5,6 +5,7 @@ namespace ApiClient;
 
 
 use ApiClient\Api\ControlPanel\ControlPanelResource;
+use ApiClient\Events\AfterRequestEvent;
 use ApiClient\Events\ApiClientEvents;
 use ApiClient\Events\BeforeRequestEvent;
 use ApiClient\Events\RequestFailedEvent;
@@ -14,6 +15,7 @@ use ReflectionClass;
 use Symfony\Component\EventDispatcher\EventDispatcherInterface;
 use Symfony\Component\Validator\Validator\ValidatorInterface;
 use Symfony\Component\Validator\ValidatorBuilder;
+
 
 /**
  * Class ApiClient
@@ -90,6 +92,13 @@ class ApiClient
             }
 
             return $errorResponse;
+        }
+
+        if ($this->eventDispatcher) {
+            $this->eventDispatcher->dispatch(
+                new AfterRequestEvent($requestBuilder, $response),
+                ApiClientEvents::AFTER_REQUEST
+            );
         }
 
 //        $response = $this->responseMapping($response);
