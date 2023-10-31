@@ -37,15 +37,21 @@ class HttpClientRequestBuilder extends RequestBuilder
     public function send(): Response
     {
         $this->prepareRequest();
+
+        $options = [
+            $this->makeHeaders() => $this->getHeaders(),
+            "verify_peer" => false,
+            "verify_host" => false
+        ];
+
+        if (count($this->getBody())) {
+            $options += [$this->makeBody() => $this->getBody()];
+        }
+
         $response = $this->requestClient->request(
             $this->getMethod()->getValue(),
             $this->getUrl(),
-            [
-                $this->makeHeaders() => $this->getHeaders(),
-                $this->makeBody()    => $this->getBody(),
-                "verify_peer"        => false,
-                "verify_host"        => false,
-            ]
+            $options
         );
 
         try {
