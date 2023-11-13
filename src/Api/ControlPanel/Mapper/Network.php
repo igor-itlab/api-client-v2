@@ -22,14 +22,4 @@ class Network extends Mapper
         return $response->getResponseContent()['data'];
     }
 
-    /**
-     * @param Response $response
-     * @return array
-     * @ResponseBy(value="ApiClient\Api\ControlPanel\Response\Network\NetworkCell")
-     */
-    public function getAllForAriana(Response $response): array
-    {
-        return $response->getResponseContent()['data'];
-    }
-
 }
