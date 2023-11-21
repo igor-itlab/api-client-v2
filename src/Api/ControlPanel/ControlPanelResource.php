@@ -6,7 +6,9 @@ namespace ApiClient\Api\ControlPanel;
 
 use ApiClient\Api\ControlPanel\Request\Balance;
 use ApiClient\Api\ControlPanel\Request\Connection;
+use ApiClient\Api\ControlPanel\Request\Currency;
 use ApiClient\Api\ControlPanel\Request\Document;
+use ApiClient\Api\ControlPanel\Request\Exchange\Exchange;
 use ApiClient\Api\ControlPanel\Request\Fee\BaseFee;
 use ApiClient\Api\ControlPanel\Request\Fee\DefaultFee;
 use ApiClient\Api\ControlPanel\Request\Fee\Fee;
@@ -23,7 +25,6 @@ use ApiClient\Api\ControlPanel\Request\Transaction\Payment;
 use ApiClient\Api\ControlPanel\Request\Transaction\Payout;
 use ApiClient\Api\ControlPanel\Request\Transaction\TransactionAttribute;
 use ApiClient\Api\ControlPanel\Request\User;
-use ApiClient\Api\ControlPanel\Request\Currency;
 use ApiClient\Api\ControlPanel\Request\Verification\VerificationAttribute;
 use ApiClient\Api\ControlPanel\Request\Verification\VerificationSchema;
 use ApiClient\ApiResource;
@@ -34,8 +35,15 @@ use ApiClient\ApiResource;
  */
 class ControlPanelResource extends ApiResource
 {
+
+    /**
+     * @var string|null
+     */
     protected string $secret;
 
+    /**
+     * @var string|null
+     */
     protected string $projectId;
 
     /**
@@ -258,4 +266,13 @@ class ControlPanelResource extends ApiResource
     {
         return new ProjectVerificationSchema($this);
     }
+
+    /**
+     * @return Exchange
+     */
+    public function exchange(): Exchange
+    {
+        return new Exchange($this);
+    }
+
 }
