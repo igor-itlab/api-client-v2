@@ -25,16 +25,4 @@ class Network extends ControlPanelRequest
         return $this->send();
     }
 
-    /**
-     * @return mixed
-     */
-    public function getAllForAriana(string $language = "ru")
-    {
-        $this->getRequestBuilder()
-            ->setMethod(Method::GET())
-            ->setPath("api/ariana-network?language=" . $language);
-
-        return $this->send();
-    }
-
 }

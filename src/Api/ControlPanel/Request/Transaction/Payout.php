@@ -13,6 +13,7 @@ use ApiClient\Services\Method;
  */
 class Payout extends ControlPanelRequest
 {
+
     /**
      * @param array|null $criteria
      * @return mixed
@@ -56,24 +57,34 @@ class Payout extends ControlPanelRequest
      * @param string|null $note
      * @return mixed
      */
-    public function create(string $returnUrl, string $paymentSystem, string $amount, string $currency, string $referenceId, string $callBackUrl, string $connection, array $attributes = [], string $note = null)
+    public function create(
+        string $returnUrl,
+        string $paymentSystem,
+        string $amount,
+        string $currency,
+        string $referenceId,
+        string $callBackUrl,
+        string $connection,
+        array  $attributes = [],
+        string $note = null
+    )
     {
         $body = [
-            "returnUrl" => $returnUrl,
+            "returnUrl"     => $returnUrl,
             "paymentSystem" => $paymentSystem,
-            "amount" => $amount,
-            "currency" => $currency,
-            "referenceId" => $referenceId,
-            "callBackUrl" => $callBackUrl,
-            "connection" => $connection
+            "amount"        => $amount,
+            "currency"      => $currency,
+            "referenceId"   => $referenceId,
+            "callBackUrl"   => $callBackUrl,
+            "connection"    => $connection
         ];
 
-        if(!empty($attributes)) {
-            $body['attributes'] =  $attributes;
+        if (!empty($attributes)) {
+            $body['attributes'] = $attributes;
         }
 
-        if($note) {
-            $body['note'] =  $note;
+        if ($note) {
+            $body['note'] = $note;
         }
 
         $this->getRequestBuilder()
@@ -84,4 +95,5 @@ class Payout extends ControlPanelRequest
 
         return $this->send();
     }
+
 }
