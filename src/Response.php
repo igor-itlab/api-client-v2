@@ -17,6 +17,11 @@ class Response
     protected array $responseContent;
 
     /**
+     * @var string
+     */
+    protected string $responseRawData;
+
+    /**
      * @var ApiResource
      */
     protected ApiResource $apiResource;
@@ -26,12 +31,19 @@ class Response
      * @param int $statusCode
      * @param array $responseContent
      * @param ApiResource $apiResource
+     * @param string $responseRawData
      */
-    public function __construct(int $statusCode, array $responseContent, ApiResource $apiResource)
+    public function __construct(
+        int         $statusCode,
+        array       $responseContent,
+        ApiResource $apiResource,
+        string      $responseRawData = ""
+    )
     {
         $this->statusCode = $statusCode;
         $this->responseContent = $responseContent;
         $this->apiResource = $apiResource;
+        $this->responseRawData = $responseRawData;
     }
 
     /**
@@ -68,6 +80,25 @@ class Response
     public function setResponseContent(array $responseContent): Response
     {
         $this->responseContent = $responseContent;
+
+        return $this;
+    }
+
+    /**
+     * @return string
+     */
+    public function getResponseRawData(): string
+    {
+        return $this->responseRawData;
+    }
+
+    /**
+     * @param string $responseRawData
+     * @return Response
+     */
+    public function setResponseRawData(string $responseRawData): Response
+    {
+        $this->responseRawData = $responseRawData;
 
         return $this;
     }

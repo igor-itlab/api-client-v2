@@ -12,6 +12,7 @@ use Symfony\Contracts\HttpClient\Exception\DecodingExceptionInterface;
 use Symfony\Contracts\HttpClient\Exception\RedirectionExceptionInterface;
 use Symfony\Contracts\HttpClient\Exception\ServerExceptionInterface;
 use Symfony\Contracts\HttpClient\Exception\TransportExceptionInterface;
+use Throwable;
 
 /**
  * Class HttpClientRequestBuilder
@@ -37,20 +38,28 @@ class HttpClientRequestBuilder extends RequestBuilder
     public function send(): Response
     {
         $this->prepareRequest();
+
+        $options = [
+            $this->makeHeaders() => $this->getHeaders(),
+            "verify_peer" => false,
+            "verify_host" => false
+        ];
+
+        if (count($this->getBody())) {
+            $options += [$this->makeBody() => $this->getBody()];
+        }
+
         $response = $this->requestClient->request(
             $this->getMethod()->getValue(),
             $this->getUrl(),
-            [
-                $this->makeHeaders() => $this->getHeaders(),
-                $this->makeBody()    => $this->getBody(),
-                "verify_peer"        => false,
-                "verify_host"        => false,
-            ]
+            $options
         );
+
+        $responseRawData = $response->getContent(false);
 
         try {
             $responseData = $response->toArray(false);
-        } catch (\Throwable $exception) {
+        } catch (Throwable $exception) {
 
             $responseData = [];
 
@@ -58,7 +67,7 @@ class HttpClientRequestBuilder extends RequestBuilder
 
             if ($this->isHTML($content)) {
                 $responseData = $this->conevertHTMLToObject($content);
-                return new Response($response->getStatusCode(), $responseData, $this->resource);
+                return new Response($response->getStatusCode(), $responseData, $this->resource, $responseRawData);
             }
 
             parse_str(str_replace("\n", "", $content), $parsedContent);
@@ -69,7 +78,7 @@ class HttpClientRequestBuilder extends RequestBuilder
 
         }
 
-        return new Response($response->getStatusCode(), $responseData, $this->resource);
+        return new Response($response->getStatusCode(), $responseData, $this->resource, $responseRawData);
     }
 
     /**
@@ -80,6 +89,7 @@ class HttpClientRequestBuilder extends RequestBuilder
         return 'json';
     }
 
+
     /**
      * @return string
      */
@@ -88,17 +98,19 @@ class HttpClientRequestBuilder extends RequestBuilder
         return 'headers';
     }
 
+
     /**
      * @param $string
      * @return bool
      */
-    public function isHTML($string)
+    public function isHTML($string): bool
     {
         return $string != strip_tags($string) ? true : false;
     }
 
+
     /**
-     * @param $html
+     * @param string $html
      * @return array
      */
     public function conevertHTMLToObject(string $html)
@@ -106,8 +118,10 @@ class HttpClientRequestBuilder extends RequestBuilder
         $dom = new \DOMDocument();
         $dom->loadHTML($html);
 
+
         return $this->convertElementToObject($dom->documentElement);
     }
+
 
     /**
      * @param $element
@@ -131,5 +145,4 @@ class HttpClientRequestBuilder extends RequestBuilder
 
         return $obj;
     }
-
 }
