@@ -55,9 +55,11 @@ class HttpClientRequestBuilder extends RequestBuilder
             $options
         );
 
+        $responseRawData = $response->getContent(false);
+
         try {
             $responseData = $response->toArray(false);
-        } catch (\Throwable $exception) {
+        } catch (Throwable $exception) {
 
             $responseData = [];
 
@@ -65,7 +67,7 @@ class HttpClientRequestBuilder extends RequestBuilder
 
             if ($this->isHTML($content)) {
                 $responseData = $this->conevertHTMLToObject($content);
-                return new Response($response->getStatusCode(), $responseData, $this->resource);
+                return new Response($response->getStatusCode(), $responseData, $this->resource, $responseRawData);
             }
 
             parse_str(str_replace("\n", "", $content), $parsedContent);
@@ -76,7 +78,7 @@ class HttpClientRequestBuilder extends RequestBuilder
 
         }
 
-        return new Response($response->getStatusCode(), $responseData, $this->resource);
+        return new Response($response->getStatusCode(), $responseData, $this->resource, $responseRawData);
     }
 
     /**
@@ -87,6 +89,7 @@ class HttpClientRequestBuilder extends RequestBuilder
         return 'json';
     }
 
+
     /**
      * @return string
      */
@@ -95,11 +98,12 @@ class HttpClientRequestBuilder extends RequestBuilder
         return 'headers';
     }
 
+
     /**
      * @param $string
      * @return bool
      */
-    public function isHTML($string)
+    public function isHTML($string): bool
     {
         return $string != strip_tags($string) ? true : false;
     }
@@ -142,5 +146,4 @@ class HttpClientRequestBuilder extends RequestBuilder
 
         return $obj;
     }
-
 }

@@ -13,14 +13,14 @@ class Exchange
     protected string $id;
 
     /**
-     * @var float|int
+     * @var string
      */
-    protected float $inAmount;
+    protected string $inAmount;
 
     /**
-     * @var float|int
+     * @var string
      */
-    protected float $outAmount;
+    protected string $outAmount;
 
     /**
      * @var string
@@ -82,18 +82,18 @@ class Exchange
     }
 
     /**
-     * @return float
+     * @return string
      */
-    public function getInAmount(): float
+    public function getInAmount(): string
     {
         return $this->inAmount;
     }
 
     /**
-     * @param float $inAmount
+     * @param string $inAmount
      * @return Exchange
      */
-    public function setInAmount(float $inAmount): self
+    public function setInAmount(string $inAmount): self
     {
         $this->inAmount = $inAmount;
 
@@ -101,18 +101,18 @@ class Exchange
     }
 
     /**
-     * @return float
+     * @return string
      */
-    public function getOutAmount(): float
+    public function getOutAmount(): string
     {
         return $this->outAmount;
     }
 
     /**
-     * @param float $outAmount
+     * @param string $outAmount
      * @return Exchange
      */
-    public function setOutAmount(float $outAmount): self
+    public function setOutAmount(string $outAmount): self
     {
         $this->outAmount = $outAmount;
 
