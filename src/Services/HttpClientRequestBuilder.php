@@ -12,6 +12,7 @@ use Symfony\Contracts\HttpClient\Exception\DecodingExceptionInterface;
 use Symfony\Contracts\HttpClient\Exception\RedirectionExceptionInterface;
 use Symfony\Contracts\HttpClient\Exception\ServerExceptionInterface;
 use Symfony\Contracts\HttpClient\Exception\TransportExceptionInterface;
+use Throwable;
 
 /**
  * Class HttpClientRequestBuilder
@@ -104,15 +105,19 @@ class HttpClientRequestBuilder extends RequestBuilder
     }
 
     /**
-     * @param $html
+     * @param string $html
      * @return array
      */
     public function conevertHTMLToObject(string $html)
     {
-        $dom = new \DOMDocument();
-        $dom->loadHTML($html);
+        try {
+            $dom = new \DOMDocument();
+            $dom->loadHTML($html);
 
-        return $this->convertElementToObject($dom->documentElement);
+            return $this->convertElementToObject($dom->documentElement);
+        } catch (Throwable $exception) {
+            return [$html];
+        }
     }
 
     /**
