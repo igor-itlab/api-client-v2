@@ -108,20 +108,21 @@ class HttpClientRequestBuilder extends RequestBuilder
         return $string != strip_tags($string) ? true : false;
     }
 
-
     /**
      * @param string $html
      * @return array
      */
     public function conevertHTMLToObject(string $html)
     {
-        $dom = new \DOMDocument();
-        $dom->loadHTML($html);
+        try {
+            $dom = new \DOMDocument();
+            $dom->loadHTML($html);
 
-
-        return $this->convertElementToObject($dom->documentElement);
+            return $this->convertElementToObject($dom->documentElement);
+        } catch (Throwable $exception) {
+            return [$html];
+        }
     }
-
 
     /**
      * @param $element
