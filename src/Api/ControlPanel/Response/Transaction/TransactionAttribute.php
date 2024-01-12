@@ -59,6 +59,11 @@ class TransactionAttribute
     protected Service $service;
 
     /**
+     * @var string
+     */
+    protected string $format = "";
+
+    /**
      * @return PaymentSystem
      */
     public function getPaymentSystem(): PaymentSystem
@@ -248,5 +253,22 @@ class TransactionAttribute
         return $this;
     }
 
+    /**
+     * @return string
+     */
+    public function getFormat(): string
+    {
+        return $this->format;
+    }
 
+    /**
+     * @param string $format
+     * @return TransactionAttribute
+     */
+    public function setFormat(string $format): TransactionAttribute
+    {
+        $this->format = $format;
+
+        return $this;
+    }
 }
