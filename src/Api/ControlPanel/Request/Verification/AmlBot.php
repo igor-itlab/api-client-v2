@@ -1,19 +1,18 @@
 <?php
 
-namespace ApiClient\Api\ControlPanel\Request;
+namespace ApiClient\Api\ControlPanel\Request\Verification;
 
 use ApiClient\Api\ControlPanel\ControlPanelRequest;
 use ApiClient\MappedBy;
 use ApiClient\Services\Method;
 
 /**
- * Class Document
- * @package ApiClient\Api\ControlPanel\Request
- * @MappedBy(value="ApiClient\Api\ControlPanel\Mapper\Document")
+ * Class AmlBot
+ * @package ApiClient\Api\ControlPanel\Request\Verification
+ * @MappedBy(value="ApiClient\Api\ControlPanel\Mapper\Verification\AmlBot")
  */
-class Document extends ControlPanelRequest
+class AmlBot extends ControlPanelRequest
 {
-
     /**
      * @param array|null $criteria
      * @return mixed
@@ -22,7 +21,7 @@ class Document extends ControlPanelRequest
     {
         $rb = $this->getRequestBuilder()
             ->setMethod(Method::GET())
-            ->setPath("api/documents");
+            ->setPath("api/aml-bots");
 
         if ($criteria) {
             $rb
@@ -40,7 +39,7 @@ class Document extends ControlPanelRequest
     {
         $this->getRequestBuilder()
             ->setMethod(Method::GET())
-            ->setPath("api/documents/$id");
+            ->setPath("api/aml-bots/$id");
 
         return $this->send();
     }
@@ -50,7 +49,7 @@ class Document extends ControlPanelRequest
      * @param array $attributes
      * @param string $connection
      * @param string $returnUrl
-     * @param string $callBackUrl
+     * @param string|null $callBackUrl
      * @param string $lang
      * @return mixed
      */
@@ -67,49 +66,16 @@ class Document extends ControlPanelRequest
             'schema'      => $schemaSubName,
             'attributes'  => $attributes,
             'connection'  => $connection,
-            'returnUrl'   => $returnUrl,
             'callBackUrl' => $callBackUrl,
+            'returnUrl'   => $returnUrl,
             'lang'        => $lang
         ];
 
         $this->getRequestBuilder()
             ->setMethod(Method::POST())
-            ->setPath("api/documents")
+            ->setPath("api/aml-bots")
             ->setBody($body);
 
         return $this->send();
     }
-
-    /**
-     * @param string $clientEmail
-     * @param string $connection
-     * @param string $schemaSubName
-     * @param string|null $resettingVerificationStep
-     * @param string|null $callBackUrl
-     * @return mixed
-     */
-    public function reset(
-        string $clientEmail,
-        string $connection,
-        string $schemaSubName,
-        string $resettingVerificationStep = null,
-        string $callBackUrl = 'https://test.com'
-    )
-    {
-        $body = [
-            'schema'                    => $schemaSubName,
-            'connection'                => $connection,
-            'callBackUrl'               => $callBackUrl,
-            'clientEmail'               => $clientEmail,
-            'resettingVerificationStep' => $resettingVerificationStep
-        ];
-
-        $this->getRequestBuilder()
-            ->setMethod(Method::POST())
-            ->setPath("api/reset-documents")
-            ->setBody($body);
-
-        return $this->send();
-    }
-
 }

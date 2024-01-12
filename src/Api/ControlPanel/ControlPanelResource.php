@@ -25,6 +25,7 @@ use ApiClient\Api\ControlPanel\Request\Transaction\Payment;
 use ApiClient\Api\ControlPanel\Request\Transaction\Payout;
 use ApiClient\Api\ControlPanel\Request\Transaction\TransactionAttribute;
 use ApiClient\Api\ControlPanel\Request\User;
+use ApiClient\Api\ControlPanel\Request\Verification\AmlBot;
 use ApiClient\Api\ControlPanel\Request\Verification\VerificationAttribute;
 use ApiClient\Api\ControlPanel\Request\Verification\VerificationSchema;
 use ApiClient\ApiResource;
@@ -273,6 +274,14 @@ class ControlPanelResource extends ApiResource
     public function exchange(): Exchange
     {
         return new Exchange($this);
+    }
+
+    /**
+     * @return AmlBot
+     */
+    public function amlBot(): AmlBot
+    {
+        return new AmlBot($this);
     }
 
 }
