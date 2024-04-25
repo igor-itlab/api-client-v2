@@ -13,6 +13,7 @@ use ApiClient\Api\ControlPanel\Request\Fee\BaseFee;
 use ApiClient\Api\ControlPanel\Request\Fee\DefaultFee;
 use ApiClient\Api\ControlPanel\Request\Fee\Fee;
 use ApiClient\Api\ControlPanel\Request\Fee\RangeFee;
+use ApiClient\Api\ControlPanel\Request\MsBank2\ClientLimit;
 use ApiClient\Api\ControlPanel\Request\Network;
 use ApiClient\Api\ControlPanel\Request\PaymentSystem;
 use ApiClient\Api\ControlPanel\Request\Project;
@@ -282,6 +283,14 @@ class ControlPanelResource extends ApiResource
     public function amlBot(): AmlBot
     {
         return new AmlBot($this);
+    }
+
+    /**
+     * @return ClientLimit
+     */
+    public function clientLimit(): ClientLimit
+    {
+        return new ClientLimit($this);
     }
 
 }
