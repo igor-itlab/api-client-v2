@@ -57,4 +57,22 @@ class Project extends ControlPanelRequest
 
         return $this->send();
     }
+
+    /**
+     * @return mixed
+     */
+    public function report(array $criteria = null)
+    {
+        $requestBuilder = $this->getRequestBuilder()
+            ->setMethod(Method::GET())
+            ->setPath("api/project-report");
+
+        if ($criteria) {
+            $requestBuilder
+                ->setQueryParams($criteria);
+        }
+
+        return $this->send();
+    }
+
 }
