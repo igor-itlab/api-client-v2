@@ -36,7 +36,7 @@ class ControlPanelRequest extends Request
     {
 
         return parent::createRequestBuilder()
-            ->setDomain("https://cp.exsoft.io")
+            ->setDomain($_ENV["API_CLIENT_CP_URL"])
             ->addHeader(
                 "Accept",
                 "application/json"
