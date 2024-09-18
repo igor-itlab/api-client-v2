@@ -41,4 +41,14 @@ class Project extends Mapper
     {
         return [$response->getResponseContent()];
     }
+
+    /**
+     * @param Response $response
+     * @return array
+     */
+    public function report(Response $response): array
+    {
+        return [$response->getResponseContent()];
+    }
+
 }
