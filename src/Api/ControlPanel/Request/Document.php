@@ -64,7 +64,7 @@ class Document extends ControlPanelRequest
     )
     {
         $body = [
-            'schema'      => $schemaSubName,
+            'schemaName'      => $schemaSubName,
             'attributes'  => $attributes,
             'connection'  => $connection,
             'returnUrl'   => $returnUrl,
