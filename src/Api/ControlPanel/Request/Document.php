@@ -61,10 +61,9 @@ class Document extends ControlPanelRequest
         string $returnUrl = 'https://test.com',
         string $callBackUrl = 'https://test.com',
         string $lang = 'en'
-    )
-    {
+    ) {
         $body = [
-            'schemaName'      => $schemaSubName,
+            'schemaName'  => $schemaSubName,
             'attributes'  => $attributes,
             'connection'  => $connection,
             'returnUrl'   => $returnUrl,
@@ -94,10 +93,9 @@ class Document extends ControlPanelRequest
         string $schemaSubName,
         string $resettingVerificationStep = null,
         string $callBackUrl = 'https://test.com'
-    )
-    {
+    ) {
         $body = [
-            'schema'                    => $schemaSubName,
+            'schemaName'                => $schemaSubName,
             'connection'                => $connection,
             'callBackUrl'               => $callBackUrl,
             'clientEmail'               => $clientEmail,
