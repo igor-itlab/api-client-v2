@@ -6,7 +6,7 @@ namespace ApiClient\Services;
 
 use ApiClient\RequestBuilder;
 use ApiClient\Response;
-use Symfony\Component\HttpClient\NativeHttpClient;
+use Symfony\Component\HttpClient\CurlHttpClient;
 use Symfony\Contracts\HttpClient\Exception\ClientExceptionInterface;
 use Symfony\Contracts\HttpClient\Exception\DecodingExceptionInterface;
 use Symfony\Contracts\HttpClient\Exception\RedirectionExceptionInterface;
@@ -25,7 +25,7 @@ class HttpClientRequestBuilder extends RequestBuilder
      */
     public function __construct()
     {
-        $this->requestClient = new NativeHttpClient();
+        $this->requestClient = new CurlHttpClient();
     }
 
     /**
